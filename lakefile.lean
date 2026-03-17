@@ -13,6 +13,6 @@ lean_lib SpherePackingBlueprint where
   roots := #[`SpherePackingBlueprint]
 
 @[default_target]
-lean_exe blueprint-gen where
+lean_exe «blueprint-gen» where
   root := `SpherePackingBlueprintMain
   supportInterpreter := true
