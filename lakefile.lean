@@ -6,6 +6,7 @@ require VersoBlueprint from git "https://github.com/leanprover/verso-blueprint"@
 
 package VersoSpherePacking where
   precompileModules := false
+  moreLeancArgs := #["-O1"]
   leanOptions := #[⟨`experimental.module, true⟩]
 
 @[default_target]
