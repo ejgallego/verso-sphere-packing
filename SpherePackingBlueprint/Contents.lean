@@ -45,6 +45,6 @@ The Cohn-Elkies linear programming strategy follows {citet ElkiesCohn}[].
 
 {blueprint_graph}
 
-{bp_summary}
+{blueprint_summary}
 
-{bp_bibliography}
+{blueprint_bibliography}
