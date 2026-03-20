@@ -1,7 +1,12 @@
 # Verso Sphere Packing
 
+[![Blueprint Pages](https://github.com/ejgallego/verso-sphere-packing/actions/workflows/pages.yml/badge.svg)](https://github.com/ejgallego/verso-sphere-packing/actions/workflows/pages.yml)
+
 Standalone Verso Blueprint example project for the Sphere Packing in Lean
 document.
+
+Published site on `main`: <https://ejgallego.github.io/verso-sphere-packing/>
+(after the first successful GitHub Pages deployment).
 
 ## Build
 
