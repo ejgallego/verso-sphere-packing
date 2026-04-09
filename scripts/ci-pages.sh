@@ -2,7 +2,8 @@
 
 set -euo pipefail
 
-lake build
+nice lake build blueprint-gen
+rm -rf _out/site
 lake exe blueprint-gen --output _out/site
 
 test -f _out/site/html-multi/index.html

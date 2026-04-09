@@ -1,3 +1,4 @@
+import SpherePackingBlueprint.TeXPrelude
 import SpherePackingBlueprint.Contents
 import SpherePackingBlueprint.Chapters
 import SpherePackingBlueprint.Bibliography

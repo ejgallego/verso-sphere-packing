@@ -51,3 +51,14 @@ def Lee : Citable := .arXiv
     year := 2024
     id := "2406.14659"
   }
+
+@[bib "Serre73"]
+def Serre73 : Citable := .inProceedings
+  {
+    title := inlines!"A Course in Arithmetic"
+    authors := #[inlines!"Jean-Pierre Serre"]
+    year := 1973
+    booktitle := inlines!"Springer New York"
+    series := some (inlines!"Graduate Texts in Mathematics")
+    url := none
+  }

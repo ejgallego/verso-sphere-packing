@@ -1,0 +1,23 @@
+package_name = "SpherePackingBlueprint"
+blueprint_main = "SpherePackingBlueprintMain"
+formalization_path = "Sphere-Packing-LaTeX-Reference"
+chapter_root = "SpherePackingBlueprint/Chapters"
+tex_source_glob = "./Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/*.tex"
+
+[lt]
+default_chapters = [
+  "SpherePackingBlueprint/Chapters/SpherePackings.lean",
+  "SpherePackingBlueprint/Chapters/PackingsDensity.lean",
+  "SpherePackingBlueprint/Chapters/E8.lean",
+  "SpherePackingBlueprint/Chapters/FourierAnalysis.lean",
+  "SpherePackingBlueprint/Chapters/CohnElkies.lean",
+  "SpherePackingBlueprint/Chapters/ModularForms.lean",
+  "SpherePackingBlueprint/Chapters/MagicFunctions.lean",
+  "SpherePackingBlueprint/Chapters/ModularInequalities.lean",
+]
+
+[harness]
+non_port_chapters = [
+  "SpherePackingBlueprint/Chapters/Introduction.lean",
+  "SpherePackingBlueprint/Chapters/PortingStatus.lean",
+]
