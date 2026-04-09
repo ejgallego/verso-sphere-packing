@@ -1,5 +1,5 @@
 import SpherePacking
-import SpherePackingBlueprint.Macros
+import SpherePackingBlueprint.TeXPrelude
 
 set_option autoImplicit false
 

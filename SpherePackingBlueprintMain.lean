@@ -10,7 +10,7 @@ open Std (HashMap)
 
 def htmlAssets : HtmlAssets where
   extraCss := {}
-  extraJs := [tex_prelude_table_js%, Informal.Macros.blueprintMathJs]
+  extraJs := [Informal.Macros.blueprintMathJs]
   extraJsFiles := {}
   extraCssFiles := {}
 

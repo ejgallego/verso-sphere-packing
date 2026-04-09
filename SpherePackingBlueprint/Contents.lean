@@ -21,6 +21,7 @@ open Informal
 
 set_option doc.verso true
 set_option pp.rawOnError true
+set_option linter.style.longLine false
 
 
 #doc (Manual) "Contents" =>
