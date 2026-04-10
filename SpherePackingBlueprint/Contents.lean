@@ -24,7 +24,7 @@ set_option pp.rawOnError true
 set_option linter.style.longLine false
 
 
-#doc (Manual) "Contents" =>
+#doc (Manual) "Sphere Packing in Lean" =>
 
 %%%
 shortTitle := "Sphere Packing in R^8"
