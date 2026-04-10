@@ -1119,9 +1119,9 @@ $$`|J_6(r)| \le C_2 \frac{e^{\pi (r + 1)}}{r + 1}.`
 \end{lemma}
 ```
 
-Combining Lemmas {uses "lemma:bound-J1-J3-J5"}[],
-{uses "lemma:bound-J2-J4-J6"}[], and
-Theorem {uses "thm:smooth-fast-decay-schwartz"}[], we can prove that $`b(x)`
+Combining Lemmas `lemma:bound-J1-J3-J5`,
+`lemma:bound-J2-J4-J6`, and
+Theorem `thm:smooth-fast-decay-schwartz`, we can prove that $`b(x)`
 is a Schwartz function.
 
 ```tex
