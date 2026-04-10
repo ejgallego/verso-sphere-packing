@@ -37,7 +37,7 @@ Our proof of the Theorem~\ref{thm:g} relies on the following two inequalities fo
 ```
 
 :::lemma_ "prop:ineqA" (parent := "fg_setup")
-Consider the function $`A:(0,\infty)\to\C`$ defined as
+Consider the function $`A:(0,\infty)\to\C` defined as
 $$`A(t):=-t^2\phi_0(i/t)-\frac{36}{\pi^2}\,\psi_I(it).`
 Then
 $$`A(t) < 0`
@@ -60,7 +60,7 @@ for all $t > 0$.
 ```
 
 :::lemma_ "prop:ineqB" (parent := "fg_setup")
-Consider the function $`B:(0,\infty)\to\C`$ defined as
+Consider the function $`B:(0,\infty)\to\C` defined as
 $$`B(t) := -t^2\phi_0(i/t)+\frac{36}{\pi^2}\,\psi_I(it).`
 Then
 $$`B(t) > 0`
@@ -137,7 +137,7 @@ Lemma `lemma:psi-new`.
 ```
 
 :::lemma_ "lemma:ineqABnew-equiv" (parent := "fg_setup")
-Inequalities $`A(t) < 0`$ and $`B(t) > 0`$ are equivalent to
+Inequalities $`A(t) < 0` and $`B(t) > 0` are equivalent to
 $$`F(it) + \frac{18}{\pi^2} G(it) > 0`
 $$`F(it) - \frac{18}{\pi^2} G(it) > 0`
 respectively.
@@ -156,10 +156,10 @@ respectively.
 ```
 
 :::proof "lemma:ineqABnew-equiv"
-By the definition of $`\psi_I`$,
+By the definition of $`\psi_I`,
 $$`\psi_I(it) = (\psi_S|_{-2}S)(it) = (it)^{2}\psi_S\left(-\frac{1}{it}\right) = -t^2 \psi_S\left(\frac{i}{t}\right).`
 Combined with Lemma `lemma:F-G-phi-psi-identities`, this rewrites
-$`A(t) < 0`$ as
+$`A(t) < 0` as
 $$`-t^2 \phi_0\left(\frac{i}{t}\right) + \frac{36}{\pi^2} \psi_S\left(\frac{i}{t}\right) < 0 \Leftrightarrow \frac{F(it)}{\Delta(it)} + \frac{18}{\pi^2} \frac{G(it)}{\Delta(it)} > 0,`
 which is equivalent to the first inequality by Corollary `cor:disc-pos`. The
 second equivalence follows similarly, changing only the sign.
@@ -180,15 +180,15 @@ Equivalences of \eqref{eqn:ineqB} and \eqref{eqn:ineqBnew} follows similarly; ju
 \end{proof}
 ```
 
-Now, the first inequality $`F(it) + \frac{18}{\pi^2} G(it) > 0`$ follows from
-the positivity of each $`F(it)`$ and $`G(it)`$.
+Now, the first inequality $`F(it) + \frac{18}{\pi^2} G(it) > 0` follows from
+the positivity of each $`F(it)` and $`G(it)`.
 
 ```tex
 Now, the first inequality \eqref{eqn:ineqAnew} follows from the positivity of each $F(it)$ and $G(it)$.
 ```
 
 :::lemma_ "lemma:F-G-pos" (lean := "F_imag_axis_pos, G_imag_axis_pos") (parent := "fg_setup")
-For all $`t > 0`$, we have $`F(it) > 0`$ and $`G(it) > 0`$.
+For all $`t > 0`, we have $`F(it) > 0` and $`G(it) > 0`.
 {uses "thm:ramanujan-formula"}[]{uses "cor:theta-pos"}[]
 :::
 
@@ -199,10 +199,10 @@ For all $t > 0$, we have $F(it) > 0$ and $G(it) > 0$.
 ```
 
 :::proof "lemma:F-G-pos"
-By Ramanujan's identity, we have $`F(z) = 9 E_4'(z)^2`$, and hence
+By Ramanujan's identity, we have $`F(z) = 9 E_4'(z)^2`, and hence
 $$`F(it) = 9E_4'(it)^2 = 9 \left(240\sum_{n \geq 1} n \sigma_3(n) e^{-2 \pi n t} \right)^{2} > 0.`
-The inequality $`G(it) > 0`$ follows from positivity of $`H_2(it)`$ and
-$`H_4(it)`$ in `cor:theta-pos`.
+The inequality $`G(it) > 0` follows from positivity of $`H_2(it)` and
+$`H_4(it)` in `cor:theta-pos`.
 :::
 
 ```tex "lemma:F-G-pos" (slot := "proof")
@@ -236,15 +236,15 @@ This directly follows from Lemma \ref{lemma:F-G-pos}.
 \end{proof}
 ```
 
-To prove the second inequality, we need some identities satisfied by $`F`$ and
-$`G`$.
+To prove the second inequality, we need some identities satisfied by $`F` and
+$`G`.
 
 ```tex
 To prove the second inequality \eqref{eqn:ineqBnew}, we need some identities satisfied by $F$ and $G$.
 ```
 
 :::lemma_ "lemma:FG-de" (lean := "MLDE_F, MLDE_G") (parent := "fg_differential")
-$`F`$ and $`G`$ satisfy the following differential equations:
+$`F` and $`G` satisfy the following differential equations:
 $$`\partial_{12}\partial_{10} F - \frac{5}{6} E_{4} F = 7200 \Delta (-E_{2}')`
 $$`\partial_{12}\partial_{10} G - \frac{5}{6} E_{4} G = -640 \Delta H_{2}.`
 {uses "thm:ramanujan-formula"}[]{uses "thm:serre-der-prod-rule"}[]{uses "prop:theta-der"}[]{uses "lemma:lv1-lv2-identities"}[]
@@ -340,7 +340,7 @@ positive imaginary axis.
 From equation `eqn:E2` and Lemma `cor:disc-pos`,
 $$`7200 (-E_2'(it)) \Delta(it) = 7200 \cdot 24 \left(\sum_{n \ge 1} n \sigma_1(n) e^{-2 \pi n t}\right) \cdot \Delta(it) > 0.`
 Negativity of equation `eqn:ddg`, namely
-$`-640 \Delta(it) H_2(it) < 0`$, follows from
+$`-640 \Delta(it) H_2(it) < 0`, follows from
 `cor:theta-pos` and `cor:disc-pos`.
 :::
 
@@ -355,9 +355,9 @@ Negativity of \eqref{eqn:ddg}, i.e. $-640 \Delta(it) H_2(it) < 0$ follows from C
 ```
 
 The second inequality follows from the following two observations.
-Since $`G(it) > 0`$ for all $`t > 0`$, we can define the quotient
+Since $`G(it) > 0` for all $`t > 0`, we can define the quotient
 $$`Q(t) := \frac{F(it)}{G(it)}`
-as a function on $`(0, \infty)`$.
+as a function on $`(0, \infty)`.
 
 ```tex
 
@@ -392,10 +392,10 @@ obtain
 $$`F\left(\frac{i}{t}\right) = t^{12} F(it) - \frac{12t^{11}}{\pi} (E_2(it)E_4(it) - E_6(it))E_4(it) + \frac{36t^{10}}{\pi^2}E_4(it)^2`
 and
 $$`G\left(\frac{i}{t}\right) = t^{10} H_{4}(it)^{3}(2H_{4}(it)^{2} + 5 H_{4}(it)H_{2}(it) + 5 H_{2}(it)^{2}).`
-Since $`F`$, $`E_2E_4-E_6`$, and $`H_2`$ are cusp forms, we have
-$`\lim_{t \to \infty} t^k A(it) = 0`$ when $`A(z)`$ is one of these forms and
-$`k \ge 0`$. From
-$`\lim_{t \to \infty} E_4(it) = 1 = \lim_{t \to \infty} H_4(it)`$, we conclude
+Since $`F`, $`E_2E_4-E_6`, and $`H_2` are cusp forms, we have
+$`\lim_{t \to \infty} t^k A(it) = 0` when $`A(z)` is one of these forms and
+$`k \ge 0`. From
+$`\lim_{t \to \infty} E_4(it) = 1 = \lim_{t \to \infty} H_4(it)`, we conclude
 that
 $$`\lim_{t \to \infty} \frac{F(i/t)}{G(i/t)} = \frac{18}{\pi^2}.`
 :::
@@ -423,9 +423,9 @@ From $\lim_{t \to \infty} E_4(it) = 1 = \lim_{t \to \infty}H_{4}(it)$, we get
 ```
 
 :::lemma_ "lemma:log-der-inf" (parent := "fg_differential")
-Let $`F`$ be a quasimodular form whose vanishing order at infinity is
-$`n_0 > 0`$, that is,
-$`F(z) = \sum_{n \geq n_0} a_n q^{n}`$ with $`a_{n_0} \ne 0`$. Then
+Let $`F` be a quasimodular form whose vanishing order at infinity is
+$`n_0 > 0`, that is,
+$`F(z) = \sum_{n \geq n_0} a_n q^{n}` with $`a_{n_0} \ne 0`. Then
 $$`\lim_{t \to \infty} \frac{F'(it)}{F(it)} = n_0.`
 {uses "lemma:der-q-series"}[]
 :::
@@ -457,7 +457,7 @@ $$`\lim_{t \to \infty} \frac{F'(it)}{F(it)}
 ```
 
 :::lemma_ "prop:Qdec" (lean := "FmodG_strictAntiOn") (parent := "fg_differential")
-The function $`t \mapsto Q(t)`$ is strictly decreasing.
+The function $`t \mapsto Q(t)` is strictly decreasing.
 {uses "thm:ramanujan-formula"}[]{uses "thm:serre-der-prod-rule"}[]{uses "cor:MLDE-pos"}[]{uses "thm:anti-serre-der-pos"}[]{uses "lemma:log-der-inf"}[]
 :::
 
@@ -473,19 +473,19 @@ $$`\frac{\dd}{\dd t} \left(\frac{F(it)}{G(it)}\right) < 0
 \Leftrightarrow (- 2\pi) \frac{F'(it)G(it) - F(it) G'(it)}{G(it)^{2}} < 0
 \Leftrightarrow F'(it) G(it) - F(it) G'(it) > 0
 \Leftrightarrow (\partial_{10}F)(it) G(it) - F(it) (\partial_{10}G)(it) > 0.`
-Let $`\mathcal{L}_{1, 0} := (\partial_{10}F) G - F (\partial_{10} G) = F'G - FG'`$.
+Let $`\mathcal{L}_{1, 0} := (\partial_{10}F) G - F (\partial_{10} G) = F'G - FG'`.
 Then
 $$`\frac{\mathcal{L}_{1, 0}}{FG} = \frac{F'G - FG'}{FG} = \frac{F'}{F} - \frac{G'}{G}.`
-The vanishing orders of $`F`$ and $`G`$ at infinity are $`2`$ and
-$`\frac{3}{2}`$ respectively, so by `lemma:log-der-inf` we have
+The vanishing orders of $`F` and $`G` at infinity are $`2` and
+$`\frac{3}{2}` respectively, so by `lemma:log-der-inf` we have
 $$`\lim_{t \to \infty} \frac{\mathcal{L}_{1, 0}(it)}{F(it) G(it)}
  = \lim_{t \to \infty} \left(\frac{F'(it)}{F(it)} - \frac{G'(it)}{G(it)}\right)
  = 2 - \frac{3}{2} = \frac{1}{2} > 0,`
-so $`\mathcal{L}_{1, 0}(it) > 0`$ for sufficiently large $`t`$.
+so $`\mathcal{L}_{1, 0}(it) > 0` for sufficiently large $`t`.
 Its Serre derivative is positive by `cor:MLDE-pos`:
 $$`\partial_{22} \mathcal{L}_{1, 0} = (\partial_{12} \partial_{10} F) G - F (\partial_{12}\partial_{10} G)
     = \Delta (7200 (-E_{2}') G + 640 H_2 F) > 0.`
-Hence $`\mathcal{L}_{1, 0}(it) > 0`$ by `thm:anti-serre-der-pos`, and the
+Hence $`\mathcal{L}_{1, 0}(it) > 0` by `thm:anti-serre-der-pos`, and the
 monotonicity follows.
 :::
 
@@ -568,21 +568,21 @@ satisfies conditions \eqref{eqn:g1}--\eqref{eqn:g3}.
 :::proof "thm:g1"
 First, we prove the first sign condition. By Propositions
 `prop:a-double-zeros` and `prop:b-double-zeros` we know
-that for $`r>\sqrt{2}`$,
+that for $`r>\sqrt{2}`,
 $$`g(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty A(t)\,e^{-\pi r^2 t}\,dt`
 where
 $$`A(t)=-t^2\phi_0(i/t)-\frac{36}{\pi^2}\,\psi_I(it).`
-From Proposition `prop:ineqA` we know that $`A(t)<0`$ for
-$`t\in(0,\infty)`$, so this identity implies the first sign condition.
+From Proposition `prop:ineqA` we know that $`A(t)<0` for
+$`t\in(0,\infty)`, so this identity implies the first sign condition.
 
 Next, we prove the Fourier-side sign condition. By Propositions
 `prop:a-another-integral` and `prop:b-another-integral` we
-know that for $`r>0`$,
+know that for $`r>0`,
 $$`\widehat{g}(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty B(t)\,e^{-\pi r^2 t}\,dt`
 where
 $$`B(t)=-t^2\phi_0(i/t)+\frac{36}{\pi^2}\,\psi_I(it).`
 
-Finally, the normalization $`g(0)=\widehat g(0)=1`$ follows readily from
+Finally, the normalization $`g(0)=\widehat g(0)=1` follows readily from
 Propositions `prop:a0` and `prop:b0`.
 This finishes the proof of Theorems `thm:g1` and `thm:g`.
 :::

@@ -21,7 +21,7 @@ re-audited under the current source-paired LT workflow.
 
 :::definition "verso_port_route" (parent := "main_story")
 The mathematical route follows the upstream blueprint: sphere packings and
-density formulas, the `E_8` lattice, Fourier analysis, the Cohn-Elkies bound,
+density formulas, the $`E_8` lattice, Fourier analysis, the Cohn-Elkies bound,
 modular forms, the magic functions `a` and `b`, and the final modular
 inequalities.
 :::

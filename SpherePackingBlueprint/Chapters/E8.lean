@@ -27,7 +27,7 @@ Basic structural and arithmetic properties of E8.
 Definition and density computation of the E8 sphere packing.
 :::
 
-There are several equivalent definitions of the $`E_8`$ lattice. Below, we
+There are several equivalent definitions of the $`E_8` lattice. Below, we
 formalise two of them and prove that they are equivalent.
 
 ```tex
@@ -37,7 +37,7 @@ There are several equivalent definitions of the $E_8$ lattice. Below, we formali
 ```
 
 :::definition "E8-Set" (lean := "Submodule.E8") (parent := "e8_definitions")
-We define the $`E_8`$ lattice as a subset of $`\R^8`$ by
+We define the $`E_8` lattice as a subset of $`\R^8` by
 $$`\Lambda_8=\{(x_i)\in\Z^8\cup(\Z+\textstyle\frac12\displaystyle )^8|\;\sum_{i=1}^8x_i\equiv 0\;(\mathrm{mod\;2})\}.`
 :::
 
@@ -49,7 +49,7 @@ $$\Lambda_8=\{(x_i)\in\Z^8\cup(\Z+\textstyle\frac12\displaystyle )^8|\;\sum_{i=1
 ```
 
 :::definition "E8-Matrix" (lean := "E8Matrix") (parent := "e8_definitions")
-We define the $`E_8`$ basis vectors to be the set of vectors
+We define the $`E_8` basis vectors to be the set of vectors
 $$`\B_8 =
   \left\{
     \begin{bmatrix}
@@ -128,22 +128,22 @@ $`\Lambda_8 = \mathrm{span}_{\Z}(\B_8)`. This compares {uses "E8-Set"}[] and
 :::proof "E8-defs-equivalent"
 We prove that each side contains the other.
 
-For a vector $`\vec{v} \in \Lambda_8 \subseteq \R^8`$, we have
-$`\sum_i \vec{v}_i \equiv 0 \pmod{2}`$ and all coordinates are either integers
+For a vector $`\vec{v} \in \Lambda_8 \subseteq \R^8`, we have
+$`\sum_i \vec{v}_i \equiv 0 \pmod{2}` and all coordinates are either integers
 or half-integers. After some modulo arithmetic, it can be seen that
-$`\B_8^{-1}\vec{v}`$ has integer coordinates, so
+$`\B_8^{-1}\vec{v}` has integer coordinates, so
 $`\vec{v} \in \mathrm{span}_{\Z}(\B_8)`.
 
 For the opposite direction, write
-$`\vec{v} = \sum_i c_i\B_8^i \in \mathrm{span}_{\Z}(\B_8)`$ with the
-$`c_i`$ integers and $`\B_8^i`$ the $`i`$-th basis vector. Expanding the
+$`\vec{v} = \sum_i c_i\B_8^i \in \mathrm{span}_{\Z}(\B_8)` with the
+$`c_i` integers and $`\B_8^i` the $`i`-th basis vector. Expanding the
 definition gives
-$`\vec{v} = \left(c_1 - \frac{1}{2}c_7, -c_1 + c_2 - \frac{1}{2}c_7, \cdots, -\frac{1}{2}c_7\right)`$.
+$`\vec{v} = \left(c_1 - \frac{1}{2}c_7, -c_1 + c_2 - \frac{1}{2}c_7, \cdots, -\frac{1}{2}c_7\right)`.
 Again, after some modulo arithmetic, it can be seen that
-$`\sum_i \vec{v}_i`$ is $`0`$ modulo $`2`$ and that the coordinates are all
+$`\sum_i \vec{v}_i` is $`0` modulo $`2` and that the coordinates are all
 either integers or all half-integers.
 
-This proof does not depend on $`\B_8`$ being linearly independent.
+This proof does not depend on $`\B_8` being linearly independent.
 :::
 
 ```tex "E8-defs-equivalent" (slot := "proof")
@@ -158,8 +158,8 @@ This proof does not depend on $`\B_8`$ being linearly independent.
 \end{proof}
 ```
 
-In this section, we establish basic properties of the $`E_8`$ lattice and the
-$`\B_8`$ vectors.
+In this section, we establish basic properties of the $`E_8` lattice and the
+$`\B_8` vectors.
 
 ```tex
 \subsection{Basic Properties of $E_8$ lattice}
@@ -168,7 +168,7 @@ In this section, we establish basic properties of the $E_8$ lattice and the $\B_
 ```
 
 :::lemma_ "E8-is-basis" (lean := "span_E8Matrix_eq_top") (parent := "e8_properties")
-$`\B_8`$ is an $`\R`$-basis of $`\R^8`$. This uses {uses "E8-Matrix"}[].
+$`\B_8` is an $`\R`-basis of $`\R^8`. This uses {uses "E8-Matrix"}[].
 :::
 
 ```tex "E8-is-basis"
@@ -178,9 +178,9 @@ $`\B_8`$ is an $`\R`$-basis of $`\R^8`$. This uses {uses "E8-Matrix"}[].
 ```
 
 :::proof "E8-is-basis"
-It suffices to prove that $`\B_8 \in \mathrm{GL}_8(\R)`$.
-We do this by explicitly defining the inverse matrix $`\B_8^{-1}`$ and
-proving $`\B_8 \B_8^{-1} = I_8`$, which implies that $`\det(\B_8)`$ is
+It suffices to prove that $`\B_8 \in \mathrm{GL}_8(\R)`.
+We do this by explicitly defining the inverse matrix $`\B_8^{-1}` and
+proving $`\B_8 \B_8^{-1} = I_8`, which implies that $`\det(\B_8)` is
 nonzero. See the Lean code for more details.
 :::
 
@@ -191,7 +191,7 @@ nonzero. See the Lean code for more details.
 ```
 
 :::lemma_ "E8-Lattice" (lean := "E8Lattice") (parent := "e8_properties")
-$`\Lambda_8`$ is an additive subgroup of $`\R^8`$.
+$`\Lambda_8` is an additive subgroup of $`\R^8`.
 This uses {uses "E8-Set"}[] and {uses "E8-defs-equivalent"}[].
 :::
 
@@ -203,7 +203,7 @@ This uses {uses "E8-Set"}[] and {uses "E8-defs-equivalent"}[].
 
 :::proof "E8-Lattice"
 This follows trivially from the fact that
-$`\Lambda_8 \subseteq \R^8`$ is the $`\Z`$-span of $`\B_8`$ and hence an
+$`\Lambda_8 \subseteq \R^8` is the $`\Z`-span of $`\B_8` and hence an
 additive group.
 :::
 
@@ -214,8 +214,8 @@ additive group.
 ```
 
 :::lemma_ "E8-vector-norms" (lean := "E8_norm_eq_sqrt_even") (parent := "e8_properties")
-All vectors in $`\Lambda_8`$ have norm of the form $`\sqrt{2n}`$, where
-$`n`$ is a nonnegative integer. This uses {uses "E8-defs-equivalent"}[].
+All vectors in $`\Lambda_8` have norm of the form $`\sqrt{2n}`, where
+$`n` is a nonnegative integer. This uses {uses "E8-defs-equivalent"}[].
 :::
 
 ```tex "E8-vector-norms"
@@ -225,10 +225,10 @@ $`n`$ is a nonnegative integer. This uses {uses "E8-defs-equivalent"}[].
 ```
 
 :::proof "E8-vector-norms"
-Writing $`\vec{v} = \sum_i c_i\B_8^i`$, we have
-$`\|v\|^2 = \sum_i \sum_j c_ic_j (\B_8^i \cdot \B_8^j)`$.
-Computing all $`64`$ pairs of dot products and simplifying gives a large
-quadratic form in the $`c_i`$ with even integer coefficients, concluding the
+Writing $`\vec{v} = \sum_i c_i\B_8^i`, we have
+$`\|v\|^2 = \sum_i \sum_j c_ic_j (\B_8^i \cdot \B_8^j)`.
+Computing all $`64` pairs of dot products and simplifying gives a large
+quadratic form in the $`c_i` with even integer coefficients, concluding the
 proof.
 :::
 
@@ -239,8 +239,8 @@ proof.
 ```
 
 :::lemma_ "instDiscreteE8Lattice" (lean := "instDiscreteE8Lattice") (parent := "e8_properties")
-$`c\Lambda_8`$ is discrete, that is, the subspace topology induced by its
-inclusion into $`\R^8`$ is the discrete topology.
+$`c\Lambda_8` is discrete, that is, the subspace topology induced by its
+inclusion into $`\R^8` is the discrete topology.
 This uses {uses "E8-vector-norms"}[].
 :::
 
@@ -251,11 +251,11 @@ This uses {uses "E8-vector-norms"}[].
 ```
 
 :::proof "instDiscreteE8Lattice"
-Since $`\Lambda_8`$ is a topological group and $`+`$ is continuous, it
-suffices to prove that $`\{0\}`$ is open in $`\Lambda_8`$. This follows from
-the existence of an open ball $`\B(\sqrt{2}) \subseteq \R^8`$ around zero
+Since $`\Lambda_8` is a topological group and $`+` is continuous, it
+suffices to prove that $`\{0\}` is open in $`\Lambda_8`. This follows from
+the existence of an open ball $`\B(\sqrt{2}) \subseteq \R^8` around zero
 containing no other lattice points, since the shortest nonzero vector has norm
-$`\sqrt{2}`$.
+$`\sqrt{2}`.
 :::
 
 ```tex "instDiscreteE8Lattice" (slot := "proof")
@@ -265,8 +265,8 @@ $`\sqrt{2}`$.
 ```
 
 :::lemma_ "instLatticeE8" (lean := "instIsZLatticeE8Lattice") (parent := "e8_properties")
-$`c\Lambda_8`$ is a $`\Z`$-lattice, that is, it is discrete and spans
-$`\R^8`$ over $`\R`$.
+$`c\Lambda_8` is a $`\Z`-lattice, that is, it is discrete and spans
+$`\R^8` over $`\R`.
 This uses {uses "instDiscreteE8Lattice"}[] and {uses "E8-is-basis"}[].
 :::
 
@@ -278,8 +278,8 @@ This uses {uses "instDiscreteE8Lattice"}[] and {uses "E8-is-basis"}[].
 
 :::proof "instLatticeE8"
 The first part is by `instDiscreteE8Lattice`, and the second part follows
-from the fact that $`\B_8`$ is a basis (`E8-is-basis`) and hence linearly
-independent over $`\R`$.
+from the fact that $`\B_8` is a basis (`E8-is-basis`) and hence linearly
+independent over $`\R`.
 :::
 
 ```tex "instLatticeE8" (slot := "proof")
@@ -288,13 +288,13 @@ independent over $`\R`$.
 \end{proof}
 ```
 
-TODO: Prove $`E_8`$ is unimodular.
+Prove $`E_8` is unimodular.
 
 ```tex
 \todo{Prove $E_8$ is unimodular.}
 ```
 
-TODO: Prove $`E_8`$ is positive-definite.
+Prove $`E_8` is positive-definite.
 
 ```tex
 \todo{Prove $E_8$ is positive-definite.}
@@ -305,8 +305,8 @@ TODO: Prove $`E_8`$ is positive-definite.
 ```
 
 :::definition "E8Packing" (lean := "E8Packing") (parent := "e8_density")
-The $`E_8`$ sphere packing is the periodic sphere packing with separation
-$`\sqrt{2}`$ and set of centers $`\Lambda_8`$.
+The $`E_8` sphere packing is the periodic sphere packing with separation
+$`\sqrt{2}` and set of centers $`\Lambda_8`.
 This uses {uses "E8-Lattice"}[] and {uses "E8-vector-norms"}[].
 :::
 
@@ -317,7 +317,7 @@ This uses {uses "E8-Lattice"}[] and {uses "E8-vector-norms"}[].
 ```
 
 :::lemma_ "E8Packing-covol" (lean := "E8Basis_volume") (parent := "e8_density")
-$`\Vol{\Lambda_8} = \mathrm{Covol}(\R^8 / \Lambda_8) = 1`$.
+$`\Vol{\Lambda_8} = \mathrm{Covol}(\R^8 / \Lambda_8) = 1`.
 This uses {uses "E8Packing"}[].
 :::
 
@@ -328,8 +328,8 @@ This uses {uses "E8Packing"}[].
 ```
 
 :::proof "E8Packing-covol"
-In theory this should follow directly from $`\det(\Lambda_8) = 1`$, but Lean
-hates me and `EuclideanSpace` is being annoying.
+In theory this should follow directly from $`\det(\Lambda_8) = 1`, but Lean
+currently runs into technical issues with `EuclideanSpace`.
 :::
 
 ```tex "E8Packing-covol" (slot := "proof")
@@ -339,7 +339,7 @@ hates me and `EuclideanSpace` is being annoying.
 ```
 
 :::theorem "E8Packing-density" (lean := "E8Packing_density") (parent := "e8_density")
-We have $`\Delta_{\mathcal{P}(E_8)} = \frac{\pi^4}{384}`$.
+We have $`\Delta_{\mathcal{P}(E_8)} = \frac{\pi^4}{384}`.
 This uses {uses "theorem:psp-density"}[] and {uses "E8Packing-covol"}[].
 :::
 
@@ -351,10 +351,10 @@ This uses {uses "theorem:psp-density"}[] and {uses "E8Packing-covol"}[].
 
 :::proof "E8Packing-density"
 By `theorem:psp-density`, we have
-$`\Delta_{\mathcal{P}(E_8)} = |E_8 / E_8| \cdot \frac{\Vol{\mathcal{B}_8(\sqrt{2} / 2)}}{\mathrm{Covol}(E_8)} = \frac{\pi^4}{384}`$,
+$`\Delta_{\mathcal{P}(E_8)} = |E_8 / E_8| \cdot \frac{\Vol{\mathcal{B}_8(\sqrt{2} / 2)}}{\mathrm{Covol}(E_8)} = \frac{\pi^4}{384}`,
 where the last equality follows from `E8Packing-covol` and the
 formula for the volume of a ball,
-$`\Vol{\mathcal{B}_d(R)} = R^d \pi^{d / 2} / \Gamma\left(\frac{d}{2} + 1\right)`$.
+$`\Vol{\mathcal{B}_d(R)} = R^d \pi^{d / 2} / \Gamma\left(\frac{d}{2} + 1\right)`.
 :::
 
 ```tex "E8Packing-density" (slot := "proof")

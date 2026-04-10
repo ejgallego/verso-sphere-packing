@@ -30,11 +30,11 @@ Recall the definition of a Fourier transform.
 ```
 
 :::definition "def:Fourier-Transform" (lean := "Real.fourierIntegral") (parent := "fourier_setup")
-The Fourier transform of an $`L^1`$-function $`f:\R^d\to\C`$ is defined as
+The Fourier transform of an $`L^1`-function $`f:\R^d\to\C` is defined as
 $$`\mathcal{F}(f)(y) = \widehat{f}(y) := \int_{\R^d} f(x)e^{-2\pi i \langle x, y \rangle} \,\mathrm{d}x, \quad y \in \R^d`
 where
-$`\langle x, y \rangle = \frac12\|x\|^2 + \frac12\|y\|^2 - \frac12\|x - y\|^2`$
-is the standard scalar product in $`\R^d`$.
+$`\langle x, y \rangle = \frac12\|x\|^2 + \frac12\|y\|^2 - \frac12\|x - y\|^2`
+is the standard scalar product in $`\R^d`.
 :::
 
 ```tex "def:Fourier-Transform"
@@ -69,7 +69,7 @@ This uses {uses "def:Fourier-Transform"}[].
 ```
 
 :::proof "lemma:Gaussian-Fourier"
-TODO: Fill in proof.
+Fill in proof.
 :::
 
 ```tex "lemma:Gaussian-Fourier" (slot := "proof")
@@ -89,15 +89,15 @@ Of great interest to us will be a specific family of functions, known as Schwart
 ```
 
 :::definition "def:Schwartz-Space" (parent := "fourier_setup")
-A $`C^\infty`$ function $`f:\R^d\to\C`$ is called a Schwartz function if it
-decays to zero as $`\|x\|\to\infty`$ faster than any inverse power of
-$`\|x\|`$, and the same holds for all partial derivatives of $`f`$. That is,
-for all $`k, n \in \N`$, there exists a constant $`C \in \R`$ such that for
-all $`x \in \R^d`$,
-$`\norm{x}^k \cdot \norm{f^{(n)}(x)} \leq C`$,
-where $`f^{(n)}`$ denotes the $`n`$-th derivative of $`f`$ together with the
-appropriate operator norm. The set of all Schwartz functions from $`\R^d`$ to
-$`\C`$ is called the Schwartz space. It is an $`\R`$-vector space.
+A $`C^\infty` function $`f:\R^d\to\C` is called a Schwartz function if it
+decays to zero as $`\|x\|\to\infty` faster than any inverse power of
+$`\|x\|`, and the same holds for all partial derivatives of $`f`. That is,
+for all $`k, n \in \N`, there exists a constant $`C \in \R` such that for
+all $`x \in \R^d`,
+$`\norm{x}^k \cdot \norm{f^{(n)}(x)} \leq C`,
+where $`f^{(n)}` denotes the $`n`-th derivative of $`f` together with the
+appropriate operator norm. The set of all Schwartz functions from $`\R^d` to
+$`\C` is called the Schwartz space. It is an $`\R`-vector space.
 :::
 
 ```tex "def:Schwartz-Space"
@@ -123,8 +123,8 @@ This uses {uses "def:Fourier-Transform"}[] and
 We do not elaborate here, as the result already exists in Mathlib. We do,
 however, mention that the Lean implementation defines a continuous linear
 equivalence on the Schwartz space using the Fourier transform. The proof that
-for any Schwartz function $`f`$, its Fourier transform and its image under this
-continuous linear equivalence are the same $`\R^d \to \R`$ function is stated
+for any Schwartz function $`f`, its Fourier transform and its image under this
+continuous linear equivalence are the same $`\R^d \to \R` function is stated
 in Mathlib solely for the purpose of `rw` and `simp`, and is proved simply by
 `rfl`.
 :::
@@ -147,16 +147,16 @@ Another reason we are interested in Schwartz Functions is that they behave well 
 ```
 
 We begin by stating a general summability result over specific subsets of
-$`\R^d`$.
+$`\R^d`.
 
 ```tex
 We begin by stating a general summability result over specific subsets of $\R^d$.
 ```
 
 :::lemma_ "lemma:inv-power-summable" (parent := "poisson_formula")
-Let $`X \subset \R^d`$ be a set of sphere-packing centers of separation $`1`$
-that is periodic with some lattice $`\Lambda \subset \R^d`$. Then there exists
-$`k \in \N`$ sufficiently large such that
+Let $`X \subset \R^d` be a set of sphere-packing centers of separation $`1`
+that is periodic with some lattice $`\Lambda \subset \R^d`. Then there exists
+$`k \in \N` sufficiently large such that
 $$`\sum_{x \in X} \frac{1}{\norm{x}^{k}} < \infty.`
 :::
 
@@ -171,13 +171,13 @@ $$`\sum_{x \in X} \frac{1}{\norm{x}^{k}} < \infty.`
 
 :::proof "lemma:inv-power-summable"
 First, note that it does not matter how we number the countably many elements
-of the discrete set $`X`$: if we prove absolute convergence for one numbering,
+of the discrete set $`X`: if we prove absolute convergence for one numbering,
 we prove absolute convergence for any numbering. The idea is to bound the
-sequence of partial sums by considering the volumes of concentric $`d`$-spheres
+sequence of partial sums by considering the volumes of concentric $`d`-spheres
 of the appropriate radii, or scaled versions of a zero-centered fundamental
 domain.
 
-TODO: Finish.
+Finish.
 :::
 
 ```tex "lemma:inv-power-summable" (slot := "proof")
@@ -207,9 +207,9 @@ The decaying property of Schwartz functions means that they can be compared to t
 ```
 
 :::lemma_ "lemma:Schwartz-summable" (parent := "poisson_formula")
-Let $`f : \R^d \to \C`$ be a Schwartz function and let
-$`X \subset \R^d`$ be periodic with respect to some lattice
-$`\Lambda \subset \R^d`$. Then
+Let $`f : \R^d \to \C` be a Schwartz function and let
+$`X \subset \R^d` be periodic with respect to some lattice
+$`\Lambda \subset \R^d`. Then
 $$`\sum_{x \in X} |f(x)| < \infty.`
 This uses {uses "def:Schwartz-Space"}[].
 :::
@@ -224,11 +224,11 @@ This uses {uses "def:Schwartz-Space"}[].
 ```
 
 :::proof "lemma:Schwartz-summable"
-Without loss of generality, assume that $`0 \notin X`$: if $`0 \in X`$, we
-can add the $`f(0)`$ term to the sum over nonzero elements of $`X`$. We know
-that for all $`k \in \N`$ there exists some constant $`C`$ such that
-$`|f(x)| \leq C\norm{x}^{-k}`$ for all $`x \in \R^d`$.
-Choosing $`k`$ to be sufficiently large, we obtain
+Without loss of generality, assume that $`0 \notin X`: if $`0 \in X`, we
+can add the $`f(0)` term to the sum over nonzero elements of $`X`. We know
+that for all $`k \in \N` there exists some constant $`C` such that
+$`|f(x)| \leq C\norm{x}^{-k}` for all $`x \in \R^d`.
+Choosing $`k` to be sufficiently large, we obtain
 $$`\sum_{x \in X} |f(x)| \leq \sum_{x \in X} \frac{C}{\norm{x}^{k}} = C \sum_{x \in X} \frac{1}{\norm{x}^k} < \infty.`
 :::
 
@@ -250,8 +250,8 @@ We end with a crucial result on Schwartz functions, the statement of which only 
 ```
 
 :::theorem "thm:Poisson-summation-formula" (lean := "SchwartzMap.PoissonSummation_Lattices") (parent := "poisson_formula")
-Let $`\Lambda`$ be a lattice in $`\R^d`$, and let $`f:\R^d\to\R`$ be a
-Schwartz function. Then, for all $`v \in \R^d`$,
+Let $`\Lambda` be a lattice in $`\R^d`, and let $`f:\R^d\to\R` be a
+Schwartz function. Then, for all $`v \in \R^d`,
 $$`\sum_{\ell\in\Lambda}f(\ell + v) = \frac{1}{\Vol{\R^d/\Lambda}} \sum_{m\in\Lambda^*}\widehat{f}(m) e^{-2\pi i \ang{v, m}}.`
 This uses {uses "def:Fourier-Transform"}[],
 {uses "def:Schwartz-Space"}[], {uses "lemma:Schwartz-summable"}[],
@@ -268,7 +268,7 @@ This uses {uses "def:Fourier-Transform"}[],
 ```
 
 :::proof "thm:Poisson-summation-formula"
-One possible proof would be by induction on $`d`$. However, there are numerous
+One possible proof would be by induction on $`d`. However, there are numerous
 nuances involved, particularly in manipulating nested infinite sums. Ideas
 would be appreciated.
 :::
@@ -289,7 +289,7 @@ While the Poisson Summation Formula over lattices can be stated in greater gener
 ```
 
 Later we will use the Poisson summation theorem proved below to show that
-the functions $`a(x)`$ and $`b(x)`$ defined later are eigenfunctions of the
+the functions $`a(x)` and $`b(x)` defined later are eigenfunctions of the
 Fourier transform. To apply the theorem, we need to show that these functions
 are Schwartz functions. We do so by verifying the following sufficient
 condition.
@@ -300,10 +300,10 @@ To apply the theorem, we need to show that these functions are Schwartz function
 ```
 
 :::theorem "thm:smooth-fast-decay-schwartz" (parent := "poisson_formula")
-Assume $`f : \R \to \C`$ is smooth on $`[0, \infty)`$ and for all
-$`k, n \in \N`$ there exists $`C \in \R`$ such that
+Assume $`f : \R \to \C` is smooth on $`[0, \infty)` and for all
+$`k, n \in \N` there exists $`C \in \R` such that
 $$`x^{\frac{k}{2}} \cdot |f^{(n)}(x)| \leq C.`
-Then, for all $`d \in \N`$, the function
+Then, for all $`d \in \N`, the function
 $$`f_d : \R^d \to \C, \quad f_d(x) := f(\|x\|^2)`
 is a Schwartz function.
 :::
