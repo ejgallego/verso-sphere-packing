@@ -25,6 +25,8 @@ proof = "proof"
 proposition = "lemma_"
 
 [harness]
+native_warnings = false
+strict_external_code = true
 non_port_chapters = [
   "SpherePackingBlueprint/Chapters/Introduction.lean",
   "SpherePackingBlueprint/Chapters/PortingStatus.lean",

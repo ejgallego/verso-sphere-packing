@@ -2,7 +2,7 @@ import Lake
 open Lake DSL
 
 require SpherePacking from "./Sphere-Packing-LaTeX-Reference"
-require VersoBlueprint from git "https://github.com/ejgallego/verso-blueprint.git"@"lean-v4.28.0"
+require VersoBlueprint from git "git@github.com:leanprover/verso-blueprint.git" @ "v4.28.0"
 
 package SpherePackingBlueprint where
   precompileModules := false
@@ -12,6 +12,10 @@ package SpherePackingBlueprint where
     ⟨`autoImplicit, false⟩,
     ⟨`relaxedAutoImplicit, false⟩,
     ⟨`maxSynthPendingDepth, .ofNat 3⟩,
+    ⟨`weak.linter.hashCommand, false⟩,
+    ⟨`weak.verso.blueprint.math.lint, true⟩,
+    ⟨`weak.verso.blueprint.externalCode.strictResolve, true⟩,
+    ⟨`verso.code.warnLineLength, .ofNat 0⟩,
     ⟨`weak.linter.mathlibStandardSet, true⟩
   ]
 
