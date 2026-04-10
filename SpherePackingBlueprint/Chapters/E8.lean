@@ -8,7 +8,6 @@ open Verso.Genre.Manual hiding citep citet citehere
 open Informal
 
 set_option doc.verso true
-set_option pp.rawOnError true
 set_option linter.style.longLine false
 
 
@@ -127,13 +126,13 @@ $`\Lambda_8 = \mathrm{span}_{\Z}(\B_8)`. This compares {uses "E8-Set"}[] and
 
 :::proof "E8-defs-equivalent"
 We prove that each side contains the other.
-
+/- source paragraph break -/
 For a vector $`\vec{v} \in \Lambda_8 \subseteq \R^8`, we have
 $`\sum_i \vec{v}_i \equiv 0 \pmod{2}` and all coordinates are either integers
 or half-integers. After some modulo arithmetic, it can be seen that
 $`\B_8^{-1}\vec{v}` has integer coordinates, so
 $`\vec{v} \in \mathrm{span}_{\Z}(\B_8)`.
-
+/- source paragraph break -/
 For the opposite direction, write
 $`\vec{v} = \sum_i c_i\B_8^i \in \mathrm{span}_{\Z}(\B_8)` with the
 $`c_i` integers and $`\B_8^i` the $`i`-th basis vector. Expanding the
@@ -142,7 +141,7 @@ $`\vec{v} = \left(c_1 - \frac{1}{2}c_7, -c_1 + c_2 - \frac{1}{2}c_7, \cdots, -\f
 Again, after some modulo arithmetic, it can be seen that
 $`\sum_i \vec{v}_i` is $`0` modulo $`2` and that the coordinates are all
 either integers or all half-integers.
-
+/- source paragraph break -/
 This proof does not depend on $`\B_8` being linearly independent.
 :::
 

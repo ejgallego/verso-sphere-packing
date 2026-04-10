@@ -9,7 +9,6 @@ open Verso.Genre.Manual hiding citep citet citehere
 open Informal
 
 set_option doc.verso true
-set_option pp.rawOnError true
 set_option linter.style.longLine false
 
 
@@ -299,7 +298,7 @@ By Ramanujan's formula,
 $`E_2 E_4 - E_6 = 3E_4' = 720 \sum_{n \ge 1} n \sigma_3(n) e^{2 \pi i n z}`,
 and
 $$`(E_2(z) E_4(z) - E_6(z))^{2} = 720^{2} e^{4 \pi i z} + O(e^{5 \pi i z}).`
-The result then follows from Lemma `lemma:mod-div-disc-bound` with
+The result then follows from Lemma {uses "lemma:mod-div-disc-bound"}[] with
 $`f(z) = (E_2 E_4 - E_6)^2` and $`n_0 = 4`.
 :::
 
@@ -443,7 +442,7 @@ $$`I_1(r) = i \int_1^{\infty} \phi_0(i s) \cdot s^{-4} \cdot e^{-\pi i r} \cdot 
 so
 $$`|I_1(r)| \leq \int_1^{\infty} |\phi_0(i s)| \cdot s^{-4} \cdot |e^{-\pi i r}| \cdot e^{-\pi r / s} \, \dd s
 \le \int_1^{\infty} |\phi_0(is)| \cdot e^{-\pi r / s} \, \dd s.`
-By Corollary `cor:phi0-bound`, we conclude that
+By Corollary {uses "cor:phi0-bound"}[], we conclude that
 $$`|I_1(r)| \leq C_0 \int_1^{\infty} e^{-2\pi s} \, e^{-\pi r / s} \, \dd s.`
 :::
 
@@ -510,7 +509,7 @@ $`|\phi_0\left(\frac{-1}{z+1}\right) (z + 1)^2| \leq C`,
 and therefore
 $$`|I_2(r)| \le \int_{-1}^{0} C e^{-\pi r} \, \dd t = C e^{-\pi r}.`
 The bound for $`I_4(r)` is similar.
-
+/- source paragraph break -/
 For $`I_6(r)`, parametrize $`z = i t` for $`t \in [1, \infty)`, giving
 $$`I_6(r) = 2 i \int_1^{\infty} \phi_0(i t) e^{-\pi r t} \, \dd t.`
 Using Corollary `cor:phi0-bound`, the absolute value is bounded by
@@ -802,7 +801,7 @@ as $`t\to\infty`. For $`r>\sqrt{2}`,
 $$`\int\limits_0^\infty \left(\frac{36}{\pi^2}\,e^{2 \pi t}+\frac{8640}{\pi}\,t+\frac{18144}{\pi^2}\right)\,e^{-\pi r^2 t}\,dt
 =\frac{36}{\pi^3\,(r^2-2)}-\frac{8640}{\pi^3\,r^4}+\frac{18144}{\pi^3\,r^2}.`
 Therefore the claimed identity holds for $`r>\sqrt{2}`.
-
+/- source paragraph break -/
 On the other hand, the definition of $`a` shows that $`a(r)` is analytic in
 a neighborhood of $`[0,\infty)`, and the asymptotic expansion above implies
 that the right-hand side is also analytic there. Hence the identity holds on
@@ -1077,8 +1076,8 @@ $$`|\psi_S(z)| \le C_S e^{- \pi \Im z}.`
 ```
 
 :::proof "lemma:psi-bound"
-The proof is similar to that of Lemma {uses "cor:phi0-bound"}[] and follows
-from Lemma `lemma:mod-div-disc-bound` together with the fact that the
+The proof is similar to that of Lemma `cor:phi0-bound` and follows
+from Lemma {uses "lemma:mod-div-disc-bound"}[] together with the fact that the
 vanishing orders of the numerators of $`\psi_I`, $`\psi_T`, and $`\psi_S`
 at infinity are respectively $`0`, $`0`, and $`\frac{3}{2}`.
 :::
@@ -1140,7 +1139,7 @@ $b(x)$ is a Schwartz function.
 ```
 
 :::proof "prop:b-schwartz"
-The proof is similar to that of {uses "prop:a-schwartz"}[].
+The proof is similar to that of Proposition `prop:a-schwartz`.
 {uses "lemma:bound-J1-J3-J5"}[]{uses "lemma:bound-J2-J4-J6"}[]{uses "thm:smooth-fast-decay-schwartz"}[]
 :::
 
@@ -1164,7 +1163,7 @@ $b(x)$ satisfies \eqref{eqn:b-fourier}.
 
 :::proof "prop:b-fourier"
 We repeat the argument used in the proof of Proposition
-{uses "prop:a-fourier"}[]. Using the Gaussian Fourier identity and exchanging
+`prop:a-fourier`. Using the Gaussian Fourier identity and exchanging
 the contour integration in $`z` with the Fourier transform in $`x`, we get
 $$`\mathcal{F}(b)(x)= \int\limits_{-1}^{i}\psi_T(z)\,z^{-4}\,e^{\pi i \|x\|^2 (\frac{-1}{z})}\,dz
         + \int\limits_{1}^{i}\psi_T(z)\,z^{-4}\,e^{\pi i \|x\|^2 (\frac{-1}{z})}\,dz`
@@ -1369,7 +1368,7 @@ The integral converges absolutely for all $r\in\R_{\geq 0}$.
 
 :::proof "prop:b-another-integral"
 The proof is analogous to the proof of Proposition
-{uses "prop:a-another-integral"}[].
+`prop:a-another-integral`.
 First suppose that $`r>\sqrt{2}`. Then by Proposition
 `prop:b-double-zeros`,
 $$`b(r)=4i\,\sin(\pi r^2/2)^2\,\int\limits_{0}^{\infty}\psi_I(it)\,e^{-\pi r^2 t}\,dt.`
@@ -1379,7 +1378,7 @@ as $`t\to\infty`. For $`r>\sqrt{2}`,
 $$`\int\limits_0^\infty \left(e^{2\pi t}+144\right)\,e^{-\pi r^2 t}\,dt
 =\frac{1}{\pi\,(r^2-2)}+\frac{144}{\pi\,r^2}.`
 Therefore the identity holds for $`r>\sqrt{2}`.
-
+/- source paragraph break -/
 On the other hand, the definition of $`b` shows that $`b(r)` is analytic in
 a neighborhood of $`[0,\infty)`, and the asymptotic expansion above implies
 that the right-hand side is also analytic there. Hence the identity holds on

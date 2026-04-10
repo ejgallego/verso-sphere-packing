@@ -9,7 +9,6 @@ open Verso.Genre.Manual hiding citep citet citehere
 open Informal
 
 set_option doc.verso true
-set_option pp.rawOnError true
 set_option linter.style.longLine false
 
 
@@ -71,22 +70,22 @@ Let $X\subset\mathbb{R}^d$ be a discrete subset such that $\|x-y\|\geq 1$ for an
 :::proof "thm:Cohn-Elkies-periodic"
 Here we reproduce the proof given in {citet ElkiesCohn}[] and use
 {uses "thm:Poisson-summation-formula"}[].
-
+/- source paragraph break -/
 The inequality
 $$`\sharp (X/\Lambda)\cdot f(0)\geq \sum_{x\in X}\sum_{y\in X/\Lambda}f(x-y)=\sum_{x\in X/\Lambda}\sum_{y\in X/\Lambda}\sum_{\ell\in  \Lambda}f(x-y+l)`
 follows from the condition $`f(x)\le 0` for $`\|x\|\ge 1` and the
 assumption on the distances between points in $`X`.
-
+/- source paragraph break -/
 The equality
 $$`\sum_{x\in X/\Lambda}\sum_{y\in X/\Lambda}\sum_{\ell\in  \Lambda}f(x-y+l)=\sum_{x\in X/\Lambda}\sum_{y\in X/\Lambda}\frac{1}{\mathrm{vol}(\mathbb{R}^d/\Lambda)}\,\sum_{m\in \Lambda^*} \widehat{f}(m)\,e^{2\pi i m(x-y)}`
 follows from the Poisson summation formula.
-
+/- source paragraph break -/
 The right-hand side can be written as
 $$`\sum_{x\in X/\Lambda}\sum_{y\in X/\Lambda}\frac{1}{\mathrm{vol}(\mathbb{R}^d/\Lambda)}\,\sum_{m\in \Lambda^*} \widehat{f}(m)\,e^{2\pi i m(x-y)}=\frac{1}{\mathrm{vol}(\mathbb{R}^d/\Lambda)}\,\sum_{m\in \Lambda^*} \widehat{f}(m)\cdot\big|\sum_{x\in X/\Lambda}e^{2\pi i m x}\big|^2.`
 Note that $`\big|\sum_{x\in X/\Lambda}e^{2\pi i m x}\big|^2\geq0` for all
 $`m\in\Lambda^*`, and that the term corresponding to $`m=0` satisfies
 $`\big|\sum_{x\in X/\Lambda}e^{2\pi i 0 x}\big|^2=\sharp (X/\Lambda)^2`.
-
+/- source paragraph break -/
 Now we use the condition $`\widehat{f}(x)\ge 0` and estimate
 $$`\frac{1}{\mathrm{vol}(\mathbb{R}^d/\Lambda)}\,\sum_{m\in \Lambda^*} \widehat{f}(m)\cdot\big|\sum_{x\in X/\Lambda}e^{2\pi i m(x-y)}\big|^2
 \geq \frac{\sharp (X/\Lambda)^2}{\mathrm{vol}(\mathbb{R}^d/\Lambda)}\cdot \widehat{f}(0).`
@@ -161,8 +160,8 @@ The main step in our proof of \cref{MainTheorem} is the explicit construction of
 
 :::theorem "thm:g" (parent := "ce_optimal_function")
 There exists a radial Schwartz function $`g:\R^8\to\R` which satisfies:
-$$`g(x)\leq 0\mbox{ for } \|x\|\geq \sqrt{2}`
-$$`\widehat{g}(x)\geq0\mbox{ for all } x\in\R^8`
+$$`g(x)\leq 0\text{ for } \|x\|\geq \sqrt{2}`
+$$`\widehat{g}(x)\geq0\text{ for all } x\in\R^8`
 $$`g(0)=\widehat{g}(0)=1.`
 This uses {uses "thm:g1"}[].
 :::
@@ -178,7 +177,7 @@ g(0)&=\widehat{g}(0)=1.\label{eqn:g3}
 \end{theorem}
 ```
 
-The Cohn-Elkies theorem applied to the optimal function
+Theorem `thm:Cohn-Elkies-general` applied to the optimal function
 $`f(x)=g(x/\sqrt{2})` immediately implies the main theorem.
 
 ```tex

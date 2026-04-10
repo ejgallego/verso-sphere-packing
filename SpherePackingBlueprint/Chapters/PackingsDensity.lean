@@ -8,7 +8,6 @@ open Verso.Genre.Manual hiding citep citet citehere
 open Informal
 
 set_option doc.verso true
-set_option pp.rawOnError true
 set_option linter.style.longLine false
 
 
@@ -124,7 +123,7 @@ Since $`\mathcal{D}` is a fundamental domain, there exists a lattice point
 $`x \in \Lambda` such that $`v \in x + \mathcal{D}`. Rearranging gives
 $`v - x \in \mathcal{D}`, which means $`\|v - x\| \leq L`. By the triangle
 inequality, $`\|x\| < R`, so $`x \in \mathcal{B}_d(R)`.
-
+/- source paragraph break -/
 For the second inequality, we prove that
 $`\bigcup_{x \in \Lambda \cap \mathcal{B}_d(R)} (x + \mathcal{D}) \subseteq \mathcal{B}_d(R + L)`.
 Consider a vector $`x \in \Lambda \cap \mathcal{B}_d(R)` and a vector
@@ -180,12 +179,12 @@ $$`\left(\bigcup_{x \in \Lambda \cap \mathcal{B}_d(R - L)} (x + \mathcal{D})\rig
 Taking cardinalities and noting that
 $`|(x + \mathcal{D}) \cap X| = |X / \Lambda|` for all $`x`, we obtain
 $`|\Lambda \cap \mathcal{B}_d(R - L)||X / \Lambda| \leq |X \cap \mathcal{B}_d(R)|`.
-
+/- source paragraph break -/
 The proof of the second inequality is similar. We again observe that
 $`\mathcal{B}_d(R) \subseteq \bigcup_{x \in \Lambda \cap \mathcal{B}_d(R + L)} (x + \mathcal{D}),`
 which follows from the tiling property of a fundamental domain. Intersecting
 both sides with $`X` and taking cardinalities concludes the proof.
-
+/- source paragraph break -/
 There are several technicalities when formalising in Lean, such as having to
 prove that $`|\Lambda \cap \mathcal{B}_d(R)|` is countable and finite. Those
 are handled in `aux3`.

@@ -9,7 +9,6 @@ open Verso.Genre.Manual hiding citep citet citehere
 open Informal
 
 set_option doc.verso true
-set_option pp.rawOnError true
 set_option linter.style.longLine false
 
 
@@ -131,7 +130,7 @@ We have $`\Gamma(1) = \langle S, T, -I \rangle`.
 ```
 
 :::proof "lemma:Gamma-1-generators"
-See {citet first.course}[], Exercise 1.1.1.
+See Exercise `1.1.1` in {citet first.course}[].
 :::
 
 ```tex "lemma:Gamma-1-generators" (slot := "proof")
@@ -153,7 +152,7 @@ We have $`\Gamma(2) = \langle \alpha, \beta, -I \rangle`.
 ```
 
 :::proof "lemma:Gamma-2-generators"
-See {citet first.course}[], Exercise 1.2.4.
+See Exercise `1.2.4` in {citet first.course}[].
 :::
 
 ```tex "lemma:Gamma-2-generators" (slot := "proof")
@@ -677,12 +676,12 @@ $`\dim(M_k(\Gamma_1)) = 1 + \dim S_k(\Gamma_1)`.
 This follows because the Eisenstein series $`E_k` lies in $`M_k`, so after
 scaling appropriately, any non-cusp form $`f \in M_k` satisfies
 $`f - aE_k \in S_k` for some $`a`.
-
+/- source paragraph break -/
 Next, $`S_k(\Gamma_1)` is isomorphic to $`M_{k-12}(\Gamma_1)`, since for
 $`f \in S_k`, the quotient $`f/\Delta` is a modular form of weight
 $`k-12`. Here it is essential that $`f` is cuspidal, so that dividing by
 $`\Delta` preserves modularity.
-
+/- source paragraph break -/
 Thus it remains to know the dimensions of $`M_k(\Gamma_1)` for
 $`0 \le k \le 12`. For $`k = 0` we have
 $`\dim M_0(\Gamma_1) = 1` by {uses "thm:nonpos_wt"}[].
@@ -693,7 +692,7 @@ For $`k=12` we have $`\dim S_{12}(\Gamma_1) = 1` since the discriminant
 form is a cusp form of weight $`12` and any other cusp form of weight $`12`
 is a scalar multiple of $`\Delta`. Hence
 $`\dim M_{12}(\Gamma_1) = 2`.
-
+/- source paragraph break -/
 Finally, we need to check that $`\dim M_2(\Gamma_1) = 0`.
 There can be no cusp forms here by the same argument as above, so suppose
 $`f` is a non-cuspidal modular form of weight $`2`.

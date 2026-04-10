@@ -9,7 +9,6 @@ open Verso.Genre.Manual hiding citep citet citehere
 open Informal
 
 set_option doc.verso true
-set_option pp.rawOnError true
 set_option linter.style.longLine false
 
 
@@ -422,7 +421,7 @@ the sphere packing constant in $`\R^d`.
 
 :::proof "thm:periodic-packing-optimal"
 State this in Lean (ready).
-
+/- source paragraph break -/
 Fill in proof here (see {citet ElkiesCohn}[], Appendix A).
 :::
 

@@ -8,7 +8,6 @@ open Verso.Genre.Manual hiding citep citet citehere
 open Informal
 
 set_option doc.verso true
-set_option pp.rawOnError true
 set_option linter.style.longLine false
 
 
@@ -176,7 +175,7 @@ we prove absolute convergence for any numbering. The idea is to bound the
 sequence of partial sums by considering the volumes of concentric $`d`-spheres
 of the appropriate radii, or scaled versions of a zero-centered fundamental
 domain.
-
+/- source paragraph break -/
 Finish.
 :::
 
@@ -288,7 +287,7 @@ sufficient for our purposes.
 While the Poisson Summation Formula over lattices can be stated in greater generality (and probably should be formalised as such in Mathlib due to the many applications it admits), we stick with Schwartz functions because that should be sufficient for our purposes.
 ```
 
-Later we will use the Poisson summation theorem proved below to show that
+Later we will use Theorem `thm:Poisson-summation-formula` to show that
 the functions $`a(x)` and $`b(x)` defined later are eigenfunctions of the
 Fourier transform. To apply the theorem, we need to show that these functions
 are Schwartz functions. We do so by verifying the following sufficient

@@ -9,7 +9,6 @@ open Verso.Genre.Manual hiding citep citet citehere
 open Informal
 
 set_option doc.verso true
-set_option pp.rawOnError true
 set_option linter.style.longLine false
 
 
@@ -126,7 +125,7 @@ We have
 
 :::proof "lemma:F-G-phi-psi-identities"
 Equation `eqn:phi0-F` is clear. Equation `eqn:psiS-G` is already shown in
-Lemma `lemma:psi-new`.
+Lemma {uses "lemma:psi-new"}[].
 :::
 
 ```tex "lemma:F-G-phi-psi-identities" (slot := "proof")
@@ -156,12 +155,12 @@ respectively.
 ```
 
 :::proof "lemma:ineqABnew-equiv"
-By the definition of $`\psi_I`,
+By the definition of $`\psi_I` in {uses "def:psiI-psiT-psiS"}[],
 $$`\psi_I(it) = (\psi_S|_{-2}S)(it) = (it)^{2}\psi_S\left(-\frac{1}{it}\right) = -t^2 \psi_S\left(\frac{i}{t}\right).`
-Combined with Lemma `lemma:F-G-phi-psi-identities`, this rewrites
+Combined with Lemma {uses "lemma:F-G-phi-psi-identities"}[], this rewrites
 $`A(t) < 0` as
 $$`-t^2 \phi_0\left(\frac{i}{t}\right) + \frac{36}{\pi^2} \psi_S\left(\frac{i}{t}\right) < 0 \Leftrightarrow \frac{F(it)}{\Delta(it)} + \frac{18}{\pi^2} \frac{G(it)}{\Delta(it)} > 0,`
-which is equivalent to the first inequality by Corollary `cor:disc-pos`. The
+which is equivalent to the first inequality by Corollary {uses "cor:disc-pos"}[]. The
 second equivalence follows similarly, changing only the sign.
 :::
 
@@ -199,10 +198,11 @@ For all $t > 0$, we have $F(it) > 0$ and $G(it) > 0$.
 ```
 
 :::proof "lemma:F-G-pos"
-By Ramanujan's identity, we have $`F(z) = 9 E_4'(z)^2`, and hence
+By Ramanujan's identity {uses "thm:ramanujan-formula"}[], we have
+$`F(z) = 9 E_4'(z)^2`, and hence
 $$`F(it) = 9E_4'(it)^2 = 9 \left(240\sum_{n \geq 1} n \sigma_3(n) e^{-2 \pi n t} \right)^{2} > 0.`
 The inequality $`G(it) > 0` follows from positivity of $`H_2(it)` and
-$`H_4(it)` in `cor:theta-pos`.
+$`H_4(it)` in {uses "cor:theta-pos"}[].
 :::
 
 ```tex "lemma:F-G-pos" (slot := "proof")
@@ -227,7 +227,7 @@ Equation `eqn:ineqAnew` holds.
 ```
 
 :::proof "cor:ineqAnew"
-This directly follows from Lemma `lemma:F-G-pos`.
+This directly follows from Lemma {uses "lemma:F-G-pos"}[].
 :::
 
 ```tex "cor:ineqAnew" (slot := "proof")
@@ -262,8 +262,9 @@ $F$ and $G$ satisfy the following differential equations:
 
 :::proof "lemma:FG-de"
 Both identities can be shown by direct computations.
-By Ramanujan's identities (Theorem `thm:ramanujan-formula`) and the product
-rule for Serre derivatives (Theorem `thm:serre-der-prod-rule`), we have
+By Ramanujan's identities (Theorem {uses "thm:ramanujan-formula"}[]) and the
+product rule for Serre derivatives (Theorem
+{uses "thm:serre-der-prod-rule"}[]), we have
 $$`\partial_{5} (E_2 E_4 - E_6)
  = (E_2 E_4 - E_6)' - \frac{5}{12} E_2 (E_2 E_4 - E_6)`
 $$`= \frac{E_2^2 - E_4}{12} \cdot E_4 + E_2 \cdot \frac{E_2 E_4 - E_6}{3} - \frac{E_2 E_6 - E_4^2}{2} - \frac{5}{12}E_2 (E_2 E_4 - E_6)
@@ -289,7 +290,8 @@ $$`\partial_{12}\partial_{10}F - \frac{5}{6} E_4 F
  = -\frac{25}{72} (E_4^3 - E_6^2) (E_2^2 - E_4)
  = 7200 \Delta (-E_2').`
 This proves equation `eqn:ddf`. The second is proved similarly,
-using Proposition `prop:theta-der` and Lemma `lemma:lv1-lv2-identities`.
+using Proposition {uses "prop:theta-der"}[] and
+Lemma {uses "lemma:lv1-lv2-identities"}[].
 :::
 
 ```tex "lemma:FG-de" (slot := "proof")
@@ -337,11 +339,12 @@ positive imaginary axis.
 ```
 
 :::proof "cor:MLDE-pos"
-From equation `eqn:E2` and Lemma `cor:disc-pos`,
+From equation `eqn:E2` in {uses "def:E2"}[] and
+Lemma {uses "cor:disc-pos"}[],
 $$`7200 (-E_2'(it)) \Delta(it) = 7200 \cdot 24 \left(\sum_{n \ge 1} n \sigma_1(n) e^{-2 \pi n t}\right) \cdot \Delta(it) > 0.`
 Negativity of equation `eqn:ddg`, namely
 $`-640 \Delta(it) H_2(it) < 0`, follows from
-`cor:theta-pos` and `cor:disc-pos`.
+{uses "cor:theta-pos"}[] and {uses "cor:disc-pos"}[].
 :::
 
 ```tex "cor:MLDE-pos" (slot := "proof")
@@ -440,7 +443,7 @@ Let $F$ be a quasimodular form where the vanishing order of $F$ at infinity is $
 ```
 
 :::proof "lemma:log-der-inf"
-By Lemma `lemma:der-q-series`,
+By Lemma {uses "lemma:der-q-series"}[],
 $$`\lim_{t \to \infty} \frac{F'(it)}{F(it)}
  = \lim_{t \to \infty} \frac{\sum_{n \ge n_0} n a_n e^{-2 \pi n t}}{\sum_{n \ge n_0} a_n e^{-2 \pi n t}}
  = \lim_{t \to \infty} \frac{n_0 a_{n_0} e^{-2 \pi n_0 t} + O(e^{-2 \pi (n_0 + 1) t})}{a_{n_0} e^{-2 \pi n_0 t} + O(e^{-2 \pi (n_0 + 1) t})}
@@ -477,15 +480,17 @@ Let $`\mathcal{L}_{1, 0} := (\partial_{10}F) G - F (\partial_{10} G) = F'G - FG'
 Then
 $$`\frac{\mathcal{L}_{1, 0}}{FG} = \frac{F'G - FG'}{FG} = \frac{F'}{F} - \frac{G'}{G}.`
 The vanishing orders of $`F` and $`G` at infinity are $`2` and
-$`\frac{3}{2}` respectively, so by `lemma:log-der-inf` we have
+$`\frac{3}{2}` respectively, so by
+{uses "lemma:log-der-inf"}[] we have
 $$`\lim_{t \to \infty} \frac{\mathcal{L}_{1, 0}(it)}{F(it) G(it)}
  = \lim_{t \to \infty} \left(\frac{F'(it)}{F(it)} - \frac{G'(it)}{G(it)}\right)
  = 2 - \frac{3}{2} = \frac{1}{2} > 0,`
 so $`\mathcal{L}_{1, 0}(it) > 0` for sufficiently large $`t`.
-Its Serre derivative is positive by `cor:MLDE-pos`:
+Its Serre derivative is positive by {uses "cor:MLDE-pos"}[]:
 $$`\partial_{22} \mathcal{L}_{1, 0} = (\partial_{12} \partial_{10} F) G - F (\partial_{12}\partial_{10} G)
     = \Delta (7200 (-E_{2}') G + 640 H_2 F) > 0.`
-Hence $`\mathcal{L}_{1, 0}(it) > 0` by `thm:anti-serre-der-pos`, and the
+Hence $`\mathcal{L}_{1, 0}(it) > 0` by
+{uses "thm:anti-serre-der-pos"}[], and the
 monotonicity follows.
 :::
 
@@ -530,7 +535,7 @@ Equation `eqn:ineqBnew` holds.
 :::proof "cor:ineqBnew"
 We have
 $$`\frac{F(it)}{G(it)} = Q(t) < \lim_{u \to 0^+} Q(u) = \frac{18}{\pi^2},`
-and by Lemma `lemma:F-G-pos` the desired inequality follows.
+and by Lemma {uses "lemma:F-G-pos"}[] the desired inequality follows.
 :::
 
 ```tex "cor:ineqBnew" (slot := "proof")
@@ -567,23 +572,24 @@ satisfies conditions \eqref{eqn:g1}--\eqref{eqn:g3}.
 
 :::proof "thm:g1"
 First, we prove the first sign condition. By Propositions
-`prop:a-double-zeros` and `prop:b-double-zeros` we know
+{uses "prop:a-double-zeros"}[] and {uses "prop:b-double-zeros"}[] we know
 that for $`r>\sqrt{2}`,
 $$`g(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty A(t)\,e^{-\pi r^2 t}\,dt`
 where
 $$`A(t)=-t^2\phi_0(i/t)-\frac{36}{\pi^2}\,\psi_I(it).`
-From Proposition `prop:ineqA` we know that $`A(t)<0` for
+From Proposition {uses "prop:ineqA"}[] we know that $`A(t)<0` for
 $`t\in(0,\infty)`, so this identity implies the first sign condition.
-
+/- source paragraph break -/
 Next, we prove the Fourier-side sign condition. By Propositions
-`prop:a-another-integral` and `prop:b-another-integral` we
+{uses "prop:a-another-integral"}[] and
+{uses "prop:b-another-integral"}[] we
 know that for $`r>0`,
 $$`\widehat{g}(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty B(t)\,e^{-\pi r^2 t}\,dt`
 where
 $$`B(t)=-t^2\phi_0(i/t)+\frac{36}{\pi^2}\,\psi_I(it).`
-
+/- source paragraph break -/
 Finally, the normalization $`g(0)=\widehat g(0)=1` follows readily from
-Propositions `prop:a0` and `prop:b0`.
+Propositions {uses "prop:a0"}[] and {uses "prop:b0"}[].
 This finishes the proof of Theorems `thm:g1` and `thm:g`.
 :::
 
