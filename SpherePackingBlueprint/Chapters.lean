@@ -1,4 +1,3 @@
-import SpherePackingBlueprint.Chapters.Introduction
 import SpherePackingBlueprint.Chapters.SpherePackings
 import SpherePackingBlueprint.Chapters.PackingsDensity
 import SpherePackingBlueprint.Chapters.E8
@@ -7,4 +6,3 @@ import SpherePackingBlueprint.Chapters.CohnElkies
 import SpherePackingBlueprint.Chapters.ModularForms
 import SpherePackingBlueprint.Chapters.MagicFunctions
 import SpherePackingBlueprint.Chapters.ModularInequalities
-import SpherePackingBlueprint.Chapters.PortingStatus

@@ -4,7 +4,6 @@ import VersoBlueprint
 
 import SpherePackingBlueprint.TeXPrelude
 import SpherePackingBlueprint.Bibliography
-import SpherePackingBlueprint.Chapters.Introduction
 import SpherePackingBlueprint.Chapters.SpherePackings
 import SpherePackingBlueprint.Chapters.PackingsDensity
 import SpherePackingBlueprint.Chapters.E8
@@ -13,7 +12,6 @@ import SpherePackingBlueprint.Chapters.CohnElkies
 import SpherePackingBlueprint.Chapters.ModularForms
 import SpherePackingBlueprint.Chapters.MagicFunctions
 import SpherePackingBlueprint.Chapters.ModularInequalities
-import SpherePackingBlueprint.Chapters.PortingStatus
 
 open Verso.Genre
 open Verso.Genre.Manual hiding citep citet citehere
@@ -45,7 +43,6 @@ Compared with the upstream TeX source, this Verso copy reorganizes the
 blueprint into linked nodes and groups so that the dependency graph and summary
 are rendered directly from the structured document.
 
-{include 0 SpherePackingBlueprint.Chapters.Introduction}
 {include 0 SpherePackingBlueprint.Chapters.SpherePackings}
 {include 0 SpherePackingBlueprint.Chapters.PackingsDensity}
 {include 0 SpherePackingBlueprint.Chapters.E8}
@@ -54,7 +51,6 @@ are rendered directly from the structured document.
 {include 0 SpherePackingBlueprint.Chapters.ModularForms}
 {include 0 SpherePackingBlueprint.Chapters.MagicFunctions}
 {include 0 SpherePackingBlueprint.Chapters.ModularInequalities}
-{include 0 SpherePackingBlueprint.Chapters.PortingStatus}
 
 {blueprint_graph}
 
