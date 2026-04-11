@@ -117,7 +117,7 @@ We now define a notion of density for bounded regions of space by considering th
 :::definition "SpherePacking.finiteDensity" (lean := "SpherePacking.finiteDensity") (parent := "sphere_setup")
 The finite density of a packing $`\Pa` is defined as
 $$`\Delta_{\Pa}(R):=\frac{\mathrm{Vol}(\Pa\cap B_d(0,R))}{\mathrm{Vol}(B_d(0,R))},\quad R>0.`
-{uses "SpherePacking"}[]{uses "SpherePacking.balls"}[]
+Uses {uses "SpherePacking"}[] and {uses "SpherePacking.balls"}[].
 :::
 
 ```tex "SpherePacking.finiteDensity"
@@ -141,7 +141,7 @@ As intuitive as it seems to take the density of a packing to be the limit of the
 :::definition "SpherePacking.density" (lean := "SpherePacking.density") (parent := "sphere_setup")
 We define the density of a packing $`\Pa` as the limit superior
 $$`\Delta_{\Pa}:=\limsup\limits_{R\to\infty}\Delta_{\Pa}(R).`
-{uses "SpherePacking"}[]{uses "SpherePacking.finiteDensity"}[]
+Uses {uses "SpherePacking"}[] and {uses "SpherePacking.finiteDensity"}[].
 :::
 
 ```tex "SpherePacking.density"
@@ -164,7 +164,7 @@ We may now define the sphere packing constant, the quantity that the sphere pack
 The sphere packing constant is defined as the supremum of packing densities
 over all possible packings:
 $$`\Delta_d:=\sup\limits_{\substack{\mathcal{P}\subset\R^d\\ \scriptscriptstyle\mathrm{sphere}\;\mathrm{packing}}}\Delta_{\mathcal{P}}.`
-{uses "SpherePacking.balls"}[]{uses "SpherePacking.density"}[]
+Uses {uses "SpherePacking.balls"}[] and {uses "SpherePacking.density"}[].
 :::
 
 ```tex "SpherePackingConstant"
@@ -193,7 +193,7 @@ Given a sphere packing $`\Pa(X)` with separation radius $`r`, we define the
 scaled packing with respect to a real number $`c > 0` to be the packing
 $`\Pa(cX)`, where $`cX = \setof{cx \in V}{x \in X}` has separation radius
 $`cr`.
-{uses "SpherePacking"}[]
+Uses {uses "SpherePacking"}[].
 :::
 
 ```tex "SpherePacking.scale"
@@ -206,7 +206,7 @@ $`cr`.
 Let $`\Pa(X)` be a sphere packing and $`c` a positive real number. Then, for
 all $`R > 0`,
 $$`\Delta_{\Pa(cX)}(cR) = \Delta_{\Pa(X)}(R).`
-{uses "SpherePacking.finiteDensity"}[]{uses "SpherePacking.scale"}[]
+Uses {uses "SpherePacking.finiteDensity"}[] and {uses "SpherePacking.scale"}[].
 :::
 
 ```tex "SpherePacking.scale_finiteDensity"
@@ -242,7 +242,7 @@ $`\Pa(cX) \cap B_d(0, cR) = c \cdot (\Pa(X) \cap B_d(0, R))`.
 Let $`\Pa(X)` be a sphere packing and $`c` a positive real number. Then the
 density of the scaled packing $`\Pa(cX)` is equal to the density of the
 original packing $`\Pa(X)`.
-{uses "SpherePacking.scale"}[]
+Uses {uses "SpherePacking.scale"}[].
 :::
 
 ```tex "SpherePacking.scale_density"
@@ -295,7 +295,7 @@ We can also use Lemma~\ref{SpherePacking.scale_density} to simplify the computat
 
 :::lemma_ "SpherePacking.constant_eq_constant_normalized" (lean := "SpherePacking.constant_eq_constant_normalized") (parent := "sphere_scaling")
 $$`\Delta_d = \sup\limits_{\substack{\Pa \subset \R^d \\ \text{sphere packing} \\ \text{sep.~rad.} = 1}} \Delta_{\Pa}`
-{uses "SpherePackingConstant"}[]{uses "SpherePacking.density"}[]
+Uses {uses "SpherePackingConstant"}[] and {uses "SpherePacking.density"}[].
 :::
 
 ```tex "SpherePacking.constant_eq_constant_normalized"
@@ -368,7 +368,7 @@ We can now define periodic sphere packings.
 We say that a sphere packing $`\Pa(X)` is $`\Lambda`-periodic if there exists
 a lattice $`\Lambda \subset \R^d` such that for all $`x \in X` and
 $`y \in \Lambda`, we have $`x+y \in X`.
-{uses "SpherePacking"}[]{uses "IsZLattice"}[]
+Uses {uses "SpherePacking"}[] and {uses "IsZLattice"}[].
 :::
 
 ```tex "PeriodicSpherePacking"
@@ -397,7 +397,7 @@ Now that we have simplified the process of computing the packing densities of sp
 :::definition "def:Periodic-sphere-packing-constant" (lean := "PeriodicSpherePackingConstant") (parent := "periodic_packings")
 The periodic sphere packing constant is defined to be
 $$`\Delta_{d}^{\text{periodic}} := \sup_{\substack{P \subset \R^d \\ \text{periodic packing}}} \Delta_P.`
-{uses "SpherePacking.density"}[]{uses "PeriodicSpherePacking"}[]
+Uses {uses "SpherePacking.density"}[] and {uses "PeriodicSpherePacking"}[].
 :::
 
 ```tex "def:Periodic-sphere-packing-constant"
@@ -410,7 +410,7 @@ $$`\Delta_{d}^{\text{periodic}} := \sup_{\substack{P \subset \R^d \\ \text{perio
 :::theorem "thm:periodic-packing-optimal" (lean := "periodic_constant_eq_constant") (parent := "periodic_packings")
 For all $`d`, the periodic sphere packing constant in $`\R^d` is equal to
 the sphere packing constant in $`\R^d`.
-{uses "SpherePacking.density"}[]{uses "def:Periodic-sphere-packing-constant"}[]
+Uses {uses "SpherePacking.density"}[] and {uses "def:Periodic-sphere-packing-constant"}[].
 :::
 
 ```tex "thm:periodic-packing-optimal"
@@ -452,7 +452,7 @@ With the terminologies above, we can state the main theorem of this project.
 All periodic packings $`\mathcal{P} \subseteq \R^8` have density satisfying
 $`\Delta_{\mathcal{P}} \leq \Delta_{E_8} = \frac{\pi^4}{384}`, the density of
 the $`E_8` sphere packing.
-{uses "E8-Lattice"}[]{uses "SpherePackingConstant"}[]{uses "SpherePacking.density"}[]{uses "E8Packing-density"}[]{uses "thm:g"}[]{uses "thm:Cohn-Elkies-general"}[]
+Uses {uses "E8-Lattice"}[], {uses "SpherePackingConstant"}[], {uses "SpherePacking.density"}[], {uses "E8Packing-density"}[], {uses "thm:g"}[], and {uses "thm:Cohn-Elkies-general"}[].
 :::
 
 ```tex "theorem:CE_Main"
@@ -476,7 +476,7 @@ function $`f(x)=g(x/\sqrt{2})` of {uses "thm:g"}[].
 :::corollary "corollary:upper-bound-E8" (parent := "sphere_main_statement")
 All packings $`\mathcal{P} \subseteq \R^8` have density satisfying
 $`\Delta_{\mathcal{P}} \leq \Delta_{E_8}`.
-{uses "thm:periodic-packing-optimal"}[]{uses "theorem:CE_Main"}[]
+Uses {uses "thm:periodic-packing-optimal"}[] and {uses "theorem:CE_Main"}[].
 :::
 
 ```tex "corollary:upper-bound-E8"
@@ -499,7 +499,7 @@ This is a direct consequence of Theorem
 
 :::corollary "MainTheorem" (lean := "SpherePacking.MainTheorem") (parent := "sphere_main_statement")
 $`\Delta_8 = \Delta_{E_8}`.
-{uses "corollary:upper-bound-E8"}[]
+Uses {uses "corollary:upper-bound-E8"}[].
 :::
 
 ```tex "MainTheorem"

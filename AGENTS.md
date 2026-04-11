@@ -61,6 +61,15 @@ Repository-specific guidance for Codex agents working in this tree.
   Lean code in blueprint modules.
 - Preserve TeX `\uses{...}` edges as Verso `{uses "..."}[]` references inside
   the relevant node or proof, not just in free prose.
+- When a standalone line would otherwise consist only of consecutive
+  `{uses "..."}[]` references, rewrite it deterministically as a sentence that
+  starts with `Uses`.
+- Use exactly `Uses {uses "..."}[].` for one edge, `Uses {uses "..."}[] and
+  {uses "..."}[].` for two edges, and `Uses {uses "..."}[], {uses "..."}[],
+  and {uses "..."}[].` for three or more edges.
+- Do not paraphrase, reorder, or integrate those standalone `Uses ...` lines
+  into surrounding prose; this is a presentation-only normalization that
+  applies equally to statements and proofs.
 - When the source block still needs to stay visible, prefer a labeled local
   `tex` block over rewriting it into placeholder prose.
 - Treat metadata cleanup as a second phase of LT rather than as a substitute

@@ -83,7 +83,7 @@ $$
 :::definition "def:congruence-subgroup" (parent := "modular_forms_setup")
 A subgroup $`\Gamma \subset \Gamma_1` is a congruence subgroup if
 $`\Gamma(N) \subset \Gamma` for some $`N \in \mathbb{N}`.
-{uses "def:level-N-princ-cong-subgp"}[]
+Uses {uses "def:level-N-princ-cong-subgp"}[].
 :::
 
 ```tex "def:congruence-subgroup"
@@ -100,7 +100,7 @@ $$`\alpha = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} \in \Gamma_2 \subset \G
 $$`\beta = \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix} \in \Gamma_2 \subset \Gamma_1.`
 It is easily verifiable that $`\alpha = T^2` and
 $`\beta = -S\alpha^{-1}S = -ST^{-2}S`.
-{uses "def:level-N-princ-cong-subgp"}[]
+Uses {uses "def:level-N-princ-cong-subgp"}[].
 :::
 
 ```tex "def:Gamma-generators"
@@ -120,7 +120,7 @@ $`\beta = -S\alpha^{-1}S = -ST^{-2}S`.
 
 :::lemma_ "lemma:Gamma-1-generators" (lean := "SL2Z_generate") (parent := "modular_forms_setup")
 We have $`\Gamma(1) = \langle S, T, -I \rangle`.
-{uses "def:Gamma-generators"}[]
+Uses {uses "def:Gamma-generators"}[].
 :::
 
 ```tex "lemma:Gamma-1-generators"
@@ -142,7 +142,7 @@ See Exercise `1.1.1` in {citet first.course}[].
 
 :::lemma_ "lemma:Gamma-2-generators" (lean := "Γ2_generate") (parent := "modular_forms_setup")
 We have $`\Gamma(2) = \langle \alpha, \beta, -I \rangle`.
-{uses "def:Gamma-generators"}[]
+Uses {uses "def:Gamma-generators"}[].
 :::
 
 ```tex "lemma:Gamma-2-generators"
@@ -185,7 +185,7 @@ $$j_k(z,\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)):=(cz+d)^{-k}.
 :::lemma_ "lemma:automorphy-factor-chain-rule" (lean := "UpperHalfPlane.denom_cocycle") (parent := "modular_forms_setup")
 The automorphy factor satisfies the chain rule
 $$`j_k(z,\gamma_1\gamma_2)=j_k(z,\gamma_1)\,j_k(\gamma_2z,\gamma_1).`
-{uses "def:automorphy-factor"}[]
+Uses {uses "def:automorphy-factor"}[].
 :::
 
 ```tex "lemma:automorphy-factor-chain-rule"
@@ -209,7 +209,7 @@ Let $`F` be a function on $`\mathbb{H}` and
 $`\gamma \in \mathrm{SL}_2(\mathbb{Z})`.
 Then the slash operator acts on $`F` by
 $$`(F|_k\gamma)(z):=j_k(z,\gamma)\,F(\gamma z).`
-{uses "def:automorphy-factor"}[]{uses "def:Gamma-1-Action"}[]
+Uses {uses "def:automorphy-factor"}[] and {uses "def:Gamma-1-Action"}[].
 :::
 
 ```tex "def:slash-operator"
@@ -222,7 +222,7 @@ $$(F|_k\gamma)(z):=j_k(z,\gamma)\,F(\gamma z). $$
 :::lemma_ "lemma:slash-operator-chain-rule" (lean := "SlashAction.slash_mul") (parent := "modular_forms_setup")
 The chain rule implies
 $$`F|_k\gamma_1\gamma_2=(F|_k\gamma_1)|_k\gamma_2.`
-{uses "lemma:automorphy-factor-chain-rule"}[]
+Uses {uses "lemma:automorphy-factor-chain-rule"}[].
 :::
 
 ```tex "lemma:slash-operator-chain-rule"
@@ -242,7 +242,7 @@ $$`F|_k\gamma_1\gamma_2=(F|_k\gamma_1)|_k\gamma_2.`
 
 :::lemma_ "lemma:slash-negI-even-weight" (lean := "modular_slash_negI_of_even") (parent := "modular_forms_setup")
 For even $`k`, $`F|_{k}(-I) = F`.
-{uses "def:slash-operator"}[]
+Uses {uses "def:slash-operator"}[].
 :::
 
 ```tex "lemma:slash-negI-even-weight"
@@ -274,7 +274,7 @@ function $`f : \mathbb{H} \to \mathbb{C}` such that:
    $`A, B \in \mathbb{R}` such that for all $`z \in \mathbb{H}` with
    $`A \le \mathrm{Im}(z)`, we have $`|(f \mid_k \gamma) (z) |\le B`.
 This defines a complex vector space denoted by $`M_k(\Gamma)`.
-{uses "def:congruence-subgroup"}[]
+Uses {uses "def:congruence-subgroup"}[].
 :::
 
 ```tex "def:Mk"
@@ -306,7 +306,7 @@ E_k(z):=\frac{1}{2}\sum_{(c,d)\in\Z^2, (c,d)=1}(cz+d)^{-k}.\end{equation}
 For all $`k`, $`E_k\in M_k(\Gamma_1)`.
 Especially, we have
 $$`E_k \left(-\frac{1}{z}\right) = z^k E_k(z).`
-{uses "def:Mk"}[]{uses "def:Ek"}[]
+Uses {uses "def:Mk"}[] and {uses "def:Ek"}[].
 :::
 
 ```tex "lemma:Ek-is-modular-form"
@@ -365,7 +365,7 @@ $$`E_k(z)=1+\frac{2}{\zeta(1-k)}\sum_{n=1}^\infty \sigma_{k-1}(n)\,e^{2\pi i z},
 where $`\sigma_{k-1}(n)=\sum_{d|n} d^{k-1}`. In particular,
 $$`E_4(z)= 1+240\sum_{n=1}^\infty \sigma_3(n)\,e^{2\pi i n z}`
 $$`E_6(z)= 1-504\sum_{n=1}^\infty \sigma_5(n)\,e^{2\pi i n z}.`
-{uses "def:Ek"}[]
+Uses {uses "def:Ek"}[].
 :::
 
 ```tex "lemma:Ek-Fourier"
@@ -406,7 +406,7 @@ We set
 :::lemma_ "lemma:E2-transform-S" (lean := "E₂_transform") (parent := "eisenstein_discriminant")
 This function is not modular; however, it satisfies
 $$`z^{-2}\,E_2\left(-\frac{1}{z}\right) = E_2(z) -\frac{6i}{\pi}\, \frac{1}{z}.`
-{uses "def:E2"}[]
+Uses {uses "def:E2"}[].
 :::
 
 ```tex "lemma:E2-transform-S"
@@ -431,7 +431,7 @@ This is exercise 1.2.8 of \cite{first course}.
 :::lemma_ "lemma:E2-transform-general" (lean := "G₂_transform") (parent := "eisenstein_discriminant")
 We have
 $$`(cz + d)^{-2} E_2\left(\frac{az + b}{cx + d}\right) = E_2(z) - \frac{6ic}{\pi (cz + d)}, \quad \begin{pmatrix} a & b \\ c & d\end{pmatrix} \in \mathrm{SL}_{2}(\mathbb{Z}).`
-{uses "lemma:E2-transform-S"}[]{uses "def:E2"}[]
+Uses {uses "lemma:E2-transform-S"}[] and {uses "def:E2"}[].
 :::
 
 ```tex "lemma:E2-transform-general"
@@ -475,7 +475,7 @@ where $q = e^{2\pi i z}$.
 :::lemma_ "lemma:dedekind_eta_transformation" (lean := "eta_equality") (parent := "eisenstein_discriminant")
 The Dedekind eta function transforms as
 $$`\eta\left(-\frac{1}{z}\right) = \sqrt{-iz} \eta(z).`
-{uses "def:dedekind_eta"}[]
+Uses {uses "def:dedekind_eta"}[].
 :::
 
 ```tex "lemma:dedekind_eta_transformation"
@@ -506,7 +506,7 @@ $`E_2`. See {citet first.course}[], Proposition `1.2.5`.
 :::definition "def:disc-definition" (lean := "Δ") (parent := "eisenstein_discriminant")
 The discriminant form $`\Delta(z)` is given by
 $$`\Delta(z) = e^{2 \pi i z} \prod_{n \ge 1} (1 - e^{2 \pi i n z})^{24}.`
-{uses "def:dedekind_eta"}[]
+Uses {uses "def:dedekind_eta"}[].
 :::
 
 ```tex "def:disc-definition"
@@ -524,7 +524,7 @@ Especially,
 $$`\Delta\left(-\frac{1}{z}\right) = z^{12} \Delta(z).`
 Also, it vanishes at the unique cusp, i.e. it is a cusp form of level
 $`\Gamma_1` and weight $`12`.
-{uses "def:disc-definition"}[]{uses "lemma:dedekind_eta_transformation"}[]
+Uses {uses "def:disc-definition"}[] and {uses "lemma:dedekind_eta_transformation"}[].
 :::
 
 ```tex "lemma:disc-cuspform"
@@ -556,7 +556,7 @@ we obtain $`\Delta(-1/z) = z^{12}\Delta(z)`.
 :::lemma_ "lemma:disc-E4E6" (lean := "Delta_E4_eqn") (parent := "eisenstein_discriminant")
 We have
 $$`\Delta(z) = (E_4^3-E_6^2)/1728.`
-{uses "def:disc-definition"}[]
+Uses {uses "def:disc-definition"}[].
 :::
 
 ```tex "lemma:disc-E4E6"
@@ -585,7 +585,7 @@ $`E_6` and verify directly that the first term vanishes.
 
 :::corollary "cor:disc-pos" (lean := "Delta_imag_axis_pos") (parent := "eisenstein_discriminant")
 $`\Delta(it) > 0` for all $`t > 0`.
-{uses "def:disc-definition"}[]
+Uses {uses "def:disc-definition"}[].
 :::
 
 ```tex "cor:disc-pos"
@@ -610,7 +610,7 @@ $$
 
 :::corollary "cor:disc-nonvanishing" (lean := "Δ_ne_zero") (parent := "eisenstein_discriminant")
 $`\Delta(z) \neq 0` for all $`z \in \mathfrak{H}`.
-{uses "def:disc-definition"}[]
+Uses {uses "def:disc-definition"}[].
 :::
 
 ```tex "cor:disc-nonvanishing"
@@ -634,7 +634,7 @@ This follows from the product formula.
 Let $`k \in \mathbb{Z}` with $`k < 0`.
 Then $`M_k(\Gamma_1) = \{0\}` and moreover
 $`\dim M_0(\Gamma(1)) = 1`.
-{uses "def:Mk"}[]
+Uses {uses "def:Mk"}[].
 :::
 
 ```tex "thm:nonpos_wt"
@@ -661,7 +661,7 @@ $`\dim M_k(\Gamma_1) = \lfloor k / 12 \rfloor` if
 $`k \equiv 2 \mod 12`, and
 $`\dim M_k(\Gamma_1) = \lfloor k / 12 \rfloor + 1` if
 $`k \not\equiv 2 \mod 12`.
-{uses "def:Mk"}[]{uses "lemma:disc-E4E6"}[]{uses "def:disc-definition"}[]
+Uses {uses "def:Mk"}[], {uses "lemma:disc-E4E6"}[], and {uses "def:disc-definition"}[].
 :::
 
 ```tex "thm:lvl1_dims"
@@ -722,7 +722,7 @@ but $a_0(f) \ne 0$ (since its assumed to not be a cuspform), this would mean $\D
 :::theorem "thm:dim-mf-general-level" (lean := "dim_gen_cong_levels") (parent := "eisenstein_discriminant")
 Let $`\Gamma` be a congruence subgroup. Then $`M_k(\Gamma)` is
 finite-dimensional.
-{uses "def:Mk"}[]{uses "thm:lvl1_dims"}[]
+Uses {uses "def:Mk"}[] and {uses "thm:lvl1_dims"}[].
 :::
 
 ```tex "thm:dim-mf-general-level"
@@ -755,7 +755,7 @@ We have
 $$`\dim M_2(\mathrm{SL}_{2}(\mathbb{Z})) = 0`
 $$`\dim M_4(\mathrm{SL}_{2}(\mathbb{Z})) = \dim M_6(\mathrm{SL}_{2}(\mathbb{Z})) = \dim M_8(\mathrm{SL}_{2}(\mathbb{Z})) = 1`
 $$`\dim S_4(\mathrm{SL}_{2}(\mathbb{Z})) = \dim S_6(\mathrm{SL}_{2}(\mathbb{Z})) = \dim S_8(\mathrm{SL}_{2}(\mathbb{Z})) = 0.`
-{uses "def:Mk"}[]{uses "thm:lvl1_dims"}[]
+Uses {uses "def:Mk"}[] and {uses "thm:lvl1_dims"}[].
 :::
 
 ```tex "cor:dim-mf"
@@ -803,7 +803,7 @@ We define three different theta functions (so called ``Thetanullwerte'') as
 
 :::definition "def:H2-H3-H4" (lean := "H₂, H₃, H₄") (parent := "theta_and_identities")
 Define $`H_2 = \Theta_2^4`, $`H_3 = \Theta_3^4`, $`H_4 = \Theta_4^4`.
-{uses "def:th00-th01-th10"}[]
+Uses {uses "def:th00-th01-th10"}[].
 :::
 
 ```tex "def:H2-H3-H4"
@@ -820,7 +820,7 @@ These elements act on the theta functions in the following way.
 $$`H_2 | S = -H_4,\quad H_3 | S = -H_3,\quad H_4 | S = -H_2`
 and
 $$`H_2 | T = -H_2,\quad H_3 | T = H_4,\quad H_4 | T = H_3.`
-{uses "def:th00-th01-th10"}[]{uses "def:H2-H3-H4"}[]
+Uses {uses "def:th00-th01-th10"}[] and {uses "def:H2-H3-H4"}[].
 :::
 
 ```tex "lemma:theta-transform-S-T"
@@ -909,7 +909,7 @@ $`H_{2}`, $`H_{3}`, and $`H_{4}` are slash invariant under $`\Gamma(2)`,
 that is, for all $`\gamma \in \Gamma(2)` and
 $`i \in \{2, 3, 4\}`, we have
 $`H_i|\gamma = H_i|\gamma^{-1} = H_i`.
-{uses "lemma:slash-operator-chain-rule"}[]{uses "lemma:slash-negI-even-weight"}[]{uses "lemma:theta-transform-S-T"}[]{uses "lemma:Gamma-2-generators"}[]
+Uses {uses "lemma:slash-operator-chain-rule"}[], {uses "lemma:slash-negI-even-weight"}[], {uses "lemma:theta-transform-S-T"}[], and {uses "lemma:Gamma-2-generators"}[].
 :::
 
 ```tex "lemma:theta-slash-invariant"
@@ -954,7 +954,7 @@ For example, invariance for $H_2$ can be proved by
 For all $`\gamma \in \Gamma_1`, the slash-translates
 $`H_{2}|_2 \gamma`, $`H_{3}|_2 \gamma`, and $`H_{4}|_2 \gamma` are
 holomorphic at $`i\infty`.
-{uses "lemma:theta-slash-invariant"}[]{uses "lemma:Gamma-1-generators"}[]
+Uses {uses "lemma:theta-slash-invariant"}[] and {uses "lemma:Gamma-1-generators"}[].
 :::
 
 ```tex "lemma:theta-bounded-im-infty"
@@ -1002,7 +1002,7 @@ The proofs for $`H_3` and $`H_4` are similar.
 
 :::lemma_ "lemma:theta-modular" (lean := "H₂_MF,H₃_MF,H₄_MF") (parent := "theta_and_identities")
 $`H_{2}`, $`H_{3}`, and $`H_{4}` belong to $`M_2(\Gamma(2))`.
-{uses "lemma:theta-slash-invariant"}[]{uses "lemma:theta-bounded-im-infty"}[]
+Uses {uses "lemma:theta-slash-invariant"}[] and {uses "lemma:theta-bounded-im-infty"}[].
 :::
 
 ```tex "lemma:theta-modular"
@@ -1030,7 +1030,7 @@ $`H_2` admits a Fourier series of the form
 $$`H_2(z) = \sum_{n \ge 1} c_{H_2}(n) e^{\pi i n z}`
 for some $`c_{H_2}(n) \in \mathbb{R}_{\ge 0}`, with $`c_{H_2}(1) = 16` and
 $`c_{H_2}(n) = O(n^k)` for some $`k \in \mathbb{N}`.
-{uses "def:H2-H3-H4"}[]
+Uses {uses "def:H2-H3-H4"}[].
 :::
 
 ```tex "prop:H2-fourier"
@@ -1077,7 +1077,7 @@ $$`H_3(z) = \sum_{n \ge 0} c_{H_3}(n) e^{\pi i n z}`
 for some $`c_{H_3}(n) \in \R_{\ge 0}` with $`c_{H_3}(0) = 1` and
 $`c_{H_3}(n) = O(n^k)` for some $`k \in \N`.
 Especially, $`H_3` is not cuspidal.
-{uses "def:H2-H3-H4"}[]
+Uses {uses "def:H2-H3-H4"}[].
 :::
 
 ```tex "prop:H3-fourier"
@@ -1114,7 +1114,7 @@ $$`H_4(z) = \sum_{n \ge 0} c_{H_4}(n) e^{\pi i n z}`
 for some $`c_{H_4}(n) \in \R` with $`c_{H_4}(0) = 1` and
 $`c_{H_4}(n) = O(n^k)` for some $`k \in \N`.
 Especially, $`H_4` is not cuspidal.
-{uses "def:H2-H3-H4"}[]
+Uses {uses "def:H2-H3-H4"}[].
 :::
 
 ```tex "prop:H4-fourier"
@@ -1131,7 +1131,7 @@ Especially, $H_4$ is not cuspidal.
 :::lemma_ "lemma:jacobi-identity" (lean := "jacobi_identity") (parent := "theta_and_identities")
 These three theta functions satisfy the Jacobi identity
 $$`H_{2} + H_{4} = H_{3} \Leftrightarrow \Theta_{2}^4 + \Theta_{4}^4 = \Theta_{3}^4.`
-{uses "lemma:theta-modular"}[]{uses "cor:dim-mf"}[]
+Uses {uses "lemma:theta-modular"}[] and {uses "cor:dim-mf"}[].
 :::
 
 ```tex "lemma:jacobi-identity"
@@ -1174,7 +1174,7 @@ We have
 $$`E_4 = \frac{1}{2}(H_{2}^{2} + H_{3}^{2} + H_{4}^{2}) = H_{2}^{2} + H_{2}H_{4} + H_{4}^{2}`
 $$`E_6 = \frac{1}{2} (H_{2} + H_{3})(H_{3} + H_{4}) (H_{4} - H_{2}) = \frac{1}{2}(H_2 + 2H_4)(2H_2 + H_4)(H_4 - H_2)`
 $$`\Delta = \frac{1}{256} (H_{2}H_{3}H_{4})^2.`
-{uses "lemma:theta-transform-S-T"}[]{uses "lemma:theta-modular"}[]{uses "lemma:disc-cuspform"}[]
+Uses {uses "lemma:theta-transform-S-T"}[], {uses "lemma:theta-modular"}[], and {uses "lemma:disc-cuspform"}[].
 :::
 
 ```tex "lemma:lv1-lv2-identities"
@@ -1209,7 +1209,7 @@ Now the identities follow from the dimension calculations $\dim M_4(\Gamma_1) = 
 :::corollary "cor:theta-pos" (lean := "H₂_imag_axis_pos, H₄_imag_axis_pos") (parent := "theta_and_identities")
 All three functions $`t \mapsto H_2(it), H_3(it), H_4(it)` are positive for
 $`t > 0`.
-{uses "lemma:jacobi-identity"}[]{uses "lemma:theta-transform-S-T"}[]
+Uses {uses "lemma:jacobi-identity"}[] and {uses "lemma:theta-transform-S-T"}[].
 :::
 
 ```tex "cor:theta-pos"
@@ -1254,7 +1254,7 @@ We define the (normalized) derivative of $F$ as
 We have an equality of operators $`D = q \frac{\dd}{\dd q}`.
 In particular, if $`F(z) = \sum_{n \ge n_0} a_n q^n`, then
 $`F'(z) = \sum_{n \ge n_0} n a_n q^n`.
-{uses "def:derivative"}[]
+Uses {uses "def:derivative"}[].
 :::
 
 ```tex "lemma:der-q-series"
@@ -1279,7 +1279,7 @@ Directly follows from the definition \eqref{def:derivative}, where $\frac{1}{2 \
 For $`k \in \mathbb{R}`, define the weight-$`k` Serre derivative
 $`\partial_k` of a modular form $`F` by
 $$`\partial_k F := F' - \frac{k}{12} E_2 F.`
-{uses "def:derivative"}[]{uses "def:E2"}[]
+Uses {uses "def:derivative"}[] and {uses "def:E2"}[].
 :::
 
 ```tex "def:serre-der"
@@ -1295,7 +1295,7 @@ For $k \in \mathbb{R}$, define the weight $k$ Serre derivative $\partial_{k}$ of
 Serre derivative $`\partial_k` is equivariant with the slash action of
 $`\mathrm{SL}_{2}(\mathbb{Z})` in the sense that
 $$`\partial_{k} (F|_{k}\gamma) = (\partial_{k} F)|_{k+2}\gamma, \quad \forall \gamma \in \mathrm{SL}_{2}(\mathbb{Z}).`
-{uses "def:serre-der"}[]{uses "def:E2"}[]{uses "lemma:E2-transform-general"}[]
+Uses {uses "def:serre-der"}[], {uses "def:E2"}[], and {uses "lemma:E2-transform-general"}[].
 :::
 
 ```tex "thm:serre-der-equiv-action"
@@ -1353,7 +1353,7 @@ Combined with \eqref{eqn:E2-transform-general}, we get
 Let $`F` be a modular form of weight $`k` and level $`\Gamma`.
 Then $`\partial_{k}F` is a modular form of weight $`k + 2` of the same
 level.
-{uses "def:serre-der"}[]{uses "def:Mk"}[]{uses "thm:serre-der-equiv-action"}[]
+Uses {uses "def:serre-der"}[], {uses "def:Mk"}[], and {uses "thm:serre-der-equiv-action"}[].
 :::
 
 ```tex "thm:serre-der-modularity"
@@ -1380,7 +1380,7 @@ We have
 $$`E_2' = \frac{E_2^2 - E_4}{12}`
 $$`E_4' = \frac{E_2 E_4 - E_6}{3}`
 $$`E_6' = \frac{E_2 E_6 - E_4^2}{2}.`
-{uses "thm:serre-der-modularity"}[]{uses "def:serre-der"}[]{uses "lemma:E2-transform-general"}[]{uses "cor:dim-mf"}[]
+Uses {uses "thm:serre-der-modularity"}[], {uses "def:serre-der"}[], {uses "lemma:E2-transform-general"}[], and {uses "cor:dim-mf"}[].
 :::
 
 ```tex "thm:ramanujan-formula"
@@ -1437,7 +1437,7 @@ By \Cref{cor:dim-mf}, they should be multiples of $E_4, E_6, E_4^2$, and the pro
 :::corollary "cor:logder-disc-E2" (parent := "serre_derivative")
 We have
 $$`\Delta' = E_2 \Delta.`
-{uses "thm:ramanujan-formula"}[]{uses "def:disc-definition"}[]
+Uses {uses "thm:ramanujan-formula"}[] and {uses "def:disc-definition"}[].
 :::
 
 ```tex "cor:logder-disc-E2"
@@ -1474,7 +1474,7 @@ or equivalently,
 $$`\partial_{2} H_{2} = \frac{1}{6} (H_{2}^{2} + 2 H_{2} H_{4})`
 $$`\partial_{2} H_{3} = \frac{1}{6} (H_{2}^{2} - H_{4}^{2})`
 $$`\partial_{2} H_{4} = -\frac{1}{6} (2H_{2} H_{4} + H_{4}^{2}).`
-{uses "def:serre-der"}[]{uses "lemma:theta-transform-S-T"}[]{uses "lemma:jacobi-identity"}[]
+Uses {uses "def:serre-der"}[], {uses "lemma:theta-transform-S-T"}[], and {uses "lemma:jacobi-identity"}[].
 :::
 
 ```tex "prop:theta-der"
@@ -1556,7 +1556,7 @@ and by considering $q$-series ($E_4$ has an invertible $q$-series), we get $f_2 
 The Serre derivative satisfies the following product rule: for any quasimodular
 forms $`F` and $`G`,
 $$`\partial_{w_1 + w_2} (FG) = (\partial_{w_1}F)G + F (\partial_{w_2}G).`
-{uses "def:serre-der"}[]
+Uses {uses "def:serre-der"}[].
 :::
 
 ```tex "thm:serre-der-prod-rule"
@@ -1595,7 +1595,7 @@ coefficients. Assume that there exists $`k` such that
 $`(\partial_{k}F)(it) > 0` for all $`t > 0`.
 If the first Fourier coefficient of $`F` is positive, then $`F(it) > 0` for
 all $`t > 0`.
-{uses "def:serre-der"}[]{uses "cor:logder-disc-E2"}[]
+Uses {uses "def:serre-der"}[] and {uses "cor:logder-disc-E2"}[].
 :::
 
 ```tex "thm:anti-serre-der-pos"
