@@ -328,7 +328,7 @@ We begin by defining what a lattice is in Euclidean space.
 We begin by defining what a lattice is in Euclidean space.
 ```
 
-:::definition "IsZLattice" (parent := "periodic_packings")
+:::definition "IsZLattice" (lean := "IsZLattice") (parent := "periodic_packings")
 We say that an additive subgroup $`\Lambda \le \R^d` is a lattice if it is
 discrete and its $`\R`-span contains all the elements of $`\R^d`.
 :::
