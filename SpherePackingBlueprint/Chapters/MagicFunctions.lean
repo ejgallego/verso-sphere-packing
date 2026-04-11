@@ -39,7 +39,7 @@ and such that they have double zeroes at all $`\Lambda_8`-vectors of length
 greater than $`\sqrt{2}`. Recall that each vector of $`\Lambda_8` has length
 $`\sqrt{2n}` for some $`n\in\N_{\geq 0}`. We define $`a` and $`b` so that
 their values are purely imaginary because this simplifies some of our
-computations. We will show in Section the final inequalities section that an appropriate
+computations. We will show in Section `sec: g` that an appropriate
 linear combination of functions $`a` and $`b` satisfies conditions
 `eqn:g1` to `eqn:g3`.
 
@@ -54,8 +54,8 @@ We will show in Section \ref{sec: g} that an appropriate linear combination of f
 ```
 
 Both functions will be defined via certain integrals of quasi-modular forms.
-Then the eigenfunction property mainly follows from the Poisson summation
-formula and the
+Then the eigenfunction property mainly follows from
+Theorem `thm:Poisson-summation-formula` and the
 transformation laws of quasi-modular forms. To apply that theorem, we will show
 that $`a(x)` and $`b(x)` are Schwartz functions, which can be proved by
 verifying fast decay of the defining integrals.
@@ -512,7 +512,7 @@ The bound for $`I_4(r)` is similar.
 /- source paragraph break -/
 For $`I_6(r)`, parametrize $`z = i t` for $`t \in [1, \infty)`, giving
 $$`I_6(r) = 2 i \int_1^{\infty} \phi_0(i t) e^{-\pi r t} \, \dd t.`
-Using Corollary `cor:phi0-bound`, the absolute value is bounded by
+Using Corollary {uses "cor:phi0-bound"}[], the absolute value is bounded by
 $$`|I_6(r)| \leq 2 \int_1^{\infty} |\phi_0(i t)| e^{-\pi r t} \, \dd t \leq \frac{2C_0}{\pi} \int_1^{\infty} e^{-2\pi t} e^{-\pi r t} \, \dd t = \frac{2C_0}{\pi} \frac{e^{-\pi (r + 2)}}{r + 2}.`
 :::
 
@@ -703,7 +703,7 @@ For $r>\sqrt{2}$ we can express $a(r)$ in the following form
 :::proof "prop:a-double-zeros"
 Denote the right-hand side by $`d(r)`.
 Convergence of the integral for $`r > \sqrt{2}` follows from
-Corollary `cor:phi0-near-0-infty`.
+Corollary {uses "cor:phi0-near-0-infty"}[].
 We can write
 $$`d(r)=\int\limits_{-1}^{i\infty-1}\phi_0\Big(\frac{-1}{z+1}\Big)\,(z+1)^2\,e^{\pi i r^2 \,z}\,dz-
     2\int\limits_{0}^{i\infty}\phi_0\Big(\frac{-1}{z}\Big)\,z^2\,e^{\pi i r^2 \,z}\,dz`
