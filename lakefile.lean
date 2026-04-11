@@ -2,7 +2,7 @@ import Lake
 open Lake DSL
 
 require SpherePacking from "./Sphere-Packing-LaTeX-Reference"
-require VersoBlueprint from git "git@github.com:leanprover/verso-blueprint.git" @ "v4.28.0"
+require VersoBlueprint from git "https://github.com/ejgallego/verso-blueprint.git" @ "v4.28.0"
 
 package SpherePackingBlueprint where
   precompileModules := false
