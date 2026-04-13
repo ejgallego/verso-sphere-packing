@@ -94,13 +94,6 @@ $$`\Pa(X) := \bigcup_{x \in X} B_d(x,r)`
 \end{definition}
 ```
 
-Note that a sphere packing is uniquely defined by a given set of centers,
-provided that set admits a corresponding separation radius. During the
-formalisation process, everything depending on sphere packings is therefore
-defined in terms of `SpherePacking`, a `structure` bundling the identifying
-information of a packing rather than the actual balls themselves. For this
-blueprint, however, we will refrain from making that distinction.
-
 ```tex "SpherePacking"
 \begin{remark}\label{SpherePacking}\lean{SpherePacking}\leanok
   Note that a sphere packing is uniquely defined from a given set of centres (which, in order to be a valid set of centres, must admit a corresponding separation radius). Therefore, as a conscious choice during the formalisation process, we will define everything that depends on sphere packings in terms of \verb|SpherePacking|, a \verb|structure| that bundles all the identifying information of a packing, but not the actual balls themselves. For the purposes of this blueprint, however, we will refrain from making this distinction.
@@ -176,15 +169,8 @@ Uses {uses "SpherePacking.balls"}[] and {uses "SpherePacking.density"}[].
 \end{definition}
 ```
 
-Given that the problem concerns the arrangement of balls in space, it is
-natural not to worry about the radius of the balls, so long as they are all
-equal. However, the definition `SpherePacking.balls` involves a choice of
-separation radius. In this subsection we describe how to change the separation
-radius of a sphere packing by scaling the packing by a positive real number,
-and prove that this does not affect its density. This will let us choose any
-separation radius we like when defining the optimal sphere packing in $`\R^d`.
-
 ```tex
+\uses{SpherePacking.balls}
 Given that the problem involves the \emph{arrangement} of balls in space, it is intuitive not to worry about the radius of the balls (so long as they are all equal to each other). However, Definition~\ref{SpherePacking.balls} involves a choice of separation radius. In principle, we would want two sphere packing configurations that differ only in separation radii to `encode the same information'. In this brief subsection, we will describe how to change the separation radius of a sphere packing by \emph{scaling} the packing by a positive real number and prove that this does not affect its density. This will give us the freedom to choose any separation radius we like when attempting to define the optimal sphere packing in $\R^d$.
 ```
 
@@ -285,11 +271,8 @@ $`\sqrt{2}`.
 Therefore, as expected, we do not need to worry about the separation radius when constructing sphere packings. This will be useful when we attempt to construct the optimal sphere packing in $\R^8$---and even more so when attempting to \emph{formalise} this construction---because the underlying structure of the packing is given by a set known as the $E_8$ lattice, which has separation radius $\sqrt{2}$.
 ```
 
-We can also use the lemma `SpherePacking.scale_density` to simplify the
-computation of the sphere packing constant by taking the supremum not over all
-sphere packings but only over those with separation radius $`1`.
-
 ```tex
+\uses{SpherePacking.scale_density}
 We can also use Lemma~\ref{SpherePacking.scale_density} to simplify the computation of the sphere packing constant by taking the supremum not over \emph{all} sphere packings but only over those with density $1$.
 ```
 
@@ -364,7 +347,7 @@ We can now define periodic sphere packings.
 We can now define periodic sphere packings.
 ```
 
-:::definition "PeriodicSpherePacking" (parent := "periodic_packings")
+:::definition "PeriodicSpherePacking" (lean := "PeriodicSpherePacking") (parent := "periodic_packings")
 We say that a sphere packing $`\Pa(X)` is $`\Lambda`-periodic if there exists
 a lattice $`\Lambda \subset \R^d` such that for all $`x \in X` and
 $`y \in \Lambda`, we have $`x+y \in X`.
@@ -468,6 +451,7 @@ function $`f(x)=g(x/\sqrt{2})` of {uses "thm:g"}[].
 
 ```tex "theorem:CE_Main" (slot := "proof")
 \begin{proof}
+\uses{thm:Cohn-Elkies-general, thm:g}
   Directly follows from \Cref{thm:Cohn-Elkies-general} applied to the function $f(x)=g(x/\sqrt{2})$ of \Cref{thm:g}.
   % TODO: Add a \ref to the actual proof at the end of this blueprint, I guess.
 \end{proof}
@@ -493,6 +477,7 @@ This is a direct consequence of Theorem
 
 ```tex "corollary:upper-bound-E8" (slot := "proof")
 \begin{proof}
+\uses{thm:periodic-packing-optimal, theorem:CE_Main}
   This is a direct consequence of Theorem \cref{thm:periodic-packing-optimal} and \cref{theorem:CE_Main}.
 \end{proof}
 ```
@@ -517,6 +502,7 @@ the result follows.
 
 ```tex "MainTheorem" (slot := "proof")
 \begin{proof}
+\uses{corollary:upper-bound-E8}
   By definition, $\Delta_{E_8} \leq \Delta_8$, while \cref{corollary:upper-bound-E8} shows $\Delta_8 = \sup_{\mathrm{packing} \, \mathcal{P}} \leq \Delta_{E_8}$, and the result follows.
 \end{proof}
 ```

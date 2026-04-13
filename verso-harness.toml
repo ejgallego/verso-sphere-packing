@@ -26,4 +26,5 @@ proposition = "lemma_"
 
 [harness]
 native_warnings = false
+docstring_warnings = false
 strict_external_code = true

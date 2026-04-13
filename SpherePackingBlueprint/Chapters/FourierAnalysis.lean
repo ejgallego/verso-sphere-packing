@@ -87,7 +87,7 @@ Of great interest to us will be a specific family of functions, known as Schwart
 \subsection{On Schwartz Functions}
 ```
 
-:::definition "def:Schwartz-Space" (parent := "fourier_setup")
+:::definition "def:Schwartz-Space" (lean := "SchwartzMap") (parent := "fourier_setup")
 A $`C^\infty` function $`f:\R^d\to\C` is called a Schwartz function if it
 decays to zero as $`\|x\|\to\infty` faster than any inverse power of
 $`\|x\|`, and the same holds for all partial derivatives of $`f`. That is,
@@ -286,12 +286,6 @@ sufficient for our purposes.
 ```tex
 While the Poisson Summation Formula over lattices can be stated in greater generality (and probably should be formalised as such in Mathlib due to the many applications it admits), we stick with Schwartz functions because that should be sufficient for our purposes.
 ```
-
-Later we will use Theorem `thm:Poisson-summation-formula` to show that
-the functions $`a(x)` and $`b(x)` defined later are eigenfunctions of the
-Fourier transform. To apply the theorem, we need to show that these functions
-are Schwartz functions. We do so by verifying the following sufficient
-condition.
 
 ```tex
 Later, we will use Theorem \ref{thm:Poisson-summation-formula} to prove that the certain functions $a(x)$ and $b(x)$ that will be defined later are eigenfunctions of the Fourier transform.

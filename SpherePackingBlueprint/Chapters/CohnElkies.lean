@@ -177,9 +177,6 @@ g(0)&=\widehat{g}(0)=1.\label{eqn:g3}
 \end{theorem}
 ```
 
-Theorem `thm:Cohn-Elkies-general` applied to the optimal function
-$`f(x)=g(x/\sqrt{2})` immediately implies the main theorem.
-
 ```tex
 Theorem \ref{thm:Cohn-Elkies-general} applied to the optimal function $f(x)=g(x/\sqrt{2})$ immediately implies \cref{MainTheorem}.
 ```

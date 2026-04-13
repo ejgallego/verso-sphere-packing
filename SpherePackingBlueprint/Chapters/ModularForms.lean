@@ -129,10 +129,6 @@ Uses {uses "def:Gamma-generators"}[].
 \end{lemma}
 ```
 
-:::proof "lemma:Gamma-1-generators"
-See Exercise `1.1.1` in {citet first.course}[].
-:::
-
 ```tex "lemma:Gamma-1-generators" (slot := "proof")
 \begin{proof}
     \leanok
@@ -150,10 +146,6 @@ Uses {uses "def:Gamma-generators"}[].
   We have $\Gamma(2) = \langle \alpha, \beta, -I \rangle$.
 \end{lemma}
 ```
-
-:::proof "lemma:Gamma-2-generators"
-See Exercise `1.2.4` in {citet first.course}[].
-:::
 
 ```tex "lemma:Gamma-2-generators" (slot := "proof")
 \begin{proof}
@@ -264,7 +256,7 @@ $(F|_{k}(-I))(z) = (-1)^{-k}F((-I)z) = F(z)$.
 \end{proof}
 ```
 
-:::definition "def:Mk" (parent := "modular_forms_setup")
+:::definition "def:Mk" (lean := "ModularForm") (parent := "modular_forms_setup")
 Let $`\Gamma` be a subgroup of $`\mathrm{SL}_2(\mathbb{Z})`.
 A modular form of level $`\Gamma` and weight $`k \in \mathbb{Z}` is a
 function $`f : \mathbb{H} \to \mathbb{C}` such that:
@@ -548,6 +540,7 @@ we obtain $`\Delta(-1/z) = z^{12}\Delta(z)`.
 
 ```tex "lemma:disc-cuspform" (slot := "proof")
 \begin{proof}
+\uses{lemma:dedekind_eta_transformation}
     \leanok
     The fact that it is invariant under translation is clear from the definition, so we only need to check transformation under $S$. Now, note that $\eta^{24} = \Delta$, and from \ref{lemma:dedekind_eta_transformation} we have $\eta(-1/z) = \sqrt{-iz} \eta(z)$, so $\Delta(-1/z) = z^{12} \Delta(z)$ as required.
 \end{proof}
@@ -601,6 +594,7 @@ $$`\Delta(it) = e^{-2 \pi t} \prod_{n \ge 1} (1 - e^{-2 \pi n t})^{24} > 0.`
 
 ```tex "cor:disc-pos" (slot := "proof")
 \begin{proof}\leanok
+\uses{def:disc-definition}
 By \ref{def:disc-definition}, we have
 $$
 \Delta(it) = e^{-2 \pi t} \prod_{n \ge 1} (1 - e^{-2 \pi n t})^{24} > 0.
@@ -707,6 +701,7 @@ nonvanishing of $`\Delta`.
 
 ```tex "thm:lvl1_dims" (slot := "proof")
 \begin{proof}
+\uses{thm:nonpos_wt}
 \leanok
 First we note that for $2 < k$ we have $\dim(M_k(\Gamma_1)) = 1 + \dim S_k(\Gamma_1)$. This follows since we know the $E_k$ are in $M_k$ so by scaling appropriately, any non-cuspform $f \in M_k$ we would have $f - a E_k \in S_k$ for some $a$.
 
@@ -936,6 +931,7 @@ $`H_2|\beta = H_2 |(-S\alpha^{-1}S) = H_2 | (S\alpha^{-1}S) =-H_4 |(\alpha^{-1}S
 
 ```tex "lemma:theta-slash-invariant" (slot := "proof")
 \begin{proof}\leanok
+\uses{lemma:Gamma-2-generators, lemma:slash-operator-chain-rule, lemma:slash-negI-even-weight, lemma:theta-transform-S-T}
   By \cref{lemma:Gamma-2-generators} and \cref{lemma:slash-operator-chain-rule}, it suffices to show that the $H_i$ are invariant under slash actions with respect to $\alpha$, $\beta$, and $-I$.
 Invariance under $-I$ follows from Lemma \ref{lemma:slash-negI-even-weight}.
 The rest follows from Lemma \ref{lemma:slash-operator-chain-rule}, \ref{lemma:theta-transform-S-T}, and the matrix identities
@@ -984,6 +980,7 @@ The proofs for $`H_3` and $`H_4` are similar.
 
 ```tex "lemma:theta-bounded-im-infty" (slot := "proof")
 \begin{proof}
+\uses{lemma:theta-transform-S-T, lemma:Gamma-2-generators}
     \leanok
     We want to show that for $\gamma \in \Gamma_1$, $\|H_2|_2\gamma(z)\|$ is bounded as $z \in \mathbb{H} \to i\infty$. Firstly, by \Cref{lemma:theta-transform-S-T}, \Cref{lemma:Gamma-2-generators} and induction on group elements, we notice that $\{\pm H_2, \pm H_3, \pm H_4\}$ is closed under action by $\Gamma_1$. Hence, it suffices to prove that $H_2$, $H_3$ and $H_4$ are bounded at $i\infty$. Consider $z \in \mathbb{H}$ with $\Im(z) \geq A$. We proceed by direct algebraic manipulation:
     \begin{align}
@@ -1020,6 +1017,7 @@ Fill in proof.
 
 ```tex "lemma:theta-modular" (slot := "proof")
 \begin{proof}
+\uses{lemma:theta-slash-invariant, lemma:theta-bounded-im-infty}
     \leanok
     From \cref{lemma:theta-slash-invariant} and \cref{lemma:theta-bounded-im-infty}, it remains ot prove that $H_2$, $H_3$ and $H_4$ are holomorphic on $\mathbb{H}$. \todo{fill in proof.}
 \end{proof}
@@ -1200,6 +1198,7 @@ and comparing the first nonzero $`q`-coefficients.
 
 ```tex "lemma:lv1-lv2-identities" (slot := "proof")
 \begin{proof}
+\uses{lemma:jacobi-identity}
 We can prove these similarly as Lemma \ref{lemma:jacobi-identity}.
 Right hand sides of \eqref{eqn:e4theta}, \eqref{eqn:e6theta}, and \eqref{eqn:disctheta} are all modular forms of level $\Gamma_1$ and desired weights, where \eqref{eqn:disctheta} is a cusp form since $H_2$ is.
 Now the identities follow from the dimension calculations $\dim M_4(\Gamma_1) = \dim M_6(\Gamma_1) = \dim S_{12}(\Gamma_1) = 1$ and comparing the first nonzero $q$-coefficients.
@@ -1227,6 +1226,7 @@ $$`\Theta_{2}(it) = \sum_{n \in \mathbb{Z}} e^{- \pi (n + \frac{1}{2})^{2} t} > 
 
 ```tex "cor:theta-pos" (slot := "proof")
 \begin{proof}
+\uses{lemma:jacobi-identity}
 By Lemma \ref{lemma:jacobi-identity} and the transformation law \eqref{eqn:H2-transform-S}, it is enough to prove the positivity for $\Theta_2(it)$, which is clear from its definition:
 \begin{equation}
     \Theta_{2}(it) = \sum_{n \in \Z} e^{- \pi (n + \frac{1}{2})^{2} t} > 0.
@@ -1271,6 +1271,7 @@ $`\frac{1}{2 \pi i}\frac{\dd}{\dd z}e^{2\pi i n z} = n e^{2\pi i n z}`.
 
 ```tex "lemma:der-q-series" (slot := "proof")
 \begin{proof}\leanok
+\uses{def:derivative}
 Directly follows from the definition \eqref{def:derivative}, where $\frac{1}{2 \pi i}\frac{\dd}{\dd z}e^{2\pi i n z} = n e^{2\pi i n z}$.
 \end{proof}
 ```
@@ -1370,6 +1371,7 @@ $`F|_k\gamma = F` for all $`\gamma \in \Gamma`.
 
 ```tex "thm:serre-der-modularity" (slot := "proof")
 \begin{proof}
+\uses{thm:serre-der-equiv-action}
     \leanok
     Immediate from Theorem \ref{thm:serre-der-equiv-action} since $F|_k\gamma = F$ for all $\gamma \in \Gamma$.
 \end{proof}
@@ -1399,7 +1401,7 @@ In terms of Serre derivatives, these are equivalent to
 $$`\partial_{1}E_2 = -\frac{1}{12} E_4`
 $$`\partial_{4}E_4 = -\frac{1}{3} E_6`
 $$`\partial_{6}E_6 = -\frac{1}{2} E_4^2.`
-By Theorem `thm:serre-der-modularity`, all the Serre derivatives are modular.
+By Theorem {uses "thm:serre-der-modularity"}[], all the Serre derivatives are modular.
 More precisely, modularity of $`\partial_4E_4` and $`\partial_6E_6` follows
 directly from that theorem, while modularity of $`\partial_1E_2` follows from
 the transformation law of $`E_2`.
@@ -1416,6 +1418,7 @@ $`q`-expansions.
 
 ```tex "thm:ramanujan-formula" (slot := "proof")
 \begin{proof}
+\uses{thm:serre-der-modularity, cor:dim-mf}
 In terms of Serre derivatives, these are equivalent to
 \begin{align}
     \partial_{1}E_2 &= -\frac{1}{12} E_4 \\
@@ -1458,6 +1461,7 @@ $$`\Delta' = \frac{3 E_4^2 E_4' - 2 E_6 E_6'}{1728}
 
 ```tex "cor:logder-disc-E2" (slot := "proof")
 \begin{proof}
+\uses{thm:ramanujan-formula}
 By Ramanujan's formula \eqref{eqn:DE4} and \eqref{eqn:DE6},
 \begin{equation}
 \Delta' = \frac{3 E_4^2 E_4' - 2 E_6 E_6'}{1728} = \frac{1}{1728} \left(3 E_4^2 \cdot \frac{E_2 E_4 - E_6}{3} - 2 E_6 \cdot \frac{E_2 E_6 - E_4^2}{2}\right) = \frac{E_2(E_4^3 - E_6^2)}{1728} = E_2\Delta.

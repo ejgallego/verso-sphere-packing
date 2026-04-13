@@ -31,18 +31,6 @@ Auxiliary forms and integral formulas defining b.
 Schwartz, Fourier-eigenfunction, and double-zero properties of b.
 :::
 
-In this section we construct two radial Schwartz functions
-$`a,b:\R^8\to i\R` such that
-$$`\mathcal{F}(a)=a`
-$$`\mathcal{F}(b)=-b`
-and such that they have double zeroes at all $`\Lambda_8`-vectors of length
-greater than $`\sqrt{2}`. Recall that each vector of $`\Lambda_8` has length
-$`\sqrt{2n}` for some $`n\in\N_{\geq 0}`. We define $`a` and $`b` so that
-their values are purely imaginary because this simplifies some of our
-computations. We will show in Section `sec: g` that an appropriate
-linear combination of functions $`a` and $`b` satisfies conditions
-`eqn:g1` to `eqn:g3`.
-
 ```tex
 In this section we construct two radial Schwartz functions $a,b:\R^8\to i\R$ such that
 \begin{align}\mathcal{F}(a)&=a\label{eqn:a-fourier}\\
@@ -53,14 +41,8 @@ We define $a$ and $b$ so that their values are purely imaginary because this sim
 We will show in Section \ref{sec: g} that an appropriate linear combination of functions $a$ and $b$ satisfies conditions \eqref{eqn:g1}--\eqref{eqn:g3}.
 ```
 
-Both functions will be defined via certain integrals of quasi-modular forms.
-Then the eigenfunction property mainly follows from
-Theorem `thm:Poisson-summation-formula` and the
-transformation laws of quasi-modular forms. To apply that theorem, we will show
-that $`a(x)` and $`b(x)` are Schwartz functions, which can be proved by
-verifying fast decay of the defining integrals.
-
 ```tex
+\uses{thm:Poisson-summation-formula}
 Both of the functions will be defined via certain integrals of (quasi)modular forms.
 Then the eigenfunction property mainly follows from the Poisson summation formula (Theorem \ref{thm:Poisson-summation-formula}) and the transformation laws of (quasi)modular forms.
 To apply Theorem \ref{thm:Poisson-summation-formula}, we will show that $a(x)$ and $b(x)$ are Schwartz functions, and this can be proved by verifying fast decay of the integrals.
@@ -304,6 +286,7 @@ $`f(z) = (E_2 E_4 - E_6)^2` and $`n_0 = 4`.
 
 ```tex "cor:phi0-bound" (slot := "proof")
 \begin{proof}
+\uses{lemma:mod-div-disc-bound}
 By Ramanujan's formula, $E_2 E_4 - E_6 = 3E_4' = 720 \sum_{n \ge 1} n \sigma_3(n) e^{2 \pi i n z}$ and
 \begin{equation}
     (E_2(z) E_4(z) - E_6(z))^{2} = 720^{2} e^{4 \pi i z} + O(e^{5 \pi i z}). \notag
@@ -448,6 +431,7 @@ $$`|I_1(r)| \leq C_0 \int_1^{\infty} e^{-2\pi s} \, e^{-\pi r / s} \, \dd s.`
 
 ```tex "lem:bound-I1-I3-I5" (slot := "proof")
 \begin{proof}
+\uses{cor:phi0-bound}
     We only prove the bound for $I_1(r)$, as the other two are similar.
     By the change of variable $z = -1 + i t$ for $t \in [0,1]$, we have
     $$
@@ -468,12 +452,8 @@ $$`|I_1(r)| \leq C_0 \int_1^{\infty} e^{-2\pi s} \, e^{-\pi r / s} \, \dd s.`
 \end{proof}
 ```
 
-Combined with Lemma `lem:integral-bound`, this shows that the
-integrals $`I_1`, $`I_3`, and $`I_5` decay faster than any polynomial as
-$`r \to \infty`. For the integrals $`I_2`, $`I_4`, and $`I_6`, this is
-easier to see since the contours do not touch the real axis.
-
 ```tex
+\uses{lem:integral-bound}
 Combined with Lemma~\ref{lem:integral-bound}, this shows that the integrals $I_1$, $I_3$, and $I_5$ decay faster than any polynomial as $r \to \infty$.
 For the integrals $I_2$, $I_4$, and $I_6$, it is easier to see this since the contours are not touching the real axis.
 ```
@@ -518,6 +498,7 @@ $$`|I_6(r)| \leq 2 \int_1^{\infty} |\phi_0(i t)| e^{-\pi r t} \, \dd t \leq \fra
 
 ```tex "lem:bound-I2-I4-I6" (slot := "proof")
 \begin{proof}
+\uses{cor:phi0-bound}
     For $I_2(r)$, parametrize $z$ as $z = t + i$ for $t \in [-1,0]$, and we have
     $$
         I_2(r) = \int_{-1}^0 \phi_0\left(\frac{-1}{t + 1 + i}\right) (t + 1 + i)^2 e^{\pi i r t} e^{-\pi r} \, \dd t.
@@ -730,6 +711,7 @@ $$`+\int\limits_{1}^{i}\phi_0\Big(\frac{-1}{z-1}\Big)\,(z-1)^2\,e^{\pi i r^2 \,z
 
 ```tex "prop:a-double-zeros" (slot := "proof")
 \begin{proof}
+\uses{cor:phi0-near-0-infty}
 We denote the right hand side of \eqref{eqn: a double zeroes} by $d(r)$.
 Convergence of the integral for $r > \sqrt{2}$ follows from Corollary~\ref{cor:phi0-near-0-infty}.
 We can write
@@ -793,6 +775,7 @@ The integral converges absolutely for all $r\in\R_{\geq 0}$.
 ```
 
 :::proof "prop:a-another-integral"
+Uses {uses "prop:a-double-zeros"}[].
 Suppose that $`r>\sqrt{2}`. Then by Proposition `prop:a-double-zeros`,
 $$`a(r)=4i\,\sin(\pi r^2/2)^2\,\int\limits_{0}^{\infty}\phi_0(i/t)\,t^2\,e^{-\pi r^2 t}\,dt.`
 From `eqn:phi0-trans-S` we obtain the asymptotic expansion
@@ -810,6 +793,7 @@ the whole interval $`[0,\infty)`.
 
 ```tex "prop:a-another-integral" (slot := "proof")
 \begin{proof}
+\uses{prop:a-double-zeros}
 Suppose that $r>\sqrt{2}$. Then by Proposition~\ref{prop:a-double-zeros}
 $$a(r)=4i\,\sin(\pi r^2/2)^2\,\int\limits_{0}^{\infty}\phi_0(i/t)\,t^2\,e^{-\pi r^2 t}\,dt. $$
 From \eqref{eqn:phi0-trans-S} we obtain
@@ -948,6 +932,7 @@ $$`\psi_T(z) = \frac{H_3^3 (5 H_2^2 - 5 H_2 H_3 + 2 H_3^2)}{2 \Delta}.`
 ```
 
 :::proof "lemma:psi-new"
+Uses {uses "lemma:theta-transform-S-T"}[] and {uses "lemma:lv1-lv2-identities"}[].
 By the transformation laws of the theta-null functions,
 $$`H_2|_{-2}ST = (-H_4)|_{-2}T = -H_3`
 $$`H_3|_{-2}ST = (-H_3)|_{-2}T = -H_4`
@@ -966,6 +951,7 @@ the formulas for $`\psi_S` and $`\psi_T`.
 
 ```tex "lemma:psi-new" (slot := "proof")
 \begin{proof}
+\uses{lemma:theta-transform-S-T, lemma:lv1-lv2-identities}
 By Lemma \ref{lemma:theta-transform-S-T}, we have
 \begin{align}
     H_2|_{-2}ST = (-H_4)|_{-2}T = -H_3, \\
@@ -1076,6 +1062,7 @@ $$`|\psi_S(z)| \le C_S e^{- \pi \Im z}.`
 ```
 
 :::proof "lemma:psi-bound"
+Uses {uses "cor:phi0-bound"}[] and {uses "lemma:mod-div-disc-bound"}[].
 The proof is similar to that of Lemma `cor:phi0-bound` and follows
 from Lemma {uses "lemma:mod-div-disc-bound"}[] together with the fact that the
 vanishing orders of the numerators of $`\psi_I`, $`\psi_T`, and $`\psi_S`
@@ -1084,6 +1071,7 @@ at infinity are respectively $`0`, $`0`, and $`\frac{3}{2}`.
 
 ```tex "lemma:psi-bound" (slot := "proof")
 \begin{proof}
+\uses{cor:phi0-bound, lemma:mod-div-disc-bound}
     The proof is similar to that of Lemma \ref{cor:phi0-bound}, follows from Lemma \ref{lemma:mod-div-disc-bound} and the fact that the vanishing orders of the numerators of $\psi_I$, $\psi_T$, and $\psi_S$ at infinity are $0$, $0$ (i.e. not cusp forms), and $\frac{3}{2}$ respectively.
 \end{proof}
 ```
@@ -1118,12 +1106,8 @@ $$`|J_6(r)| \le C_2 \frac{e^{\pi (r + 1)}}{r + 1}.`
 \end{lemma}
 ```
 
-Combining Lemmas `lemma:bound-J1-J3-J5`,
-`lemma:bound-J2-J4-J6`, and
-Theorem `thm:smooth-fast-decay-schwartz`, we can prove that $`b(x)`
-is a Schwartz function.
-
 ```tex
+\uses{lemma:bound-J1-J3-J5, lemma:bound-J2-J4-J6, thm:smooth-fast-decay-schwartz}
 Combining Lemmas \ref{lemma:bound-J1-J3-J5}, \ref{lemma:bound-J2-J4-J6}, and Theorem \ref{thm:smooth-fast-decay-schwartz}, we can prove that $b(x)$ is a Schwartz function.
 ```
 
@@ -1139,13 +1123,13 @@ $b(x)$ is a Schwartz function.
 ```
 
 :::proof "prop:b-schwartz"
-The proof is similar to that of Proposition `prop:a-schwartz`.
-Uses {uses "lemma:bound-J1-J3-J5"}[], {uses "lemma:bound-J2-J4-J6"}[], and {uses "thm:smooth-fast-decay-schwartz"}[].
+Uses {uses "lemma:bound-J1-J3-J5"}[], {uses "lemma:bound-J2-J4-J6"}[], {uses "thm:smooth-fast-decay-schwartz"}[], and {uses "prop:a-schwartz"}[].
+Similar to the proof of Proposition `prop:a-schwartz`.
 :::
 
 ```tex "prop:b-schwartz" (slot := "proof")
 \begin{proof}
-\uses{lemma:bound-J1-J3-J5, lemma:bound-J2-J4-J6, thm:smooth-fast-decay-schwartz}
+\uses{lemma:bound-J1-J3-J5, lemma:bound-J2-J4-J6, thm:smooth-fast-decay-schwartz, prop:a-schwartz}
 Similar to the proof of \ref{prop:a-schwartz}.
 \end{proof}
 ```
@@ -1162,6 +1146,7 @@ $b(x)$ satisfies \eqref{eqn:b-fourier}.
 ```
 
 :::proof "prop:b-fourier"
+Uses {uses "prop:a-fourier"}[].
 We repeat the argument used in the proof of Proposition
 `prop:a-fourier`. Using the Gaussian Fourier identity and exchanging
 the contour integration in $`z` with the Fourier transform in $`x`, we get
@@ -1189,6 +1174,7 @@ $$`\mathcal{F}(b)(x)=-b(x).`
 
 ```tex "prop:b-fourier" (slot := "proof")
 \begin{proof}
+\uses{prop:a-fourier}
 Here, we repeat the arguments used in the proof of Proposition~\ref{prop:a-fourier}.
 We use identity~\eqref{eqn:gaussian Fourier} and change contour integration in $z$ and Fourier transform in $x$. Thus we obtain
 \begin{align}
@@ -1247,6 +1233,7 @@ We have
 ```
 
 :::proof "cor:psiI-near-0-infty"
+Uses {uses "lemma:psi-bound"}[].
 By `eqn:psiS-define`,
 $$`\psi_I(it) = (it)^{-2} \psi_S\left(\frac{-1}{it}\right) = -t^{-2} \psi_S\left(\frac{i}{t}\right),`
 and combined with `eqn:psiS-bound` this gives `eqn:psiI-near-0`.
@@ -1255,6 +1242,7 @@ Equation `eqn:psiI-near-infty` follows from `lemma:psi-bound`.
 
 ```tex "cor:psiI-near-0-infty" (slot := "proof")
 \begin{proof}
+\uses{lemma:psi-bound}
 By \eqref{eqn:psiS-define}, we have
 \begin{equation}
     \psi_I(it) = (it)^{-2} \psi_S\left(\frac{-1}{it}\right) = -t^{-2} \psi_S\left(\frac{i}{t}\right).
@@ -1280,6 +1268,7 @@ For $r>\sqrt{2}$ function $b(r)$ can be expressed as
 ```
 
 :::proof "prop:b-double-zeros"
+Uses {uses "cor:psiI-near-0-infty"}[].
 Denote the right-hand side by $`c(r)`.
 By Corollary `cor:psiI-near-0-infty`, the integral converges for
 $`r>\sqrt{2}`. Rewrite it as
@@ -1306,6 +1295,7 @@ $$`-2\int\limits_{i}^{i\infty}\psi_S(z)\,e^{\pi i r^2 \,z}\,dz=b(r).`
 
 ```tex "prop:b-double-zeros" (slot := "proof")
 \begin{proof}
+\uses{cor:psiI-near-0-infty}
 We denote the right hand side of~\eqref{eqn: b double zeroes} by $c(r)$.
 By Corollary \ref{cor:psiI-near-0-infty}, the integral in~\eqref{eqn: b double zeroes} converges for $r>\sqrt{2}$.
 Then we rewrite it in the following way:
@@ -1367,6 +1357,7 @@ The integral converges absolutely for all $r\in\R_{\geq 0}$.
 ```
 
 :::proof "prop:b-another-integral"
+Uses {uses "prop:a-another-integral"}[] and {uses "prop:b-double-zeros"}[].
 The proof is analogous to the proof of Proposition
 `prop:a-another-integral`.
 First suppose that $`r>\sqrt{2}`. Then by Proposition
@@ -1387,6 +1378,7 @@ the whole interval $`[0,\infty)`.
 
 ```tex "prop:b-another-integral" (slot := "proof")
 \begin{proof}
+\uses{prop:a-another-integral, prop:b-double-zeros}
 The proof is analogous to the proof of Proposition~\ref{prop:a-another-integral}.
 First, suppose that $r>\sqrt{2}$. Then by Proposition~\ref{prop:b-double-zeros}
 $$b(r)=4i\,\sin(\pi r^2/2)^2\,\int\limits_{0}^{\infty}\psi_I(it)\,e^{-\pi r^2 t}\,dt. $$

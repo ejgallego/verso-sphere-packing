@@ -27,10 +27,8 @@ Differential equations and monotonicity control.
 Assembly of the final theorem producing the optimal function.
 :::
 
-Our proof of Theorem `thm:g` relies on the following two inequalities
-for modular objects.
-
 ```tex
+\uses{thm:g}
 \section{Proof of Theorem \ref{thm:g}}\label{sec: g}
 Our proof of the Theorem~\ref{thm:g} relies on the following two inequalities for modular objects.
 ```
@@ -81,10 +79,8 @@ for all $t > 0$.
 \end{proposition}
 ```
 
-Here we formalize the proof of the inequalities by {citet Lee}[].
-First, we can rewrite the inequality in Proposition `prop:ineqA` as follows.
-
 ```tex
+\uses{prop:ineqA}
 Here we formalize the proof of the inequalities by Lee \cite{Lee}.
 First, we can rewrite the inequality in \ref{prop:ineqA} as follows.
 ```
@@ -130,6 +126,7 @@ Lemma {uses "lemma:psi-new"}[].
 
 ```tex "lemma:F-G-phi-psi-identities" (slot := "proof")
 \begin{proof}
+\uses{lemma:psi-new}
 \eqref{eqn:phi0-F} is clear.
 \eqref{eqn:psiS-G} is already shown in Lemma \ref{lemma:psi-new}.
 \end{proof}
@@ -166,6 +163,7 @@ second equivalence follows similarly, changing only the sign.
 
 ```tex "lemma:ineqABnew-equiv" (slot := "proof")
 \begin{proof}
+\uses{lemma:F-G-phi-psi-identities, def:psiI-psiT-psiS, cor:disc-pos}
 By \eqref{eqn:psiS-define},
 \begin{equation}
     \psi_I(it) = (\psi_S|_{-2}S)(it) = (it)^{2}\psi_S\left(-\frac{1}{it}\right) = -t^2 \psi_S\left(\frac{i}{t}\right).
@@ -207,6 +205,7 @@ $`H_4(it)` in {uses "cor:theta-pos"}[].
 
 ```tex "lemma:F-G-pos" (slot := "proof")
 \begin{proof}\leanok
+\uses{thm:ramanujan-formula, cor:theta-pos}
 By Ramanujan's identity \eqref{eqn:DE4}, we have $F(z) = 9 E_4'(z)^2$ and
 \begin{equation}
     F(it) = 9E_4'(it)^2 = 9 \left(240\sum_{n \geq 1} n \sigma_3(n) e^{-2 \pi n t} \right)^{2} > 0.
@@ -232,6 +231,7 @@ This directly follows from Lemma {uses "lemma:F-G-pos"}[].
 
 ```tex "cor:ineqAnew" (slot := "proof")
 \begin{proof}
+\uses{lemma:F-G-pos}
 This directly follows from Lemma \ref{lemma:F-G-pos}.
 \end{proof}
 ```
@@ -296,6 +296,7 @@ Lemma {uses "lemma:lv1-lv2-identities"}[].
 
 ```tex "lemma:FG-de" (slot := "proof")
 \begin{proof}
+\uses{thm:ramanujan-formula, thm:serre-der-prod-rule, prop:theta-der, lemma:lv1-lv2-identities}
 Both can be shown by direct computations.
 By Ramanujan's identities (Theorem \ref{thm:ramanujan-formula}) and the product rule of Serre derivatives (Theorem \ref{thm:serre-der-prod-rule}), we have
 \begin{align}
@@ -349,6 +350,7 @@ $`-640 \Delta(it) H_2(it) < 0`, follows from
 
 ```tex "cor:MLDE-pos" (slot := "proof")
 \begin{proof}
+\uses{def:E2, cor:disc-pos, cor:theta-pos}
 From \eqref{eqn:E2} and Lemma \ref{cor:disc-pos},
 \begin{equation}
     7200 (-E_2'(it)) \Delta(it) = 7200 \cdot 24 \left(\sum_{n \ge 1} n \sigma_1(n) e^{-2 \pi n t}\right) \cdot \Delta(it) > 0. \notag
@@ -452,6 +454,7 @@ $$`\lim_{t \to \infty} \frac{F'(it)}{F(it)}
 
 ```tex "lemma:log-der-inf" (slot := "proof")
 \begin{proof}
+\uses{lemma:der-q-series}
     By Lemma \ref{lemma:der-q-series},
     \begin{equation}
         \lim_{t \to \infty} \frac{F'(it)}{F(it)} = \lim_{t \to \infty} \frac{\sum_{n \ge n_0} n a_n e^{-2 \pi n t}}{\sum_{n \ge n_0} a_n e^{-2 \pi n t}} = \lim_{t \to \infty} \frac{n_0 a_{n_0} e^{-2 \pi n_0 t} + O(e^{-2 \pi (n_0 + 1) t})}{a_{n_0} e^{-2 \pi n_0 t} + O(e^{-2 \pi (n_0 + 1) t})} = n_0.
@@ -496,6 +499,7 @@ monotonicity follows.
 
 ```tex "prop:Qdec" (slot := "proof")
 \begin{proof}
+\uses{lemma:log-der-inf, cor:MLDE-pos, thm:anti-serre-der-pos}
 It is enough to show that
 \begin{align}
     \frac{\dd}{\dd t} \left(\frac{F(it)}{G(it)}\right) < 0 &\Leftrightarrow (- 2\pi) \frac{F'(it)G(it) - F(it) G'(it)}{G(it)^{2}} < 0 \\
@@ -540,6 +544,7 @@ and by Lemma {uses "lemma:F-G-pos"}[] the desired inequality follows.
 
 ```tex "cor:ineqBnew" (slot := "proof")
 \begin{proof}
+\uses{lemma:F-G-pos}
 \begin{equation}
     \frac{F(it)}{G(it)} = Q(t) < \lim_{u \to 0^+} Q(u) = \frac{18}{\pi^2}
 \end{equation}
@@ -547,9 +552,8 @@ and by Lemma \ref{lemma:F-G-pos}, \eqref{eqn:ineqBnew} follows.
 \end{proof}
 ```
 
-Finally, we are ready to prove Theorem `thm:g`.
-
 ```tex
+\uses{thm:g}
 
 Finally, we are ready to prove Theorem~\ref{thm:g}.
 ```
@@ -590,11 +594,12 @@ $$`B(t)=-t^2\phi_0(i/t)+\frac{36}{\pi^2}\,\psi_I(it).`
 /- source paragraph break -/
 Finally, the normalization $`g(0)=\widehat g(0)=1` follows readily from
 Propositions {uses "prop:a0"}[] and {uses "prop:b0"}[].
-This finishes the proof of Theorems `thm:g1` and `thm:g`.
+This finishes the proof.
 :::
 
 ```tex "thm:g1" (slot := "proof")
 \begin{proof}
+\uses{prop:a-double-zeros, prop:b-double-zeros, prop:ineqA, prop:a-another-integral, prop:b-another-integral, prop:a0, prop:b0}
 First, we prove that \eqref{eqn:g1} holds. By Propositions~\ref{prop:a-double-zeros} and \ref{prop:b-double-zeros} we know that for $r>\sqrt{2}$
 \begin{equation} g(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty A(t)\,e^{-\pi r^2 t}\,dt\end{equation}
 where $$A(t)=-t^2\phi_0(i/t)-\frac{36}{\pi^2}\,\psi_I(it).$$
@@ -607,6 +612,6 @@ where $$B(t)=-t^2\phi_0(i/t)+\frac{36}{\pi^2}\,\psi_I(it).$$
 
 
 Finally, the property \eqref{eqn:g3} readily follows from Proposition~\ref{prop:a0} and Proposition~\ref{prop:b0}.
-This finishes the proof of Theorems~\ref{thm:g1} and~\ref{thm:g}.
+This finishes the proof.
 \end{proof}
 ```

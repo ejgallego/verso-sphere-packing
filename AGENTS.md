@@ -47,6 +47,9 @@ Repository-specific guidance for Codex agents working in this tree.
   - `tools/verso-harness/references/beam-validation.md`
 - Use `python3 tools/verso-harness/scripts/check_harness.py --project-root .`
   to audit the local harness.
+- Keep `harness.docstring_warnings` in `verso-harness.toml` explicit. Leave it
+  `false` unless the repo is intentionally working through missing-docstring
+  noise from attached Lean declarations.
 - Treat the legacy TeX or `leanblueprint` source as the prose source of truth.
 - Record the real TeX chapter source path for this repo. The common legacy
   layout is `./blueprint/src/chapter/*.tex`, but verify it before wiring status
