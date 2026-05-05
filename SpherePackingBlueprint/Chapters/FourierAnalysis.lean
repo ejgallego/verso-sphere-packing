@@ -87,7 +87,7 @@ Of great interest to us will be a specific family of functions, known as Schwart
 \subsection{On Schwartz Functions}
 ```
 
-:::definition "def:Schwartz-Space" (lean := "SchwartzMap") (parent := "fourier_setup")
+:::definition "def:Schwartz-Space" (lean := "BlueprintDocAliases.SchwartzMap") (parent := "fourier_setup")
 A $`C^\infty` function $`f:\R^d\to\C` is called a Schwartz function if it
 decays to zero as $`\|x\|\to\infty` faster than any inverse power of
 $`\|x\|`, and the same holds for all partial derivatives of $`f`. That is,
@@ -100,7 +100,7 @@ $`\C` is called the Schwartz space. It is an $`\R`-vector space.
 :::
 
 ```tex "def:Schwartz-Space"
-\begin{definition}\label{def:Schwartz-Space}\lean{SchwartzMap}\leanok
+\begin{definition}\label{def:Schwartz-Space}\lean{BlueprintDocAliases.SchwartzMap}\leanok
 A $C^\infty$~function $f:\R^d\to\C$ is called a \emph{Schwartz function} if it decays to zero as $\|x\|\to\infty$ faster then any inverse power of $\|x\|$, and the same holds for all partial derivatives of $f$, ie, if for all $k, n \in \N$, there exists a constant $C \in \R$ such that for all $x \in \R^d$, $\norm{x}^k \cdot \norm{f^{(n)}(x)} \leq C$, where $f^{(n)}$ denotes the $n$-th derivative of $f$ considered along with the appropriate operator norm. The set of all Schwartz functions from $\R^d$ to $\C$ is called the \emph{Schwartz space}. It is an $\R$-vector space.
 \end{definition}
 ```

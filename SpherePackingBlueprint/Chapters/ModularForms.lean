@@ -257,7 +257,7 @@ $(F|_{k}(-I))(z) = (-1)^{-k}F((-I)z) = F(z)$.
 \end{proof}
 ```
 
-:::definition "def:Mk" (lean := "ModularForm") (parent := "modular_forms_setup")
+:::definition "def:Mk" (lean := "BlueprintDocAliases.ModularForm") (parent := "modular_forms_setup")
 Let $`\Gamma` be a subgroup of $`\mathrm{SL}_2(\mathbb{Z})`.
 A modular form of level $`\Gamma` and weight $`k \in \mathbb{Z}` is a
 function $`f : \mathbb{H} \to \mathbb{C}` such that:
@@ -271,7 +271,7 @@ Uses {uses "def:congruence-subgroup"}[].
 :::
 
 ```tex "def:Mk"
-\begin{definition}\label{def:Mk}\uses{def:congruence-subgroup}\lean{ModularForm}\leanok
+\begin{definition}\label{def:Mk}\uses{def:congruence-subgroup}\lean{BlueprintDocAliases.ModularForm}\leanok
 	Let  $\Gamma$ denote a subgroup of $\mathrm{SL}_2(\mathbb{Z})$, then a modular form  of level $\Gamma$ and weight $k \in \mathbb{Z}$ is a function $f : \mathbb{H} \to \mathbb{C}$ such that:
 	\begin{enumerate}
 		\item For all $\gamma \in \Gamma$ we have $f\mid_k \gamma = f$  (such functions are called slash invariant).

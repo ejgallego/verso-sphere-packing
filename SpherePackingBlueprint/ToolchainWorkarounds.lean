@@ -13,3 +13,13 @@ forces local temporary patches, keep them here and prefer real upstream
 declarations over coarse
 placeholders.
 -/
+
+namespace BlueprintDocAliases
+
+/-- The space of Schwartz functions. -/
+abbrev SchwartzMap := _root_.SchwartzMap
+
+/-- Modular forms of a given level and weight. -/
+abbrev ModularForm := _root_.ModularForm
+
+end BlueprintDocAliases
