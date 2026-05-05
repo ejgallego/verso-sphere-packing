@@ -133,7 +133,7 @@ Lemma {uses "lemma:psi-new"}[].
 ```
 
 :::lemma_ "lemma:ineqABnew-equiv" (parent := "fg_setup")
-Inequalities $`A(t) < 0` and $`B(t) > 0` are equivalent to
+Inequality `eqn:ineqA` and `eqn:ineqB` are equivalent to
 $$`F(it) + \frac{18}{\pi^2} G(it) > 0`
 $$`F(it) - \frac{18}{\pi^2} G(it) > 0`
 respectively.
@@ -152,13 +152,15 @@ respectively.
 ```
 
 :::proof "lemma:ineqABnew-equiv"
-By the definition of $`\psi_I` in {uses "def:psiI-psiT-psiS"}[],
+By `eqn:psiS-define` from {uses "def:psiI-psiT-psiS"}[],
 $$`\psi_I(it) = (\psi_S|_{-2}S)(it) = (it)^{2}\psi_S\left(-\frac{1}{it}\right) = -t^2 \psi_S\left(\frac{i}{t}\right).`
-Combined with Lemma {uses "lemma:F-G-phi-psi-identities"}[], this rewrites
-$`A(t) < 0` as
-$$`-t^2 \phi_0\left(\frac{i}{t}\right) + \frac{36}{\pi^2} \psi_S\left(\frac{i}{t}\right) < 0 \Leftrightarrow \frac{F(it)}{\Delta(it)} + \frac{18}{\pi^2} \frac{G(it)}{\Delta(it)} > 0,`
-which is equivalent to the first inequality by Corollary {uses "cor:disc-pos"}[]. The
-second equivalence follows similarly, changing only the sign.
+Combined with Lemma {uses "lemma:F-G-phi-psi-identities"}[] we can rewrite
+`eqn:ineqA` as
+$$`A(t) = -t^2 \phi_0\left(\frac{i}{t}\right) + \frac{36}{\pi^2} \psi_S\left(\frac{i}{t}\right) < 0 \Leftrightarrow \frac{F(it)}{\Delta(it)} + \frac{18}{\pi^2} \frac{G(it)}{\Delta(it)} > 0`
+for $`t > 0`, which is equivalent to `eqn:ineqAnew` by Corollary
+{uses "cor:disc-pos"}[].
+Equivalences of `eqn:ineqB` and `eqn:ineqBnew` follows similarly; just change
+the sign.
 :::
 
 ```tex "lemma:ineqABnew-equiv" (slot := "proof")
@@ -177,8 +179,8 @@ Equivalences of \eqref{eqn:ineqB} and \eqref{eqn:ineqBnew} follows similarly; ju
 \end{proof}
 ```
 
-Now, the first inequality $`F(it) + \frac{18}{\pi^2} G(it) > 0` follows from
-the positivity of each $`F(it)` and $`G(it)`.
+Now, the first inequality `eqn:ineqAnew` follows from the positivity of each
+$`F(it)` and $`G(it)`.
 
 ```tex
 Now, the first inequality \eqref{eqn:ineqAnew} follows from the positivity of each $F(it)$ and $G(it)$.
@@ -392,17 +394,23 @@ We have
 :::proof "lemma:Qlim"
 We have
 $$`\lim_{t \to 0^+} Q(t) = \lim_{t \to 0^+} \frac{F(it)}{G(it)} = \lim_{t \to \infty} \frac{F(i/t)}{G(i/t)}.`
-Using the transformation laws of Eisenstein series and theta-null functions, we
-obtain
+By using the transformation laws of Eisenstein series `eqn:E2-S-transform`,
+`eqn:Ek-trans-S` (for $`k = 4, 6`) and the thetanull functions,
+`eqn:H2-transform-S`, `eqn:H4-transform-S`, we get
 $$`F\left(\frac{i}{t}\right) = t^{12} F(it) - \frac{12t^{11}}{\pi} (E_2(it)E_4(it) - E_6(it))E_4(it) + \frac{36t^{10}}{\pi^2}E_4(it)^2`
 and
 $$`G\left(\frac{i}{t}\right) = t^{10} H_{4}(it)^{3}(2H_{4}(it)^{2} + 5 H_{4}(it)H_{2}(it) + 5 H_{2}(it)^{2}).`
-Since $`F`, $`E_2E_4-E_6`, and $`H_2` are cusp forms, we have
-$`\lim_{t \to \infty} t^k A(it) = 0` when $`A(z)` is one of these forms and
-$`k \ge 0`. From
-$`\lim_{t \to \infty} E_4(it) = 1 = \lim_{t \to \infty} H_4(it)`, we conclude
-that
-$$`\lim_{t \to \infty} \frac{F(i/t)}{G(i/t)} = \frac{18}{\pi^2}.`
+Since $`F`, $`E_2 E_4 - E_6` and $`H_2` are cusp forms, we have
+$`\lim_{t \to \infty}t^k A(it) = 0` when $`A(z)` is one of these forms and
+$`k \geq 0`.
+From $`\lim_{t \to \infty} E_4(it) = 1 = \lim_{t \to \infty}H_{4}(it)`, we get
+$$`
+\begin{aligned}
+\lim_{t \to \infty} \frac{F(i/t)}{G(i/t)}
+&= \lim_{t \to \infty} \frac{t^{12} F(it) - \frac{12t^{11}}{\pi} (E_2(it)E_4(it) - E_6(it))E_4(it) + \frac{36t^{10}}{\pi^2}E_4(it)^2}{t^{10} H_{4}(it)^{3}(2H_{4}(it)^{2} + 5 H_{4}(it)H_{2}(it) + 5 H_{2}(it)^{2})} \\
+&= \lim_{t \to \infty} \frac{t^{2} F(it) - \frac{12t}{\pi} (E_2(it)E_4(it) - E_6(it))E_4(it) + \frac{36}{\pi^2}E_4(it)^2}{H_{4}(it)^{3}(2H_{4}(it)^{2} + 5 H_{4}(it)H_{2}(it) + 5 H_{2}(it)^{2})} \\
+&= \frac{18}{\pi^2}.
+\end{aligned}`
 :::
 
 ```tex "lemma:Qlim" (slot := "proof")
@@ -561,7 +569,7 @@ Finally, we are ready to prove Theorem~\ref{thm:g}.
 :::theorem "thm:g1" (parent := "g_theorem")
 The function
 $$`g(x):=\frac{\pi\,i}{8640}a(x)+\frac{i}{240\pi}\,b(x)`
-satisfies the conditions of Theorem `thm:g`.
+satisfies conditions `eqn:g1`--`eqn:g3`.
 Uses {uses "prop:a-fourier"}[], {uses "prop:b-fourier"}[], {uses "prop:a-double-zeros"}[], {uses "prop:b-double-zeros"}[], {uses "prop:ineqA"}[], {uses "prop:ineqB"}[], {uses "prop:a0"}[], and {uses "prop:b0"}[].
 :::
 

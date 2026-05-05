@@ -113,9 +113,8 @@ $$`\B_8 =
 ```
 
 :::theorem "E8-defs-equivalent" (lean := "span_E8Matrix") (parent := "e8_definitions")
-The two definitions above coincide, that is,
-$`\Lambda_8 = \mathrm{span}_{\Z}(\B_8)`. This compares {uses "E8-Set"}[] and
-{uses "E8-Matrix"}[].
+The two definitions above coincide, i.e. $`\Lambda_8 = \mathrm{span}_{\Z}(\B_8)`.
+Uses {uses "E8-Set"}[] and {uses "E8-Matrix"}[].
 :::
 
 ```tex "E8-defs-equivalent"
@@ -304,9 +303,9 @@ Prove $`E_8` is positive-definite.
 ```
 
 :::definition "E8Packing" (lean := "E8Packing") (parent := "e8_density")
-The $`E_8` sphere packing is the periodic sphere packing with separation
-$`\sqrt{2}` and set of centers $`\Lambda_8`.
-This uses {uses "E8-Lattice"}[] and {uses "E8-vector-norms"}[].
+The $`E_8` sphere packing is the (periodic) sphere packing with separation
+$`\sqrt{2}`, whose set of centres is $`\Lambda_8`.
+Uses {uses "E8-Lattice"}[] and {uses "E8-vector-norms"}[].
 :::
 
 ```tex "E8Packing"
@@ -327,8 +326,8 @@ This uses {uses "E8Packing"}[].
 ```
 
 :::proof "E8Packing-covol"
-In theory this should follow directly from $`\det(\Lambda_8) = 1`, but Lean
-currently runs into technical issues with `EuclideanSpace`.
+TODO: In theory this should follow directly from $`\det(\Lambda_8) = 1`, but
+Lean hates me and `EuclideanSpace` is being annoying.
 :::
 
 ```tex "E8Packing-covol" (slot := "proof")
@@ -339,7 +338,7 @@ currently runs into technical issues with `EuclideanSpace`.
 
 :::theorem "E8Packing-density" (lean := "E8Packing_density") (parent := "e8_density")
 We have $`\Delta_{\mathcal{P}(E_8)} = \frac{\pi^4}{384}`.
-This uses {uses "theorem:psp-density"}[] and {uses "E8Packing-covol"}[].
+Uses {uses "theorem:psp-density"}[] and {uses "E8Packing-covol"}[].
 :::
 
 ```tex "E8Packing-density"
@@ -352,7 +351,7 @@ This uses {uses "theorem:psp-density"}[] and {uses "E8Packing-covol"}[].
 By `theorem:psp-density`, we have
 $`\Delta_{\mathcal{P}(E_8)} = |E_8 / E_8| \cdot \frac{\Vol{\mathcal{B}_8(\sqrt{2} / 2)}}{\mathrm{Covol}(E_8)} = \frac{\pi^4}{384}`,
 where the last equality follows from `E8Packing-covol` and the
-formula for the volume of a ball,
+formula for volume of a ball:
 $`\Vol{\mathcal{B}_d(R)} = R^d \pi^{d / 2} / \Gamma\left(\frac{d}{2} + 1\right)`.
 :::
 

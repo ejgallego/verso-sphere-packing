@@ -582,8 +582,16 @@ Making the change of variables $`w=\frac{-1}{z}`, we arrive at
 $$`\widehat{a}(y)=\int\limits_{1}^i\phi_0\Big(1-\frac{1}{w-1}\Big)\,(\frac{-1}{w}+1)^2\,w^{2}\,e^{\pi i \|y\|^2 \,w}\,dw`
 $$`+\int\limits_{-1}^i\phi_0\Big(1-\frac{1}{w+1}\Big)\,(\frac{-1}{w}-1)^2\,w^2\,e^{\pi i \|y\|^2 \,w}\,dw`
 $$`-2\int\limits_{i \infty}^i\phi_0(w)\,e^{\pi i \|y\|^2 \,w}\,dw +2\int\limits_{i}^{0}\phi_0\Big(\frac{-1}{w}\Big)\,w^{2}\,e^{\pi i \|y\|^2 \,w}\,dw.`
-Since $`\phi_0` is $`1`-periodic, this becomes exactly the defining
-expression for $`a(y)`.
+Since $`\phi_0` is $`1`-periodic we have
+$$`
+\begin{aligned}
+\widehat{a}(y)\,=\,&\int\limits_{1}^i\phi_0\Big(\frac{-1}{z-1}\Big)\,(z-1)^2\,e^{\pi i \|y\|^2 \,z}\,dz
+    +\int\limits_{-1}^i\phi_0\Big(\frac{-1}{z+1}\Big)\,(z+1)^2\,e^{\pi i \|y\|^2 \,z}\,dz \\
+    +&2\int\limits_{i}^{i\infty}\phi_0(z)\,e^{\pi i \|y\|^2 \,z}\,dz
+    -2\int\limits_{0}^{i}\phi_0\Big(\frac{-1}{z}\Big)\,z^{2}\,e^{\pi i \|y\|^2 \,z}\,dz \\
+    \,=\,&a(y).
+\end{aligned}`
+This finishes the proof of the proposition.
 :::
 
 ```tex "prop:a-fourier" (slot := "proof")
@@ -618,9 +626,9 @@ This finishes the proof of the proposition.
 ```
 
 Next, we check that $`a` has double zeroes at all $`\Lambda_8`-lattice points
-of length greater than $`\sqrt{2}`. Using the bounds on
-$`\phi_0`, $`\phi_{-2}`, and $`\phi_{-4}`, we can control the behavior of
-$`\phi_0` near $`0` and $`i\infty`.
+of length greater then $`\sqrt{2}`.
+Using `eqn:phi0-bound`, `eqn:phi2-bound`, and `eqn:phi4-bound`, we can control
+the behavior of $`\phi_0` near $`0` and $`i\infty`.
 
 ```tex
 Next, we check that $a$ has double zeroes at all $\Lambda_8$-lattice points of length greater then $\sqrt{2}$.
@@ -752,7 +760,7 @@ This finishes the proof.
 ```
 
 Finally, we find another convenient integral representation for $`a` and
-compute the value at $`r=0`.
+compute values of $`a(r)` at $`r=0` and $`r=\sqrt{2}`.
 
 ```tex
 Finally, we find another convenient integral representation for $a$ and compute values of $a(r)$ at $r=0$ and $r=\sqrt{2}$.
@@ -886,7 +894,8 @@ h(z)\,=\,q^{-1} + 16 - 132 q + 640 q^2 - 2550 q^3+O(q^4).\notag
 Let
 $`I=\left(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\right)`,
 $`T=\left(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\right)`, and
-$`S=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)`.
+$`S=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)` be elements of
+$`\Gamma_1`.
 
 ```tex
 Let $I=\left(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\right)$,
@@ -1123,8 +1132,8 @@ $b(x)$ is a Schwartz function.
 ```
 
 :::proof "prop:b-schwartz"
-Uses {uses "lemma:bound-J1-J3-J5"}[], {uses "lemma:bound-J2-J4-J6"}[], {uses "thm:smooth-fast-decay-schwartz"}[], and {uses "prop:a-schwartz"}[].
-Similar to the proof of Proposition `prop:a-schwartz`.
+Uses {uses "lemma:bound-J1-J3-J5"}[], {uses "lemma:bound-J2-J4-J6"}[], and {uses "thm:smooth-fast-decay-schwartz"}[].
+Similar to the proof of {uses "prop:a-schwartz"}[].
 :::
 
 ```tex "prop:b-schwartz" (slot := "proof")

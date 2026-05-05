@@ -268,16 +268,16 @@ This identifies {uses "SpherePacking.density"}[] for periodic packings.
 ```
 
 :::proof "theorem:psp-density"
-Fix any fundamental domain $`\mathcal{D}` induced by a basis of the lattice
+Fix any fundamental domain $`\mathcal{D}` (induced by any basis) of the lattice
 $`\Lambda`. Combining {uses "lemma:sp-finite-density-bound"}[],
-{uses "lemma:lattice-points-bound"}[], and
+{uses "lemma:lattice-points-bound"}[] and
 {uses "lemma:periodic-points-bounds"}[], we get the following inequality for
 the finite density:
 $$`|X / \Lambda| \cdot \frac{\Vol{\mathcal{B}_d(r / 2)}}{\Vol{\R^d / \Lambda}} \cdot \frac{\Vol{\mathcal{B}_d(R - r / 2 - 2L)}}{\Vol{\mathcal{B}_d(R)}}
     \leq \Delta_{\mathcal{P}}(R)
     \leq |X / \Lambda| \cdot \frac{\Vol{\mathcal{B}_d(r / 2)}}{\Vol{\R^d / \Lambda}} \cdot \frac{\Vol{\mathcal{B}_d(R + r / 2 + 2L)}}{\Vol{\mathcal{B}_d(R)}}.`
-Taking limits on both sides as $`R \to \infty` and applying the sandwich
-theorem together with {uses "lemma:volume-ball-ratio-limit"}[], we obtain
+Taking limit on both sides as $`R \to \infty` and apply the Sandwich theorem
+and {uses "lemma:volume-ball-ratio-limit"}[], we get
 $$`\Delta_{\mathcal{P}} = \limsup_{R \to \infty} \Delta_{\mathcal{P}}(R) = \lim_{R \to \infty} \Delta_{\mathcal{P}}(R) = |X / \Lambda| \cdot \frac{\Vol{\mathcal{B}_d(r / 2)}}{\Vol{\R^d / \Lambda}}.`
 :::
 

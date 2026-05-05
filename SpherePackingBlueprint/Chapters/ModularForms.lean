@@ -69,7 +69,7 @@ $$\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)z:=\frac{az+b}{cz+d}.
 
 :::definition "def:level-N-princ-cong-subgp" (parent := "modular_forms_setup")
 The level $`N` principal congruence subgroup of $`\Gamma_1` is
-$$`\Gamma(N):=\left\{\left.\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\Gamma_1\right|\begin{pmatrix}a&b\\c&d\end{pmatrix}\equiv\begin{pmatrix}1&0\\0&1\end{pmatrix}\; \mathrm{mod}\; N\right\}.`
+$$`\Gamma(N):=\left\{\left.\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)\in\Gamma_1\right|\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)\equiv\left(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\right)\;\mathrm{mod}\;N\right\}.`
 :::
 
 ```tex "def:level-N-princ-cong-subgp"
@@ -412,7 +412,7 @@ This function is not modular, however it satisfies
 ```
 
 :::proof "lemma:E2-transform-S"
-This is Exercise `1.2.8` in {citet first.course}[].
+This is exercise 1.2.8 of {citet first.course}[].
 :::
 
 ```tex "lemma:E2-transform-S" (slot := "proof")
@@ -532,11 +532,11 @@ Also, it vanishes at the unique cusp, i.e. it is a cusp form of level $\Gamma_1$
 ```
 
 :::proof "lemma:disc-cuspform"
-Invariance under translation is clear from the definition, so it remains only
-to check the transformation under $`S`. Since $`\eta^{24} = \Delta` and
-{uses "lemma:dedekind_eta_transformation"}[] gives
-$`\eta(-1/z) = \sqrt{-iz} \eta(z)`,
-we obtain $`\Delta(-1/z) = z^{12}\Delta(z)`.
+The fact that it is invariant under translation is clear from the definition,
+so we only need to check transformation under $`S`. Now, note that
+$`\eta^{24} = \Delta`, and from {uses "lemma:dedekind_eta_transformation"}[] we
+have $`\eta(-1/z) = \sqrt{-iz} \eta(z)`, so
+$`\Delta(-1/z) = z^{12} \Delta(z)` as required.
 :::
 
 ```tex "lemma:disc-cuspform" (slot := "proof")
@@ -563,10 +563,12 @@ We have
 ```
 
 :::proof "lemma:disc-E4E6"
-We only need to show that the right-hand side is a cusp form, since dividing it
-by $`\Delta` would give a modular form of weight $`0` and hence a constant.
-To check that it is a cusp form, we look at the $`q`-expansions of $`E_4` and
-$`E_6` and verify directly that the first term vanishes.
+We only need to show its a cuspform, since once we have this, dividing the rhs
+by $`\Delta` would give a modular form of weight $`0` which is a constant, and
+so we can determine the constant easily.
+/- source paragraph break -/
+To check its a cuspform, we just look at the $`q`-expansions of $`E_4` and
+$`E_6` and prove directly that the first term vanishes.
 :::
 
 ```tex "lemma:disc-E4E6" (slot := "proof")
@@ -666,38 +668,42 @@ Uses {uses "def:Mk"}[], {uses "lemma:disc-E4E6"}[], and {uses "def:disc-definiti
 ```
 
 :::proof "thm:lvl1_dims"
-First note that for $`2 < k` we have
+First we note that for $`2 < k` we have
 $`\dim(M_k(\Gamma_1)) = 1 + \dim S_k(\Gamma_1)`.
-This follows because the Eisenstein series $`E_k` lies in $`M_k`, so after
-scaling appropriately, any non-cusp form $`f \in M_k` satisfies
+This follows since we know the $`E_k` are in $`M_k` so by scaling
+appropriately, any non-cuspform $`f \in M_k` we would have
 $`f - aE_k \in S_k` for some $`a`.
 /- source paragraph break -/
-Next, $`S_k(\Gamma_1)` is isomorphic to $`M_{k-12}(\Gamma_1)`, since for
-$`f \in S_k`, the quotient $`f/\Delta` is a modular form of weight
-$`k-12`. Here it is essential that $`f` is cuspidal, so that dividing by
-$`\Delta` preserves modularity.
+Next, note that $`S_k(\Gamma_1)` is isomorphic to $`M_{k-12}(\Gamma_1)`,
+since if $`f \in S_k` then $`f/\Delta` is now a modular form (using the product
+expansion of $`\Delta` and its non-vanishing on $`\mathfrak{H}`) of weight
+$`k-12`. Note its important that $`f` is a cuspform so that the quotient by
+$`\Delta` is a modular form.
 /- source paragraph break -/
-Thus it remains to know the dimensions of $`M_k(\Gamma_1)` for
+So we only need to know the dimensions of $`M_k(\Gamma_1)` for
 $`0 \le k \le 12`. For $`k = 0` we have
 $`\dim M_0(\Gamma_1) = 1` by {uses "thm:nonpos_wt"}[].
-For $`k = 4`, any cusp form $`f` of weight $`4` would give
-$`f/\Delta` of negative weight, hence $`f=0`; similarly for
-$`k = 6, 8, 10`.
+For $`k = 4` we have $`\dim M_4(\Gamma_1) = 1` since if there was a cuspform
+$`f` of weight $`4` then $`f/\Delta` would be a modular form of negative
+weight, i.e. zero, so $`f=0`.
+Similarly for $`k=6,8,10`.
 For $`k=12` we have $`\dim S_{12}(\Gamma_1) = 1` since the discriminant
 form is a cusp form of weight $`12` and any other cusp form of weight $`12`
-is a scalar multiple of $`\Delta`. Hence
+would be a scalar multiple of $`\Delta` (since their ratio would be a modular
+form of weight $`0`). So we have
 $`\dim M_{12}(\Gamma_1) = 2`.
 /- source paragraph break -/
-Finally, we need to check that $`\dim M_2(\Gamma_1) = 0`.
-There can be no cusp forms here by the same argument as above, so suppose
-$`f` is a non-cuspidal modular form of weight $`2`.
-Then $`f^2` is a non-cuspidal form of weight $`4`, so
-$`f^2 = aE_4`, with $`a=a_0(f)^2`.
+Finally we need to check that $`\dim M_2(\Gamma_1) = 0`.
+Firstly, there can't be any cuspforms here by the same argument as above.
+So we need to check that there are no modular forms of weight $`2`.
+If we did have one, call it $`f` then $`f^2` would be a non-cuspform of weight
+$`4` and so $`f^2 = a E_4`, where in fact $`a=a_0(f)^2` (since
+$`(f^2-a_0(f)E_4)` is now a cuspform of weight $`4` which means its zero).
 Similarly, $`f^3 = a_0(f)^3 E_6`.
-Taking powers to obtain weight-$`12` forms yields
+But now taking powers to make them weight $`12` forms we see that
 $`a_0(f)^6(E_4^3 - E_6^2) = 0 = 1728 a_0(f)^6 \Delta`,
-but $`a_0(f) \ne 0` since $`f` is not cuspidal, contradicting the
-nonvanishing of $`\Delta`.
+but $`a_0(f) \ne 0` (since its assumed to not be a cuspform), this would mean
+$`\Delta =0` which we know can't happen.
 :::
 
 ```tex "thm:lvl1_dims" (slot := "proof")
@@ -1011,9 +1017,9 @@ $H_{2}$, $H_{3}$, and $H_{4}$ belong to $M_2(\Gamma(2))$.
 
 :::proof "lemma:theta-modular"
 From {uses "lemma:theta-slash-invariant"}[] and
-{uses "lemma:theta-bounded-im-infty"}[], it remains to prove that
-$`H_2`, $`H_3`, and $`H_4` are holomorphic on $`\mathbb{H}`.
-Fill in proof.
+{uses "lemma:theta-bounded-im-infty"}[], it remains ot prove that
+$`H_2`, $`H_3` and $`H_4` are holomorphic on $`\mathbb{H}`.
+fill in proof.
 :::
 
 ```tex "lemma:theta-modular" (slot := "proof")
@@ -1314,17 +1320,25 @@ Serre derivative $\partial_{k}$ is equivariant with the slash action of $\mathrm
 Let $`G = \partial_kF = F' - \frac{k}{12}E_2F`.
 From $`F \in M_k(\Gamma)`, we have
 $$`(F|_{k}\gamma)(z) := (cz + d)^{-k} F\left(\frac{az + b}{cz + d}\right), \quad \gamma = \begin{pmatrix}a & b \\ c & d\end{pmatrix} \in \Gamma.`
-Differentiating gives
-$$`\frac{\dd}{\dd z}(F|_{k} \gamma)(z)
-= -kc (cz + d)^{-k - 1} F\left(\frac{az + b}{cz + d}\right) + (cz + d)^{-k - 2} \frac{\dd F}{\dd z}\left(\frac{az + b}{cz + d}\right)`
-and hence
-$$`(F|_{k} \gamma)'(z)
-= -\frac{kc}{2 \pi i} (cz + d)^{-k - 1} F\left(\frac{az + b}{cz + d}\right) + (cz + d)^{-k - 2} F'\left(\frac{az + b}{cz + d}\right).`
-Combining this with the transformation law of $`E_2` yields
-$$`((\partial_k F)|_{k+2}\gamma)(z)
-= (cz + d)^{-k-2} \left(F'\left(\frac{az + b}{cz + d}\right) - \frac{k}{12}E_2\left(\frac{az + b}{cz + d}\right)F\left(\frac{az + b}{cz + d}\right)\right)`
-$$`= (F|_{k}\gamma)'(z) - \frac{k}{12} E_2(z) (F|_{k}\gamma)(z)
-= \partial_{k} (F|_{k}\gamma)(z).`
+By taking the derivative of the above equation, we get
+$$`
+\begin{aligned}
+\frac{\dd}{\dd z}(F|_{k} \gamma)(z)
+&= -kc (cz + d)^{-k - 1} F\left(\frac{az + b}{cz + d}\right) + (cz + d)^{-k} (cz + d)^{-2} \frac{\dd F}{\dd z}\left(\frac{az + b}{cz + d}\right) \\
+&= -kc (cz + d)^{-k - 1} F\left(\frac{az + b}{cz + d}\right) + (cz + d)^{-k - 2} \frac{\dd F}{\dd z}\left(\frac{az + b}{cz + d}\right) \\
+&= -kc (cz + d)^{-k - 1} F\left(\frac{az + b}{cz + d}\right) + 2 \pi i (cz + d)^{-k - 2} F'\left(\frac{az + b}{cz + d}\right) \\
+\Leftrightarrow (F|_{k} \gamma)'(z)
+&= -\frac{kc}{2 \pi i} (cz + d)^{-k - 1} F\left(\frac{az + b}{cz + d}\right) + (cz + d)^{-k - 2} F'\left(\frac{az + b}{cz + d}\right).
+\end{aligned}`
+Combined with `eqn:E2-transform-general`, we get
+$$`
+\begin{aligned}
+((\partial_k F)|_{k+2}\gamma)(z)
+&= (cz + d)^{-k-2} \left(F'\left(\frac{az + b}{cz + d}\right) - \frac{k}{12}E_2\left(\frac{az + b}{cz + d}\right)F\left(\frac{az + b}{cz + d}\right)\right) \\
+&= (cz + d)^{-k-2} F'\left(\frac{az + b}{cz + d}\right) - \frac{k}{12} \left(E_2(z) - \frac{6ic}{\pi(cz + d)}\right) \cdot (cz + d)^{-k} F\left(\frac{az + b}{cz + d}\right) \\
+&= (F|_{k}\gamma)'(z) - \frac{k}{12} E_2(z) (F|_{k}\gamma)(z) \\
+&= \partial_{k} (F|_{k}\gamma)(z).
+\end{aligned}`
 :::
 
 ```tex "thm:serre-der-equiv-action" (slot := "proof")
@@ -1402,19 +1416,19 @@ In terms of Serre derivatives, these are equivalent to
 $$`\partial_{1}E_2 = -\frac{1}{12} E_4`
 $$`\partial_{4}E_4 = -\frac{1}{3} E_6`
 $$`\partial_{6}E_6 = -\frac{1}{2} E_4^2.`
-By Theorem {uses "thm:serre-der-modularity"}[], all the Serre derivatives are modular.
-More precisely, modularity of $`\partial_4E_4` and $`\partial_6E_6` follows
-directly from that theorem, while modularity of $`\partial_1E_2` follows from
-the transformation law of $`E_2`.
-Differentiating and squaring yields
+By Theorem {uses "thm:serre-der-modularity"}[], all the Serre derivatives are,
+in fact, modular.
+To be precise, the modularity of $`\partial_4 E_4` and $`\partial_6 E_6`
+directly follows from Theorem {uses "thm:serre-der-modularity"}[], and that of
+$`\partial_1E_2` follows from `eqn:E2-transform-general`.
+Differentiating and squaring then gives us the following:
 $$`E_2'|_{4}\gamma = E_2' - \frac{ic}{\pi(cz + d)} E_2 - \frac{3c^2}{\pi^2 (cz + d)^2}`
 $$`E_2^2|_{4}\gamma = E_2^2 - \frac{12ic}{\pi(cz + d)} E_2 - \frac{36c^2}{\pi^2 (cz + d)^2}.`
-Hence the difference of the first formula and one-twelfth of the second is a
-modular form of weight $`4`.
-By the dimension computation {uses "cor:dim-mf"}[], it must be a multiple of
-$`E_4`; similarly for the
-other identities, and the constants are determined by the constant terms of the
-$`q`-expansions.
+Hence, `eqn:DE2` $`-\frac{1}{12}` `eqn:E2sq-transform` is a modular form of
+weight $`4`.
+By {uses "cor:dim-mf"}[], they should be multiples of $`E_4`, $`E_6`,
+$`E_4^2`, and the proportionality constants can be determined by observing the
+constant terms of $`q`-expansions.
 :::
 
 ```tex "thm:ramanujan-formula" (slot := "proof")
@@ -1501,11 +1515,18 @@ or equivalently,
 
 :::proof "prop:theta-der"
 Equivalences are obvious from the definition of the Serre derivative.
-Define $`f_2,f_3,f_4` as the differences between the left- and right-hand
-sides of the three Serre-derivative identities. These are modular forms of
-weight $`4` and level $`\Gamma(2)`.
-By Jacobi's identity, we have $`f_2 + f_4 = f_3`.
-The transformation rules of $`H_2,H_3,H_4` imply
+Define $`f_{2}, f_{3}, f_{4}` be the differences of the left and right hand
+sides of `eqn:H2-serre-der`, `eqn:H3-serre-der`, `eqn:H4-serre-der`.
+$$`
+\begin{aligned}
+f_{2} &:= \partial_{2} H_{2} - \frac{1}{6} H_{2}(H_{2} + 2H_{4}) \\
+f_{3} &:= \partial_{2} H_{3} - \frac{1}{6} (H_{2}^2 - H_{4}^2) \\
+f_{4} &:= \partial_{2} H_{4} + \frac{1}{6} H_{4}(2H_{2} + H_{4}).
+\end{aligned}`
+Then these are a priori modular forms of weight $`4` and level $`\Gamma(2)`,
+and our goal is to prove that they are actually zeros.
+By Jacobi's identity `eqn:jacobi-identity`, we have $`f_2 + f_4 = f_3`.
+Also, the transformation rules of $`H_2,H_3,H_4` give
 $$`f_{2}|_{S} = -f_{4}`
 $$`f_{2}|_{T} = -f_{2}`
 $$`f_{4}|_{S} = -f_{2}`
@@ -1513,14 +1534,17 @@ $$`f_{4}|_{T} = f_{3} = f_{2} + f_{4}.`
 Now define
 $$`g := (2 H_2 + H_4) f_2 + (H_2 + 2 H_4) f_4`
 $$`h := f_{2}^{2} + f_{2}f_{4} + f_{4}^{2}.`
-Then both $`g` and $`h` are invariant under $`S` and $`T` and hence are
-level-one modular forms. By analyzing the limit as $`z \to i\infty`, they are
-cusp forms, hence $`g = h = 0` by the dimension results.
-This gives
+Then one can check that both $`g` and $`h` are invariant under the actions of
+$`S` and $`T`, hence they are modular forms of level $`1`.
+Also, by analyzing the limit of $`g` and $`h` as $`z \to i \infty`, one can
+see that $`g` and $`h` are cusp forms, hence $`g = h = 0` by `eqn:dimS6` and
+`eqn:dimS8`.
+This implies
 $$`3 E_4 f_2^{2} = 3 (H_2^2 + H_2 H_4 + H_4^2) f_2^{2}
 = ((2 H_2 + H_4)^{2} - (2H_2 + H_4)(H_2 + 2H_4) + (H_2 + 2H_4)^{2}) f_2^{2}`
-$$`= (2 H_2 + H_4)^{2} (f_2^2 + f_2 f_4 + f_4^2) = 0,`
-and since $`E_4` has an invertible $`q`-series, it follows that $`f_2=0`.
+$$`= (2 H_2 + H_4)^{2} (f_2^2 + f_2 f_4 + f_4^2) = 0`
+and by considering $`q`-series ($`E_4` has an invertible $`q`-series), we get
+$`f_2 = 0`.
 :::
 
 ```tex "prop:theta-der" (slot := "proof")
