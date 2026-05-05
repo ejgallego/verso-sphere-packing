@@ -3,6 +3,7 @@ import VersoManual
 import VersoBlueprint
 import SpherePackingBlueprint.ToolchainWorkarounds
 import SpherePackingBlueprint.Bibliography
+import SpherePacking.ModularForms.eta
 
 open Verso.Genre
 open Verso.Genre.Manual hiding citep citet citehere
@@ -448,14 +449,14 @@ $`T`. Then `eqn:E2-transform-general` follows from
 \end{proof}
 ```
 
-:::definition "def:dedekind_eta" (lean := "η") (parent := "eisenstein_discriminant")
+:::definition "def:dedekind_eta" (lean := "ModularForm.eta") (parent := "eisenstein_discriminant")
 The Dedekind eta function is defined as
 $$`\eta(z) = q^{1/24} \prod_{n \ge 1} (1 - q^n)`
 where $`q = e^{2\pi i z}`.
 :::
 
 ```tex "def:dedekind_eta"
-\begin{definition}\label{def:dedekind_eta}\leanok \lean{η}
+\begin{definition}\label{def:dedekind_eta}\leanok \lean{ModularForm.eta}
 The Dedekind eta function is defined as
 $$
     \eta(z) = q^{1/24} \prod_{n \ge 1} (1 - q^n)
