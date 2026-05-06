@@ -40,14 +40,16 @@ in all but finitely many dimensions.
 The Sphere Packing problem is a classic optimisation problem with widespread applications that go well beyond mathematics. The task is to determine the ``densest" possible arrangement of spheres in a given space. It remains unsolved in all but finitely many dimensions.
 ```
 
-It was shown in {citet Via2017}[] that the optimal arrangement in $`\R^8` is
-given by the $`E_8` lattice. The result depends strongly on the Cohn-Elkies
-linear programming bound from {citet ElkiesCohn}[], which bounds the optimal
-density of sphere packings in $`\R^d` in terms of a function $`\R^d \to \R`
-satisfying certain conditions. The proof in {citet Via2017}[] uses modular
-forms to construct a function that bounds the density of all sphere packings in
-$`\R^8` above by the density of the $`E_8` lattice packing, and hence shows
-that no packing in $`\R^8` can be denser than the $`E_8` lattice packing.
+It was famously determined, in {citet Via2017}[], that the optimal arrangement
+in $`\R^8` is given by the $`E_8` lattice. The result is strongly dependent on
+the Cohn-Elkies linear programming bound, Theorem 3.1 in {citet ElkiesCohn}[],
+which, if a $`\R^d \to \R` function satisfying certain conditions exists,
+bounds the optimal density of sphere packings in $`\R^d` in terms of it. The
+proof in {citet Via2017}[] uses the theory of modular forms to construct a
+function that can be used to bound the density of all sphere packings in
+$`\R^8` above by the density of the $`E_8` lattice packing. This then allows us
+to conclude that no packing in $`\R^8` can be denser than the $`E_8` lattice
+packing.
 
 ```tex
 It was famously determined, in~\cite{Via2017}, that the optimal arrangement in $\mathbb{R}^8$ is given by the $E_8$ lattice. The result is strongly dependent on the Cohn-Elkies linear programming bound (Theorem 3.1 in~\cite{ElkiesCohn}), which, if a $\R^d \to \R$ function satisfying certain conditions exists, bounds the optimal density of sphere packings in $\R^d$ in terms of it. The proof in~\cite{Via2017} uses the theory of modular forms to construct a function that can be used to bound the density of all sphere packings in $\R^8$ above by the density of the $E_8$ lattice packing. This then allows us to conclude that no packing in $\R^8$ can be denser than the $E_8$ lattice packing.
@@ -80,8 +82,8 @@ Arguably the most important definition in this subsection is that of \emph{packi
 :::definition "SpherePacking.balls" (lean := "SpherePacking.balls") (parent := "sphere_setup")
 Given a set $`X \subset \R^d` and a real number $`r > 0` such that
 $`\|x-y\| \ge r` for all distinct $`x,y \in X`, we define the sphere packing
-$`\Pa(X)` with centers at $`X` to be the union of all open balls of radius
-$`r` centered at points of $`X`:
+$`\Pa(X)` with centres at $`X` to be the union of all open balls of radius
+$`r` centred at points in $`X`:
 $$`\Pa(X) := \bigcup_{x \in X} B_d(x,r)`
 :::
 
@@ -109,7 +111,7 @@ We now define a notion of density for bounded regions of space by considering th
 
 :::definition "SpherePacking.finiteDensity" (lean := "SpherePacking.finiteDensity") (parent := "sphere_setup")
 The finite density of a packing $`\Pa` is defined as
-$$`\Delta_{\Pa}(R):=\frac{\mathrm{Vol}(\Pa\cap B_d(0,R))}{\mathrm{Vol}(B_d(0,R))},\quad R>0.`
+$$`\Delta_{\mathcal{P}}(R):=\frac{\Vol{\mathcal{P}\cap B_d(0,R)}}{\Vol{B_d(0,R)}},\quad R>0.`
 Uses {uses "SpherePacking"}[] and {uses "SpherePacking.balls"}[].
 :::
 
@@ -133,7 +135,7 @@ As intuitive as it seems to take the density of a packing to be the limit of the
 
 :::definition "SpherePacking.density" (lean := "SpherePacking.density") (parent := "sphere_setup")
 We define the density of a packing $`\Pa` as the limit superior
-$$`\Delta_{\Pa}:=\limsup\limits_{R\to\infty}\Delta_{\Pa}(R).`
+$$`\Delta_{\mathcal{P}}:=\limsup\limits_{R\to\infty}\Delta_{\mathcal{P}}(R).`
 Uses {uses "SpherePacking"}[] and {uses "SpherePacking.finiteDensity"}[].
 :::
 
@@ -361,9 +363,10 @@ Uses {uses "SpherePacking"}[] and {uses "IsZLattice"}[].
 ```
 
 There is a natural definition of density for periodic sphere packings, namely
-the local density of balls in a fundamental domain. However, a priori, the
-density of a sphere packing need not coincide with this alternative
-definition. In the periodic-density theorem below, we will prove that it does.
+the local density of balls in a fundamental domain. However, a priori the
+density of sphere packing above need not to coincide with this alternative
+definition. In the periodic-density theorem below, we will prove that this is
+the case.
 
 ```tex
 There is a natural definition of density for periodic sphere packings, namely the ``local'' density of balls in a fundamental domain. However, \textit{a priori} the density of sphere packing above need not to coincide with this alternative definition. In \cref{theorem:psp-density}, we will prove that this is the case.
@@ -404,8 +407,7 @@ Uses {uses "SpherePacking.density"}[] and {uses "def:Periodic-sphere-packing-con
 
 :::proof "thm:periodic-packing-optimal"
 State this in Lean (ready).
-/- source paragraph break -/
-Fill in proof here (see {citet ElkiesCohn}[], Appendix A).
+Fill in proof here (see ElkiesCohn, Appendix A).
 :::
 
 ```tex "thm:periodic-packing-optimal" (slot := "proof")
@@ -432,9 +434,9 @@ With the terminologies above, we can state the main theorem of this project.
 ```
 
 :::theorem "theorem:CE_Main" (parent := "sphere_main_statement")
-All periodic packings $`\mathcal{P} \subseteq \R^8` have density satisfying
+All periodic packing $`\mathcal{P} \subseteq \R^8` has density satisfying
 $`\Delta_{\mathcal{P}} \leq \Delta_{E_8} = \frac{\pi^4}{384}`, the density of
-the $`E_8` sphere packing.
+the $`E_8` sphere packing; see E8Packing.
 Uses {uses "E8-Lattice"}[], {uses "SpherePackingConstant"}[], {uses "SpherePacking.density"}[], {uses "E8Packing-density"}[], {uses "thm:g"}[], and {uses "thm:Cohn-Elkies-general"}[].
 :::
 
@@ -445,8 +447,9 @@ Uses {uses "E8-Lattice"}[], {uses "SpherePackingConstant"}[], {uses "SpherePacki
 ```
 
 :::proof "theorem:CE_Main"
-Directly follows from {uses "thm:Cohn-Elkies-general"}[] applied to the
-function $`f(x)=g(x/\sqrt{2})` of {uses "thm:g"}[].
+Directly follows from the Cohn-Elkies general theorem
+{uses "thm:Cohn-Elkies-general"}[] applied to the function
+$`f(x)=g(x/\sqrt{2})` of the theorem {uses "thm:g"}[].
 :::
 
 ```tex "theorem:CE_Main" (slot := "proof")
@@ -458,7 +461,7 @@ function $`f(x)=g(x/\sqrt{2})` of {uses "thm:g"}[].
 ```
 
 :::corollary "corollary:upper-bound-E8" (parent := "sphere_main_statement")
-All packings $`\mathcal{P} \subseteq \R^8` have density satisfying
+All packing $`\mathcal{P} \subseteq \R^8` has density satisfying
 $`\Delta_{\mathcal{P}} \leq \Delta_{E_8}`.
 Uses {uses "thm:periodic-packing-optimal"}[] and {uses "theorem:CE_Main"}[].
 :::
@@ -471,8 +474,8 @@ Uses {uses "thm:periodic-packing-optimal"}[] and {uses "theorem:CE_Main"}[].
 
 :::proof "corollary:upper-bound-E8"
 This is a direct consequence of Theorem
-{uses "thm:periodic-packing-optimal"}[] and Theorem
-{uses "theorem:CE_Main"}[].
+{uses "thm:periodic-packing-optimal"}[] on periodic-packing optimality and the
+CE main theorem {uses "theorem:CE_Main"}[].
 :::
 
 ```tex "corollary:upper-bound-E8" (slot := "proof")
@@ -494,8 +497,8 @@ Uses {uses "corollary:upper-bound-E8"}[].
 ```
 
 :::proof "MainTheorem"
-By definition, $`\Delta_{E_8} \leq \Delta_8`, while
-{uses "corollary:upper-bound-E8"}[] shows that
+By definition, $`\Delta_{E_8} \leq \Delta_8`, while the upper-bound-E8
+corollary {uses "corollary:upper-bound-E8"}[] shows that
 $`\Delta_8 = \sup_{\mathrm{packing} \, \mathcal{P}} \leq \Delta_{E_8}`, and
 the result follows.
 :::
