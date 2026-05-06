@@ -79,8 +79,10 @@ for all $t > 0$.
 \end{proposition}
 ```
 
+Here we formalize the proof of the inequalities by {citet Lee}[].
+First, we can rewrite the first inequality as follows.
+
 ```tex
-\uses{prop:ineqA}
 Here we formalize the proof of the inequalities by Lee \cite{Lee}.
 First, we can rewrite the inequality in \ref{prop:ineqA} as follows.
 ```

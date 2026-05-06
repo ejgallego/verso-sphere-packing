@@ -1618,6 +1618,14 @@ $$`= (\partial_{w_1}F)G + F(\partial_{w_2}G).`
 \end{proof}
 ```
 
+We also have the following useful theorem for proving positivity of
+quasimodular forms on the imaginary axis, which is Proposition 3.5 and
+Corollary 3.6 of {citet Lee}[].
+
+```tex
+We also have the following useful theorem for proving positivity of quasimodular forms on the imaginary axis, which is \cite[Proposition 3.5, Corollary 3.6]{Lee}.
+```
+
 :::theorem "thm:anti-serre-der-pos" (parent := "serre_derivative")
 Let $`F` be a holomorphic quasimodular cusp form with real Fourier
 coefficients. Assume that there exists $`k` such that
