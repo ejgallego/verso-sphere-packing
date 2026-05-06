@@ -2,11 +2,14 @@
 
 [![Blueprint Pages](https://github.com/ejgallego/verso-sphere-packing/actions/workflows/blueprint.yml/badge.svg)](https://github.com/ejgallego/verso-sphere-packing/actions/workflows/blueprint.yml)
 
-Verso blueprint harness for the Sphere Packing in Lean document, with the
-upstream `Sphere-Packing-Lean` formalization carried locally as a submodule.
+Verso Blueprint port of the Sphere Packing Blueprint, with the upstream
+[`Sphere-Packing-Lean`](Sphere-Packing-LaTeX-Reference/) formalization carried
+locally as a submodule.
 
-Published site on `main`: <https://ejgallego.github.io/verso-sphere-packing/>
-(after the first successful GitHub Pages deployment).
+Blueprint: <https://ejgallego.github.io/verso-sphere-packing/>
+
+This repo follows the upstream blueprint strictly and translates its source
+markup language to Verso with the help of AI.
 
 ## Build
 
@@ -17,18 +20,11 @@ lake build
 ## Generate
 
 ```bash
-lake exe blueprint-gen
+lake env lean --run SpherePackingBlueprintMain.lean --output _out/site
 ```
 
-## CI / Pages
-
-```bash
-./scripts/ci-pages.sh
-```
-
-This matches the included GitHub Actions Pages workflow and checks the rendered
-site entry point plus the shared preview manifest under `_out/site/html-multi`.
-
-This repository follows the shared `tools/verso-harness` workflow. The root
-`lean-toolchain` matches the upstream `Sphere-Packing-Lean` formalization, and
-`VersoBlueprint` is pinned to the matching `lean-v4.28.0` branch.
+This repository follows the shared
+[`tools/verso-harness`](tools/verso-harness/) workflow. The root
+[`lean-toolchain`](lean-toolchain) matches the upstream formalization, and
+[`lakefile.lean`](lakefile.lean) pins `VersoBlueprint` to the matching release
+branch.
