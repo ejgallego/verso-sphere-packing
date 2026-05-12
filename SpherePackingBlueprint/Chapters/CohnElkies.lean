@@ -149,7 +149,7 @@ The result follows immediately from Theorem
 \end{proof}
 ```
 
-The main step in our proof of the main theorem is the explicit
+The main step in our proof of {bpref "MainTheorem"}[] is the explicit
 construction of an optimal function. It will be convenient for us to scale this
 function by $`\sqrt{2}`.
 

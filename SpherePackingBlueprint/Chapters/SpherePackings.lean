@@ -365,8 +365,8 @@ Uses {uses "SpherePacking"}[] and {uses "IsZLattice"}[].
 There is a natural definition of density for periodic sphere packings, namely
 the local density of balls in a fundamental domain. However, a priori the
 density of sphere packing above need not to coincide with this alternative
-definition. In the periodic-density theorem below, we will prove that this is
-the case.
+definition. In {bpref "theorem:psp-density"}[], we will prove that this is the
+case.
 
 ```tex
 There is a natural definition of density for periodic sphere packings, namely the ``local'' density of balls in a fundamental domain. However, \textit{a priori} the density of sphere packing above need not to coincide with this alternative definition. In \cref{theorem:psp-density}, we will prove that this is the case.
@@ -436,7 +436,7 @@ With the terminologies above, we can state the main theorem of this project.
 :::theorem "theorem:CE_Main" (parent := "sphere_main_statement")
 All periodic packing $`\mathcal{P} \subseteq \R^8` has density satisfying
 $`\Delta_{\mathcal{P}} \leq \Delta_{E_8} = \frac{\pi^4}{384}`, the density of
-the $`E_8` sphere packing; see E8Packing.
+the $`E_8` sphere packing; see {bpref "E8Packing"}[].
 Uses {uses "E8-Lattice"}[], {uses "SpherePackingConstant"}[], {uses "SpherePacking.density"}[], {uses "E8Packing-density"}[], {uses "thm:g"}[], and {uses "thm:Cohn-Elkies-general"}[].
 :::
 
@@ -447,9 +447,9 @@ Uses {uses "E8-Lattice"}[], {uses "SpherePackingConstant"}[], {uses "SpherePacki
 ```
 
 :::proof "theorem:CE_Main"
-Directly follows from the Cohn-Elkies general theorem
-{uses "thm:Cohn-Elkies-general"}[] applied to the function
-$`f(x)=g(x/\sqrt{2})` of the theorem {uses "thm:g"}[].
+Uses {uses "thm:Cohn-Elkies-general"}[] and {uses "thm:g"}[].
+Directly follows from {bpref "thm:Cohn-Elkies-general"}[] applied to the
+function $`f(x)=g(x/\sqrt{2})` of {bpref "thm:g"}[].
 :::
 
 ```tex "theorem:CE_Main" (slot := "proof")
@@ -473,9 +473,9 @@ Uses {uses "thm:periodic-packing-optimal"}[] and {uses "theorem:CE_Main"}[].
 ```
 
 :::proof "corollary:upper-bound-E8"
-This is a direct consequence of Theorem
-{uses "thm:periodic-packing-optimal"}[] on periodic-packing optimality and the
-CE main theorem {uses "theorem:CE_Main"}[].
+Uses {uses "thm:periodic-packing-optimal"}[] and {uses "theorem:CE_Main"}[].
+This is a direct consequence of {bpref "thm:periodic-packing-optimal"}[] and
+{bpref "theorem:CE_Main"}[].
 :::
 
 ```tex "corollary:upper-bound-E8" (slot := "proof")

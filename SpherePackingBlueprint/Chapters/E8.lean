@@ -275,9 +275,9 @@ This uses {uses "instDiscreteE8Lattice"}[] and {uses "E8-is-basis"}[].
 ```
 
 :::proof "instLatticeE8"
-The first part is by `instDiscreteE8Lattice`, and the second part follows
-from the fact that $`\B_8` is a basis (`E8-is-basis`) and hence linearly
-independent over $`\R`.
+The first part is by {bpref "instDiscreteE8Lattice"}[], and the second part
+follows from the fact that $`\B_8` is a basis ({bpref "E8-is-basis"}[]) and
+hence linearly independent over $`\R`.
 :::
 
 ```tex "instLatticeE8" (slot := "proof")
@@ -348,9 +348,9 @@ Uses {uses "theorem:psp-density"}[] and {uses "E8Packing-covol"}[].
 ```
 
 :::proof "E8Packing-density"
-By `theorem:psp-density`, we have
+By {bpref "theorem:psp-density"}[], we have
 $`\Delta_{\mathcal{P}(E_8)} = |E_8 / E_8| \cdot \frac{\Vol{\mathcal{B}_8(\sqrt{2} / 2)}}{\mathrm{Covol}(E_8)} = \frac{\pi^4}{384}`,
-where the last equality follows from `E8Packing-covol` and the
+where the last equality follows from {bpref "E8Packing-covol"}[] and the
 formula for volume of a ball:
 $`\Vol{\mathcal{B}_d(R)} = R^d \pi^{d / 2} / \Gamma\left(\frac{d}{2} + 1\right)`.
 :::

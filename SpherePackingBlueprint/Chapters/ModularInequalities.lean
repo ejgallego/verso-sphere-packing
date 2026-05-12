@@ -80,7 +80,7 @@ for all $t > 0$.
 ```
 
 Here we formalize the proof of the inequalities by {citet Lee}[].
-First, we can rewrite the first inequality as follows.
+First, we can rewrite the inequality in {bpref "prop:ineqA"}[] as follows.
 
 ```tex
 Here we formalize the proof of the inequalities by Lee \cite{Lee}.

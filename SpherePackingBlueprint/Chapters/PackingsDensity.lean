@@ -26,9 +26,9 @@ Volume-count asymptotics for lattice and periodic center sets.
 Closed formula for density of periodic sphere packings.
 :::
 
-The definition of density given in the sphere-packings section is
-inconvenient to work with, especially when our packing is a structured one,
-such as a periodic or lattice packing. This section fixes this problem.
+The definition of density for sphere packings is inconvenient to work with,
+especially when our packing is a structured one, such as a periodic or lattice
+packing. This section fixes this problem.
 
 ```tex
 The definition of density given in \cref{sec:sphere-packings} is inconvenient to work with, especially when our packing is a structured one, such as a periodic/lattice packing. This section fixes this problem.
@@ -139,8 +139,8 @@ For the second inequality, we prove that $\bigcup_{x \in \Lambda \cap \mathcal{B
 \end{proof}
 ```
 
-To link the lemmas `lemma:sp-finite-density-bound` and
-`lemma:lattice-points-bound`, we need a lemma relating
+To link {bpref "lemma:sp-finite-density-bound"}[] and
+{bpref "lemma:lattice-points-bound"}[], we need a lemma relating
 $`|\Lambda \cap \mathcal{B}|` with $`|X \cap \mathcal{B}|`, which is what
 the following lemma does.
 
