@@ -33,7 +33,7 @@ def renderConfig : RenderConfig where
   toConfig := config
 
 def main (args : List String) : IO UInt32 :=
-  Informal.PreviewManifest.manualMainWithSharedPreviewManifest
+  Informal.PreviewManifest.manualMainWithPreviewData
     (%doc SpherePackingBlueprint.Contents)
     args
     (extensionImpls := by exact extension_impls%)
