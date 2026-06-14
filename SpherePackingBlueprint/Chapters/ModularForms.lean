@@ -3,7 +3,6 @@ import VersoManual
 import VersoBlueprint
 import SpherePackingBlueprint.ToolchainWorkarounds
 import SpherePackingBlueprint.Bibliography
-import SpherePacking.ModularForms.eta
 
 open Verso.Genre
 open Verso.Genre.Manual hiding citep citet citehere
@@ -421,14 +420,14 @@ This is exercise 1.2.8 of \cite{first course}.
 \end{proof}
 ```
 
-:::lemma_ "lemma:E2-transform-general" (lean := "G₂_transform") (parent := "eisenstein_discriminant")
+:::lemma_ "lemma:E2-transform-general" (lean := "E₂_slash_transform") (parent := "eisenstein_discriminant")
 We have
 $$`(cz + d)^{-2} E_2\left(\frac{az + b}{cx + d}\right) = E_2(z) - \frac{6ic}{\pi (cz + d)}, \quad \begin{pmatrix} a & b \\ c & d\end{pmatrix} \in \mathrm{SL}_{2}(\mathbb{Z}).`
 Uses {uses "lemma:E2-transform-S"}[] and {uses "def:E2"}[].
 :::
 
 ```tex "lemma:E2-transform-general"
-\begin{lemma}\label{lemma:E2-transform-general}\leanok\lean{G₂_transform}\uses{lemma:E2-transform-S, def:E2}
+\begin{lemma}\label{lemma:E2-transform-general}\leanok\lean{E₂_slash_transform}\uses{lemma:E2-transform-S, def:E2}
 \begin{equation}\label{eqn:E2-transform-general}
 (cz + d)^{-2} E_2\left(\frac{az + b}{cx + d}\right) = E_2(z) - \frac{6ic}{\pi (cz + d)}, \quad \begin{pmatrix} a & b \\ c & d\end{pmatrix} \in \mathrm{SL}_{2}(\mathbb{Z}).
 \end{equation}
@@ -465,14 +464,14 @@ where $q = e^{2\pi i z}$.
 \end{definition}
 ```
 
-:::lemma_ "lemma:dedekind_eta_transformation" (lean := "eta_equality") (parent := "eisenstein_discriminant")
+:::lemma_ "lemma:dedekind_eta_transformation" (parent := "eisenstein_discriminant")
 The Dedekind eta function transforms as
 $$`\eta\left(-\frac{1}{z}\right) = \sqrt{-iz} \eta(z).`
 Uses {uses "def:dedekind_eta"}[].
 :::
 
 ```tex "lemma:dedekind_eta_transformation"
-\begin{lemma}\label{lemma:dedekind_eta_transformation}\lean{eta_equality}\uses{def:dedekind_eta}
+\begin{lemma}\label{lemma:dedekind_eta_transformation}\uses{def:dedekind_eta}
 The Dedekind eta function transforms as
 $$
     \eta\left(-\frac{1}{z}\right) = \sqrt{-iz} \eta(z).

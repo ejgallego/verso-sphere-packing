@@ -28,7 +28,7 @@ Recall the definition of a Fourier transform.
 Recall the definition of a Fourier transform.
 ```
 
-:::definition "def:Fourier-Transform" (lean := "Real.fourierIntegral") (parent := "fourier_setup")
+:::definition "def:Fourier-Transform" (lean := "VectorFourier.fourierIntegral") (parent := "fourier_setup")
 The Fourier transform of an $`L^1`-function $`f:\R^d\to\C` is defined as
 $$`\mathcal{F}(f)(y) = \widehat{f}(y) := \int_{\R^d} f(x)e^{-2\pi i \langle x, y \rangle} \,\mathrm{d}x, \quad y \in \R^d`
 where
@@ -37,7 +37,7 @@ is the standard scalar product in $`\R^d`.
 :::
 
 ```tex "def:Fourier-Transform"
-\begin{definition}\label{def:Fourier-Transform}\lean{Real.fourierIntegral}\leanok
+\begin{definition}\label{def:Fourier-Transform}\lean{VectorFourier.fourierIntegral}\leanok
   The Fourier transform of an $L^1$-function $f:\R^d\to\C$ is defined as
 
   \[
