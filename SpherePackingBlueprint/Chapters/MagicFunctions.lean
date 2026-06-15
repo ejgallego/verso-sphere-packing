@@ -57,12 +57,11 @@ functions.
 First, we will define function $a$. To this end we consider the following functions:
 ```
 
-:::definition "def:phi4-phi2-phi0" (parent := "magic_phi_construction")
+:::definition "def:phi4-phi2-phi0" (parent := "magic_phi_construction") (uses := "def:Ek, def:E2")
 Define
 $$`\phi_{-4} := \frac{E_4^2}{\Delta}`
 $$`\phi_{-2} := \frac{E_4(E_2 E_4 - E_6)}{\Delta}`
 $$`\phi_{0} := \frac{(E_2 E_4 - E_6)^2}{\Delta}.`
-Uses {uses "def:Ek"}[] and {uses "def:E2"}[].
 :::
 
 ```tex "def:phi4-phi2-phi0"
@@ -83,11 +82,10 @@ transformation rules.
 The function $\phi_0(z)$ is not modular; however, it satisfies the following transformation rules:
 ```
 
-:::lemma_ "lemma:phi0-transform" (parent := "magic_phi_construction")
+:::lemma_ "lemma:phi0-transform" (parent := "magic_phi_construction") (uses := "def:phi4-phi2-phi0, lemma:Ek-is-modular-form, lemma:E2-transform-S, lemma:disc-cuspform")
 We have
 $$`\phi_0(z + 1) = \phi_0(z)`
 $$`\phi_0\left(-\frac{1}{z}\right) = \phi_0(z)-\frac{12i}{\pi}\,\frac{1}{z}\,\phi_{-2}(z)-\frac{36}{\pi^2}\,\frac{1}{z^2}\,\phi_{-4}(z).`
-Uses {uses "def:phi4-phi2-phi0"}[], {uses "lemma:Ek-is-modular-form"}[], {uses "lemma:E2-transform-S"}[], and {uses "lemma:disc-cuspform"}[].
 :::
 
 ```tex "lemma:phi0-transform"
@@ -131,7 +129,7 @@ integrals, and write the definition as follows.
 For our formalization, we choose rectangular contours for the first and the second integral, and write it as follows.
 ```
 
-:::definition "def:a-definition" (lean := "MagicFunction.a.RealIntegrals.a',MagicFunction.a.RadialFunctions.a") (parent := "magic_phi_construction")
+:::definition "def:a-definition" (lean := "MagicFunction.a.RealIntegrals.a',MagicFunction.a.RadialFunctions.a") (parent := "magic_phi_construction") (uses := "def:phi4-phi2-phi0")
 Define $`a_{\rad} : \R \to \C` by
 $$`a_\rad(r) := I_1(r) + I_2(r) + I_3(r) + I_4(r) + I_5(r) + I_6(r)`
 where
@@ -143,7 +141,6 @@ $$`I_5(r) := -2 \int_{0}^{i} \phi_0 \left(\frac{-1}{z}\right) z^2 e^{\pi i r z} 
 $$`I_6(r) := 2 \int_{i}^{i\infty} \phi_0(z) e^{\pi i r z} \dd z.`
 Here all contours are chosen to be straight line segments. Define
 $`a(x) := a_{\rad}(\|x\|^2)` for $`x \in \R^8`.
-Uses {uses "def:phi4-phi2-phi0"}[].
 :::
 
 ```tex "def:a-definition"
@@ -217,7 +214,7 @@ $`f`.
 When $f(z)$ is a (quasi)modular form, we can take $k$ to be the weight of $f$.
 ```
 
-:::proof "lemma:mod-div-disc-bound"
+:::proof "lemma:mod-div-disc-bound" (uses := "def:disc-definition")
 By the product formula for $`\Delta`,
 $$`\left|\frac{f(z)}{\Delta(z)}\right|
  = \left|\frac{\sum_{n \ge n_0} c_f(n) e^{\pi i n z}}{e^{2 \pi i z}\prod_{n \ge 1} (1 - e^{2\pi i n z})^{24}}\right|`
@@ -229,7 +226,6 @@ Here
 $$`C_f = \frac{\sum_{n \ge n_0} |c_f(n)| e^{-\pi (n - n_0) / 2}}{\prod_{n \ge 1} (1 - e^{-\pi n})^{24}}.`
 The numerator converges absolutely because of polynomial growth, and the
 denominator also converges; indeed it is simply $`e^{\pi}\cdot \Delta(i/2)`.
-Uses {uses "def:disc-definition"}[].
 :::
 
 ```tex "lemma:mod-div-disc-bound" (slot := "proof")
@@ -258,11 +254,10 @@ $`\phi_{-2}`, and $`\phi_{-4}`.
 As corollaries, we have the following bound for $\phi_0$, $\phi_{-2}$, and $\phi_{-4}$.
 ```
 
-:::corollary "cor:phi0-bound" (parent := "magic_phi_construction")
+:::corollary "cor:phi0-bound" (parent := "magic_phi_construction") (uses := "thm:ramanujan-formula, lemma:mod-div-disc-bound, lemma:Ek-Fourier, lemma:mod_form_poly_growth")
 There exists a constant $`C_0 > 0` such that
 $$`|\phi_0(z)| \le C_0 e^{-2 \pi \Im z}`
 for all $`z` with $`\Im z > 1/2`.
-Uses {uses "thm:ramanujan-formula"}[], {uses "lemma:mod-div-disc-bound"}[], {uses "lemma:Ek-Fourier"}[], and {uses "lemma:mod_form_poly_growth"}[].
 :::
 
 ```tex "cor:phi0-bound"
@@ -295,11 +290,10 @@ Then the result follows from Lemma~\ref{lemma:mod-div-disc-bound} with $f(z) = (
 \end{proof}
 ```
 
-:::corollary "cor:phi2-bound" (parent := "magic_phi_construction")
+:::corollary "cor:phi2-bound" (parent := "magic_phi_construction") (uses := "def:phi4-phi2-phi0, lemma:mod-div-disc-bound, lemma:Ek-Fourier")
 There exists a constant $`C_{-2} > 0` such that
 $$`|\phi_{-2}(z)| \le C_{-2}`
 for all $`z` with $`\Im z > 1/2`.
-Uses {uses "def:phi4-phi2-phi0"}[], {uses "lemma:mod-div-disc-bound"}[], and {uses "lemma:Ek-Fourier"}[].
 :::
 
 ```tex "cor:phi2-bound"
@@ -312,11 +306,10 @@ for all $z$ with $\Im z > 1/2$.
 \end{corollary}
 ```
 
-:::corollary "cor:phi4-bound" (parent := "magic_phi_construction")
+:::corollary "cor:phi4-bound" (parent := "magic_phi_construction") (uses := "def:phi4-phi2-phi0, lemma:mod-div-disc-bound, lemma:Ek-Fourier")
 There exists a constant $`C_{-4} > 0` such that
 $$`|\phi_{-4}(z)| \le C_{-4} e^{2 \pi \Im z}`
 for all $`z` with $`\Im z > 1/2`.
-Uses {uses "def:phi4-phi2-phi0"}[], {uses "lemma:mod-div-disc-bound"}[], and {uses "lemma:Ek-Fourier"}[].
 :::
 
 ```tex "cor:phi4-bound"
@@ -526,9 +519,8 @@ Combining these bounds, one can show that $`a` is a Schwartz function.
 Combining these, one can show that $a$ is a Schwartz function.
 ```
 
-:::lemma_ "prop:a-schwartz" (lean := "MagicFunction.FourierEigenfunctions.a") (parent := "magic_a_properties")
+:::lemma_ "prop:a-schwartz" (lean := "MagicFunction.FourierEigenfunctions.a") (parent := "magic_a_properties") (uses := "def:a-definition, cor:phi0-bound")
 $`a(x)` is a Schwartz function.
-Uses {uses "def:a-definition"}[] and {uses "cor:phi0-bound"}[].
 :::
 
 ```tex "prop:a-schwartz"
@@ -556,9 +548,8 @@ The decay follows from Lemmas \ref{lem:bound-I1-I3-I5} and \ref{lem:bound-I2-I4-
 \end{proof}
 ```
 
-:::lemma_ "prop:a-fourier" (lean := "MagicFunction.a.Fourier.eig_a") (parent := "magic_a_properties")
+:::lemma_ "prop:a-fourier" (lean := "MagicFunction.a.Fourier.eig_a") (parent := "magic_a_properties") (uses := "lemma:Ek-Fourier, def:E2, def:a-definition, lemma:Gaussian-Fourier, prop:a-schwartz")
 $`a(x)` satisfies equation `eqn:a-fourier`.
-Uses {uses "lemma:Ek-Fourier"}[], {uses "def:E2"}[], {uses "def:a-definition"}[], {uses "lemma:Gaussian-Fourier"}[], and {uses "prop:a-schwartz"}[].
 :::
 
 ```tex "prop:a-fourier"
@@ -636,11 +627,10 @@ Using \eqref{eqn:phi0-bound}, \eqref{eqn:phi2-bound}, and \eqref{eqn:phi4-bound}
 %Note that by definition function $a$ is radial and therefore in naturally defines a function on $\R_{\geq0}$. For abuse of notation we denote this function also by $a$.
 ```
 
-:::corollary "cor:phi0-near-0-infty" (parent := "magic_a_properties")
+:::corollary "cor:phi0-near-0-infty" (parent := "magic_a_properties") (uses := "cor:phi0-bound, cor:phi2-bound, cor:phi4-bound, lemma:phi0-transform")
 We have
 $$`\phi_0\left(\frac{i}{t}\right) = O(e^{-2 \pi / t}) \quad \text{as } t \to 0`
 $$`\phi_0\left(\frac{i}{t}\right) = O(t^{-2}e^{2 \pi t}) \quad \text{as } t \to \infty.`
-Uses {uses "cor:phi0-bound"}[], {uses "cor:phi2-bound"}[], {uses "cor:phi4-bound"}[], and {uses "lemma:phi0-transform"}[].
 :::
 
 ```tex "cor:phi0-near-0-infty"
@@ -672,10 +662,9 @@ For the second estimate, by \eqref{eqn:phi0-trans-S}, \eqref{eqn:phi2-bound}, an
 \end{proof}
 ```
 
-:::lemma_ "prop:a-double-zeros" (parent := "magic_a_properties")
+:::lemma_ "prop:a-double-zeros" (parent := "magic_a_properties") (uses := "cor:phi0-near-0-infty, def:a-definition, cor:disc-nonvanishing")
 For $`r>\sqrt{2}` we can express $`a(r)` in the form
 $$`a(r)=-4\sin(\pi r^2/2)^2\,\int\limits_{0}^{i\infty}\phi_0\Big(\frac{-1}{z}\Big)\,z^2\,e^{\pi i r^2 \,z}\,dz.`
-Uses {uses "cor:phi0-near-0-infty"}[], {uses "def:a-definition"}[], and {uses "cor:disc-nonvanishing"}[].
 :::
 
 ```tex "prop:a-double-zeros"
@@ -766,12 +755,11 @@ compute values of $`a(r)` at $`r=0` and $`r=\sqrt{2}`.
 Finally, we find another convenient integral representation for $a$ and compute values of $a(r)$ at $r=0$ and $r=\sqrt{2}$.
 ```
 
-:::lemma_ "prop:a-another-integral" (parent := "magic_a_properties")
+:::lemma_ "prop:a-another-integral" (parent := "magic_a_properties") (uses := "prop:a-double-zeros, def:phi4-phi2-phi0, lemma:phi0-transform, def:a-definition")
 For $`r\geq0` we have
 $$`a(r)=4i\,\sin(\pi r^2/2)^2\,\Bigg(\frac{36}{\pi^3\,(r^2-2)}-\frac{8640}{\pi^3\,r^4}+\frac{18144}{\pi^3\,r^2}`
 $$`+\int\limits_0^\infty\,\left(t^2\,\phi_0\Big(\frac{i}{t}\Big)-\frac{36}{\pi^2}\,e^{2\pi t}+\frac{8640}{\pi}\,t-\frac{18144}{\pi^2}\right)\,e^{-\pi r^2 t}\,dt \Bigg).`
 The integral converges absolutely for all $`r\in\R_{\geq 0}`.
-Uses {uses "prop:a-double-zeros"}[], {uses "def:phi4-phi2-phi0"}[], {uses "lemma:phi0-transform"}[], and {uses "def:a-definition"}[].
 :::
 
 ```tex "prop:a-another-integral"
@@ -782,8 +770,7 @@ The integral converges absolutely for all $r\in\R_{\geq 0}$.
 \end{proposition}
 ```
 
-:::proof "prop:a-another-integral"
-Uses {uses "prop:a-double-zeros"}[].
+:::proof "prop:a-another-integral" (uses := "prop:a-double-zeros")
 Suppose that $`r>\sqrt{2}`. Then by Proposition `prop:a-double-zeros`,
 $$`a(r)=4i\,\sin(\pi r^2/2)^2\,\int\limits_{0}^{\infty}\phi_0(i/t)\,t^2\,e^{-\pi r^2 t}\,dt.`
 From `eqn:phi0-trans-S` we obtain the asymptotic expansion
@@ -825,9 +812,8 @@ $`i\R` for all $`r\in\R_{\geq0}`.
 From the identity~\eqref{eqn:a-another-integral} we see that the values $a(r)$ are in $i\R$ for all $r\in\R_{\geq0}$.
 ```
 
-:::lemma_ "prop:a0" (lean := "MagicFunction.a.SpecialValues.a_zero") (parent := "magic_a_properties")
+:::lemma_ "prop:a0" (lean := "MagicFunction.a.SpecialValues.a_zero") (parent := "magic_a_properties") (uses := "prop:a-another-integral")
 We have $`a(0) = -\frac{i}{8640}`.
-Uses {uses "prop:a-another-integral"}[].
 :::
 
 ```tex "prop:a0"
@@ -852,10 +838,9 @@ Now we construct function $`b`. To this end we consider the function.
 Now we construct function $b$. To this end we consider the function
 ```
 
-:::definition "def:h" (parent := "magic_psi_construction")
+:::definition "def:h" (parent := "magic_psi_construction") (uses := "def:H2-H3-H4")
 Define
 $$`h(z) := 128 \frac{H_3(z) + H_4(z)}{H_2(z)^2}.`
-Uses {uses "def:H2-H3-H4"}[].
 :::
 
 ```tex "def:h"
@@ -903,12 +888,11 @@ $T=\left(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\right)$, and
 $S=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ be elements of $\Gamma_1$.
 ```
 
-:::definition "def:psiI-psiT-psiS" (parent := "magic_psi_construction")
+:::definition "def:psiI-psiT-psiS" (parent := "magic_psi_construction") (uses := "def:h")
 Define
 $$`\psi_I\,:=\,h-h|_{-2}ST`
 $$`\psi_T\,:=\,\psi_I|_{-2}T`
 $$`\psi_S\,:=\,\psi_I|_{-2}S.`
-Uses {uses "def:h"}[].
 :::
 
 ```tex "def:psiI-psiT-psiS"
@@ -940,8 +924,7 @@ $$`\psi_T(z) = \frac{H_3^3 (5 H_2^2 - 5 H_2 H_3 + 2 H_3^2)}{2 \Delta}.`
 \end{lemma}
 ```
 
-:::proof "lemma:psi-new"
-Uses {uses "lemma:theta-transform-S-T"}[] and {uses "lemma:lv1-lv2-identities"}[].
+:::proof "lemma:psi-new" (uses := "lemma:theta-transform-S-T, lemma:lv1-lv2-identities")
 By the transformation laws of the theta-null functions,
 $$`H_2|_{-2}ST = (-H_4)|_{-2}T = -H_3`
 $$`H_3|_{-2}ST = (-H_3)|_{-2}T = -H_4`
@@ -981,11 +964,10 @@ Applying $|_{-2}S$ and $|_{-2}T$ to the expression of $\psi_I$ proves \eqref{eqn
 \end{proof}
 ```
 
-:::lemma_ "lemma:psiI-psiT-psiS-fourier" (parent := "magic_psi_construction")
+:::lemma_ "lemma:psiI-psiT-psiS-fourier" (parent := "magic_psi_construction") (uses := "lemma:psi-new")
 The Fourier expansions of these functions are
 $$`\psi_I(z)\,=\,q^{-1} + 144 + O(q^{1/2})`
 $$`\psi_T(z)\,=\,q^{-1} + 144 + O(q^{1/2}).`
-Uses {uses "lemma:psi-new"}[].
 :::
 
 ```tex "lemma:psiI-psiT-psiS-fourier"
@@ -1007,7 +989,7 @@ Now, we are ready to define function $b$.
 Again, the definition here is slightly different from that in \cite{Via2017}, where all the contours are chosen to be the straight lines.
 ```
 
-:::definition "def:b-definition" (parent := "magic_psi_construction")
+:::definition "def:b-definition" (parent := "magic_psi_construction") (uses := "def:psiI-psiT-psiS")
 Define $`b_\rad : \R \to \C` by
 $$`b_\rad(r) := J_1(r) + J_2(r) + J_3(r) + J_4(r) + J_5(r) + J_6(r)`
 where
@@ -1019,7 +1001,6 @@ $$`J_5(r) := -2 \int_{0}^{i} \psi_I(z) e^{\pi i r z} \, \dd z`
 $$`J_6(r) := -2 \int_{i}^{i \infty} \psi_S(z) e^{\pi i r z} \, \dd z.`
 Here all contours are straight line segments.
 Define $`b : \R^8 \to \C` by $`b(x) := b_\rad(\|x\|^2)`.
-Uses {uses "def:psiI-psiT-psiS"}[].
 :::
 
 ```tex "def:b-definition"
@@ -1070,8 +1051,7 @@ $$`|\psi_S(z)| \le C_S e^{- \pi \Im z}.`
 \end{lemma}
 ```
 
-:::proof "lemma:psi-bound"
-Uses {uses "cor:phi0-bound"}[] and {uses "lemma:mod-div-disc-bound"}[].
+:::proof "lemma:psi-bound" (uses := "cor:phi0-bound, lemma:mod-div-disc-bound")
 The proof is similar to that of Lemma `cor:phi0-bound` and follows
 from Lemma {uses "lemma:mod-div-disc-bound"}[] together with the fact that the
 vanishing orders of the numerators of $`\psi_I`, $`\psi_T`, and $`\psi_S`
@@ -1120,9 +1100,8 @@ $$`|J_6(r)| \le C_2 \frac{e^{\pi (r + 1)}}{r + 1}.`
 Combining Lemmas \ref{lemma:bound-J1-J3-J5}, \ref{lemma:bound-J2-J4-J6}, and Theorem \ref{thm:smooth-fast-decay-schwartz}, we can prove that $b(x)$ is a Schwartz function.
 ```
 
-:::lemma_ "prop:b-schwartz" (lean := "MagicFunction.FourierEigenfunctions.b") (parent := "magic_b_properties")
+:::lemma_ "prop:b-schwartz" (lean := "MagicFunction.FourierEigenfunctions.b") (parent := "magic_b_properties") (uses := "lemma:psi-bound")
 $`b(x)` is a Schwartz function.
-Uses {uses "lemma:psi-bound"}[].
 :::
 
 ```tex "prop:b-schwartz"
@@ -1131,8 +1110,7 @@ $b(x)$ is a Schwartz function.
 \end{proposition}
 ```
 
-:::proof "prop:b-schwartz"
-Uses {uses "lemma:bound-J1-J3-J5"}[], {uses "lemma:bound-J2-J4-J6"}[], and {uses "thm:smooth-fast-decay-schwartz"}[].
+:::proof "prop:b-schwartz" (uses := "lemma:bound-J1-J3-J5, lemma:bound-J2-J4-J6, thm:smooth-fast-decay-schwartz")
 Similar to the proof of {uses "prop:a-schwartz"}[].
 :::
 
@@ -1143,9 +1121,8 @@ Similar to the proof of \ref{prop:a-schwartz}.
 \end{proof}
 ```
 
-:::lemma_ "prop:b-fourier" (lean := "MagicFunction.b.Fourier.eig_b") (parent := "magic_b_properties")
+:::lemma_ "prop:b-fourier" (lean := "MagicFunction.b.Fourier.eig_b") (parent := "magic_b_properties") (uses := "def:b-definition, lemma:Gaussian-Fourier, def:psiI-psiT-psiS, prop:b-schwartz")
 $`b(x)` satisfies equation `eqn:b-fourier`.
-Uses {uses "def:b-definition"}[], {uses "lemma:Gaussian-Fourier"}[], {uses "def:psiI-psiT-psiS"}[], and {uses "prop:b-schwartz"}[].
 :::
 
 ```tex "prop:b-fourier"
@@ -1154,8 +1131,7 @@ $b(x)$ satisfies \eqref{eqn:b-fourier}.
 \end{proposition}
 ```
 
-:::proof "prop:b-fourier"
-Uses {uses "prop:a-fourier"}[].
+:::proof "prop:b-fourier" (uses := "prop:a-fourier")
 We repeat the argument used in the proof of Proposition
 `prop:a-fourier`. Using the Gaussian Fourier identity and exchanging
 the contour integration in $`z` with the Fourier transform in $`x`, we get
@@ -1224,11 +1200,10 @@ check that it has double roots at the $`\Lambda_8` points.
 Now we regard the radial function $b$ as a function on $\R_{\geq0}$. We check that $b$ has double roots at $\Lambda_8$-points.
 ```
 
-:::corollary "cor:psiI-near-0-infty" (parent := "magic_b_properties")
+:::corollary "cor:psiI-near-0-infty" (parent := "magic_b_properties") (uses := "lemma:psi-bound, def:psiI-psiT-psiS")
 We have
 $$`\psi_I(it) = O(t^2 e^{\pi/t}) \quad \text{as } t \to 0`
 $$`\psi_I(it) = O(e^{2 \pi t}) \quad \text{as } t \to \infty.`
-Uses {uses "lemma:psi-bound"}[] and {uses "def:psiI-psiT-psiS"}[].
 :::
 
 ```tex "cor:psiI-near-0-infty"
@@ -1241,8 +1216,7 @@ We have
 \end{corollary}
 ```
 
-:::proof "cor:psiI-near-0-infty"
-Uses {uses "lemma:psi-bound"}[].
+:::proof "cor:psiI-near-0-infty" (uses := "lemma:psi-bound")
 By `eqn:psiS-define`,
 $$`\psi_I(it) = (it)^{-2} \psi_S\left(\frac{-1}{it}\right) = -t^{-2} \psi_S\left(\frac{i}{t}\right),`
 and combined with `eqn:psiS-bound` this gives `eqn:psiI-near-0`.
@@ -1261,10 +1235,9 @@ and combined with \eqref{eqn:psiS-bound} we get \eqref{eqn:psiI-near-0}.
 \end{proof}
 ```
 
-:::lemma_ "prop:b-double-zeros" (parent := "magic_b_properties")
+:::lemma_ "prop:b-double-zeros" (parent := "magic_b_properties") (uses := "lemma:psiI-psiT-psiS-fourier, def:psiI-psiT-psiS, cor:psiI-near-0-infty, cor:disc-nonvanishing")
 For $`r>\sqrt{2}`, the function $`b(r)` can be expressed as
 $$`b(r)=-4\sin(\pi r^2/2)^2\,\int\limits_{0}^{i\infty}\psi_I(z)\,e^{\pi i r^2 \,z}\,dz.`
-Uses {uses "lemma:psiI-psiT-psiS-fourier"}[], {uses "def:psiI-psiT-psiS"}[], {uses "cor:psiI-near-0-infty"}[], and {uses "cor:disc-nonvanishing"}[].
 :::
 
 ```tex "prop:b-double-zeros"
@@ -1276,8 +1249,7 @@ For $r>\sqrt{2}$ function $b(r)$ can be expressed as
 \end{proposition}
 ```
 
-:::proof "prop:b-double-zeros"
-Uses {uses "cor:psiI-near-0-infty"}[].
+:::proof "prop:b-double-zeros" (uses := "cor:psiI-near-0-infty")
 Denote the right-hand side by $`c(r)`.
 By Corollary `cor:psiI-near-0-infty`, the integral converges for
 $`r>\sqrt{2}`. Rewrite it as
@@ -1350,11 +1322,10 @@ for $`r\in\R_{\geq0}` and compute special values of $`b`.
 At the end of this section we find another integral representation of $b(r)$ for $r\in\R_{\geq0}$ and compute special values of $b$.
 ```
 
-:::lemma_ "prop:b-another-integral" (parent := "magic_b_properties")
+:::lemma_ "prop:b-another-integral" (parent := "magic_b_properties") (uses := "prop:b-double-zeros, lemma:psiI-psiT-psiS-fourier, def:b-definition")
 For $`r\geq0` we have
 $$`b(r)=4i\,\sin(\pi r^2/2)^2\,\left(\frac{144}{\pi\,r^2}+\frac{1}{\pi\,(r^2-2)}+\int\limits_0^\infty\,\left(\psi_I(it)-144-e^{2\pi t}\right)\,e^{-\pi r^2 t}\,dt\right).`
 The integral converges absolutely for all $`r\in\R_{\geq 0}`.
-Uses {uses "prop:b-double-zeros"}[], {uses "lemma:psiI-psiT-psiS-fourier"}[], and {uses "def:b-definition"}[].
 :::
 
 ```tex "prop:b-another-integral"
@@ -1365,8 +1336,7 @@ The integral converges absolutely for all $r\in\R_{\geq 0}$.
 \end{proposition}
 ```
 
-:::proof "prop:b-another-integral"
-Uses {uses "prop:a-another-integral"}[] and {uses "prop:b-double-zeros"}[].
+:::proof "prop:b-another-integral" (uses := "prop:a-another-integral, prop:b-double-zeros")
 The proof is analogous to the proof of Proposition
 `prop:a-another-integral`.
 First suppose that $`r>\sqrt{2}`. Then by Proposition
@@ -1412,9 +1382,8 @@ $`r\in\R_{\geq 0}`.
 We see from \eqref{eqn:b-another-integral} that $b(r)\in i\R$ far all $r\in\R_\geq{0}$.
 ```
 
-:::lemma_ "prop:b0" (lean := "MagicFunction.b.SpecialValues.b_zero") (parent := "magic_b_properties")
+:::lemma_ "prop:b0" (lean := "MagicFunction.b.SpecialValues.b_zero") (parent := "magic_b_properties") (uses := "prop:b-another-integral")
 We have $`b(0) = 0`.
-Uses {uses "prop:b-another-integral"}[].
 :::
 
 ```tex "prop:b0"

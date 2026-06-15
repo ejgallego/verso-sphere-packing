@@ -112,9 +112,8 @@ $$`\B_8 =
 \end{definition}
 ```
 
-:::theorem "E8-defs-equivalent" (lean := "span_E8Matrix") (parent := "e8_definitions")
+:::theorem "E8-defs-equivalent" (lean := "span_E8Matrix") (parent := "e8_definitions") (uses := "E8-Set, E8-Matrix")
 The two definitions above coincide, i.e. $`\Lambda_8 = \mathrm{span}_{\Z}(\B_8)`.
-Uses {uses "E8-Set"}[] and {uses "E8-Matrix"}[].
 :::
 
 ```tex "E8-defs-equivalent"
@@ -188,9 +187,8 @@ nonzero. See the Lean code for more details.
 \end{proof}
 ```
 
-:::lemma_ "E8-Lattice" (lean := "E8Lattice") (parent := "e8_properties")
+:::lemma_ "E8-Lattice" (lean := "E8Lattice") (parent := "e8_properties") (uses := "E8-Set, E8-defs-equivalent")
 $`\Lambda_8` is an additive subgroup of $`\R^8`.
-This uses {uses "E8-Set"}[] and {uses "E8-defs-equivalent"}[].
 :::
 
 ```tex "E8-Lattice"
@@ -236,10 +234,9 @@ proof.
 \end{proof}
 ```
 
-:::lemma_ "instDiscreteE8Lattice" (lean := "instDiscreteE8Lattice") (parent := "e8_properties")
+:::lemma_ "instDiscreteE8Lattice" (lean := "instDiscreteE8Lattice") (parent := "e8_properties") (uses := "E8-vector-norms")
 $`c\Lambda_8` is discrete, that is, the subspace topology induced by its
 inclusion into $`\R^8` is the discrete topology.
-This uses {uses "E8-vector-norms"}[].
 :::
 
 ```tex "instDiscreteE8Lattice"
@@ -262,10 +259,9 @@ $`\sqrt{2}`.
 \end{proof}
 ```
 
-:::lemma_ "instLatticeE8" (lean := "instIsZLatticeE8Lattice") (parent := "e8_properties")
+:::lemma_ "instLatticeE8" (lean := "instIsZLatticeE8Lattice") (parent := "e8_properties") (uses := "instDiscreteE8Lattice, E8-is-basis")
 $`c\Lambda_8` is a $`\Z`-lattice, that is, it is discrete and spans
 $`\R^8` over $`\R`.
-This uses {uses "instDiscreteE8Lattice"}[] and {uses "E8-is-basis"}[].
 :::
 
 ```tex "instLatticeE8"
@@ -302,10 +298,9 @@ Prove $`E_8` is positive-definite.
 \subsection{The $E_8$ sphere packing}
 ```
 
-:::definition "E8Packing" (lean := "E8Packing") (parent := "e8_density")
+:::definition "E8Packing" (lean := "E8Packing") (parent := "e8_density") (uses := "E8-Lattice, E8-vector-norms")
 The $`E_8` sphere packing is the (periodic) sphere packing with separation
 $`\sqrt{2}`, whose set of centres is $`\Lambda_8`.
-Uses {uses "E8-Lattice"}[] and {uses "E8-vector-norms"}[].
 :::
 
 ```tex "E8Packing"
@@ -314,9 +309,8 @@ Uses {uses "E8-Lattice"}[] and {uses "E8-vector-norms"}[].
 \end{definition}
 ```
 
-:::lemma_ "E8Packing-covol" (lean := "E8Basis_volume") (parent := "e8_density")
+:::lemma_ "E8Packing-covol" (lean := "E8Basis_volume") (parent := "e8_density") (uses := "E8Packing")
 $`\Vol{\Lambda_8} = \mathrm{Covol}(\R^8 / \Lambda_8) = 1`.
-This uses {uses "E8Packing"}[].
 :::
 
 ```tex "E8Packing-covol"
@@ -336,9 +330,8 @@ Lean hates me and `EuclideanSpace` is being annoying.
 \end{proof}
 ```
 
-:::theorem "E8Packing-density" (lean := "E8Packing_density") (parent := "e8_density")
+:::theorem "E8Packing-density" (lean := "E8Packing_density") (parent := "e8_density") (uses := "theorem:psp-density, E8Packing-covol")
 We have $`\Delta_{\mathcal{P}(E_8)} = \frac{\pi^4}{384}`.
-Uses {uses "theorem:psp-density"}[] and {uses "E8Packing-covol"}[].
 :::
 
 ```tex "E8Packing-density"

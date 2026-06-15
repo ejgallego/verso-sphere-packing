@@ -33,13 +33,12 @@ Assembly of the final theorem producing the optimal function.
 Our proof of the Theorem~\ref{thm:g} relies on the following two inequalities for modular objects.
 ```
 
-:::lemma_ "prop:ineqA" (parent := "fg_setup")
+:::lemma_ "prop:ineqA" (parent := "fg_setup") (uses := "lemma:ineqABnew-equiv, lemma:F-G-phi-psi-identities, lemma:F-G-pos, cor:ineqAnew")
 Consider the function $`A:(0,\infty)\to\C` defined as
 $$`A(t):=-t^2\phi_0(i/t)-\frac{36}{\pi^2}\,\psi_I(it).`
 Then
 $$`A(t) < 0`
 for all $`t > 0`.
-Uses {uses "lemma:ineqABnew-equiv"}[], {uses "lemma:F-G-phi-psi-identities"}[], {uses "lemma:F-G-pos"}[], and {uses "cor:ineqAnew"}[].
 :::
 
 ```tex "prop:ineqA"
@@ -56,13 +55,12 @@ for all $t > 0$.
 \end{proposition}
 ```
 
-:::lemma_ "prop:ineqB" (parent := "fg_setup")
+:::lemma_ "prop:ineqB" (parent := "fg_setup") (uses := "lemma:ineqABnew-equiv, lemma:F-G-phi-psi-identities, cor:ineqBnew")
 Consider the function $`B:(0,\infty)\to\C` defined as
 $$`B(t) := -t^2\phi_0(i/t)+\frac{36}{\pi^2}\,\psi_I(it).`
 Then
 $$`B(t) > 0`
 for all $`t > 0`.
-Uses {uses "lemma:ineqABnew-equiv"}[], {uses "lemma:F-G-phi-psi-identities"}[], and {uses "cor:ineqBnew"}[].
 :::
 
 ```tex "prop:ineqB"
@@ -87,11 +85,10 @@ Here we formalize the proof of the inequalities by Lee \cite{Lee}.
 First, we can rewrite the inequality in \ref{prop:ineqA} as follows.
 ```
 
-:::definition "def:FG-definition" (lean := "F,G") (parent := "fg_setup")
+:::definition "def:FG-definition" (lean := "F,G") (parent := "fg_setup") (uses := "def:E2, def:Ek, def:H2-H3-H4")
 Define two quasi-modular forms by
 $$`F(z) = (E_2(z) E_4(z) - E_6(z))^2`
 $$`G(z) = H_2(z)^{3} (2 H_{2}(z)^{2} + 5 H_{2}(z) H_{4}(z) + 5 H_{4}(z)^{2}).`
-Uses {uses "def:E2"}[], {uses "def:Ek"}[], and {uses "def:H2-H3-H4"}[].
 :::
 
 ```tex "def:FG-definition"
@@ -104,11 +101,10 @@ Define two (quasi) modular forms as
 \end{definition}
 ```
 
-:::lemma_ "lemma:F-G-phi-psi-identities" (parent := "fg_setup")
+:::lemma_ "lemma:F-G-phi-psi-identities" (parent := "fg_setup") (uses := "def:FG-definition, lemma:psi-new")
 We have
 $$`\phi_0 = \frac{F}{\Delta}`
 $$`\psi_S = -\frac{1}{2} \frac{G}{\Delta}.`
-Uses {uses "def:FG-definition"}[] and {uses "lemma:psi-new"}[].
 :::
 
 ```tex "lemma:F-G-phi-psi-identities"
@@ -134,12 +130,11 @@ Lemma {uses "lemma:psi-new"}[].
 \end{proof}
 ```
 
-:::lemma_ "lemma:ineqABnew-equiv" (parent := "fg_setup")
+:::lemma_ "lemma:ineqABnew-equiv" (parent := "fg_setup") (uses := "lemma:F-G-phi-psi-identities, def:psiI-psiT-psiS, cor:disc-pos")
 Inequality `eqn:ineqA` and `eqn:ineqB` are equivalent to
 $$`F(it) + \frac{18}{\pi^2} G(it) > 0`
 $$`F(it) - \frac{18}{\pi^2} G(it) > 0`
 respectively.
-Uses {uses "lemma:F-G-phi-psi-identities"}[], {uses "def:psiI-psiT-psiS"}[], and {uses "cor:disc-pos"}[].
 :::
 
 ```tex "lemma:ineqABnew-equiv"
@@ -188,9 +183,8 @@ $`F(it)` and $`G(it)`.
 Now, the first inequality \eqref{eqn:ineqAnew} follows from the positivity of each $F(it)$ and $G(it)$.
 ```
 
-:::lemma_ "lemma:F-G-pos" (lean := "F_imag_axis_pos, G_imag_axis_pos") (parent := "fg_setup")
+:::lemma_ "lemma:F-G-pos" (lean := "F_imag_axis_pos, G_imag_axis_pos") (parent := "fg_setup") (uses := "thm:ramanujan-formula, cor:theta-pos")
 For all $`t > 0`, we have $`F(it) > 0` and $`G(it) > 0`.
-Uses {uses "thm:ramanujan-formula"}[] and {uses "cor:theta-pos"}[].
 :::
 
 ```tex "lemma:F-G-pos"
@@ -218,9 +212,8 @@ $G(it) > 0$ follows from positivity of $H_2(it)$ and $H_4(it)$ (Lemma \ref{cor:t
 \end{proof}
 ```
 
-:::corollary "cor:ineqAnew" (lean := "FG_inequality_1") (parent := "fg_setup")
+:::corollary "cor:ineqAnew" (lean := "FG_inequality_1") (parent := "fg_setup") (uses := "lemma:F-G-pos")
 Equation `eqn:ineqAnew` holds.
-Uses {uses "lemma:F-G-pos"}[].
 :::
 
 ```tex "cor:ineqAnew"
@@ -247,11 +240,10 @@ $`G`.
 To prove the second inequality \eqref{eqn:ineqBnew}, we need some identities satisfied by $F$ and $G$.
 ```
 
-:::lemma_ "lemma:FG-de" (lean := "MLDE_F, MLDE_G") (parent := "fg_differential")
+:::lemma_ "lemma:FG-de" (lean := "MLDE_F, MLDE_G") (parent := "fg_differential") (uses := "thm:ramanujan-formula, thm:serre-der-prod-rule, prop:theta-der, lemma:lv1-lv2-identities")
 $`F` and $`G` satisfy the following differential equations:
 $$`\partial_{12}\partial_{10} F - \frac{5}{6} E_{4} F = 7200 \Delta (-E_{2}')`
 $$`\partial_{12}\partial_{10} G - \frac{5}{6} E_{4} G = -640 \Delta H_{2}.`
-Uses {uses "thm:ramanujan-formula"}[], {uses "thm:serre-der-prod-rule"}[], {uses "prop:theta-der"}[], and {uses "lemma:lv1-lv2-identities"}[].
 :::
 
 ```tex "lemma:FG-de"
@@ -331,10 +323,9 @@ Similarly, \eqref{eqn:ddg} can be proved using Proposition \ref{prop:theta-der} 
 \end{proof}
 ```
 
-:::corollary "cor:MLDE-pos" (parent := "fg_differential")
+:::corollary "cor:MLDE-pos" (parent := "fg_differential") (uses := "lemma:FG-de, cor:disc-pos, cor:theta-pos, def:E2")
 Equation `eqn:ddf` is positive and equation `eqn:ddg` is negative on the
 positive imaginary axis.
-Uses {uses "lemma:FG-de"}[], {uses "cor:disc-pos"}[], {uses "cor:theta-pos"}[], and {uses "def:E2"}[].
 :::
 
 ```tex "cor:MLDE-pos"
@@ -378,10 +369,9 @@ Since $G(it) > 0$ for all $t > 0$, we can define the quotient
 as a function on $(0, \infty)$.
 ```
 
-:::lemma_ "lemma:Qlim" (lean := "FmodG_rightLimitAt_zero") (parent := "fg_differential")
+:::lemma_ "lemma:Qlim" (lean := "FmodG_rightLimitAt_zero") (parent := "fg_differential") (uses := "lemma:E2-transform-S, lemma:Ek-is-modular-form, lemma:theta-transform-S-T")
 We have
 $$`\lim_{t \to 0^+} Q(t) = \frac{18}{\pi^2}.`
-Uses {uses "lemma:E2-transform-S"}[], {uses "lemma:Ek-is-modular-form"}[], and {uses "lemma:theta-transform-S-T"}[].
 :::
 
 ```tex "lemma:Qlim"
@@ -437,12 +427,11 @@ From $\lim_{t \to \infty} E_4(it) = 1 = \lim_{t \to \infty}H_{4}(it)$, we get
 \end{proof}
 ```
 
-:::lemma_ "lemma:log-der-inf" (parent := "fg_differential")
+:::lemma_ "lemma:log-der-inf" (parent := "fg_differential") (uses := "lemma:der-q-series")
 Let $`F` be a quasimodular form whose vanishing order at infinity is
 $`n_0 > 0`, that is,
 $`F(z) = \sum_{n \geq n_0} a_n q^{n}` with $`a_{n_0} \ne 0`. Then
 $$`\lim_{t \to \infty} \frac{F'(it)}{F(it)} = n_0.`
-Uses {uses "lemma:der-q-series"}[].
 :::
 
 ```tex "lemma:log-der-inf"
@@ -472,9 +461,8 @@ $$`\lim_{t \to \infty} \frac{F'(it)}{F(it)}
 \end{proof}
 ```
 
-:::lemma_ "prop:Qdec" (lean := "FmodG_strictAntiOn") (parent := "fg_differential")
+:::lemma_ "prop:Qdec" (lean := "FmodG_strictAntiOn") (parent := "fg_differential") (uses := "thm:ramanujan-formula, thm:serre-der-prod-rule, cor:MLDE-pos, thm:anti-serre-der-pos, lemma:log-der-inf")
 The function $`t \mapsto Q(t)` is strictly decreasing.
-Uses {uses "thm:ramanujan-formula"}[], {uses "thm:serre-der-prod-rule"}[], {uses "cor:MLDE-pos"}[], {uses "thm:anti-serre-der-pos"}[], and {uses "lemma:log-der-inf"}[].
 :::
 
 ```tex "prop:Qdec"
@@ -535,9 +523,8 @@ Hence $\mathcal{L}_{1, 0}(it) > 0$ by Theorem \ref{thm:anti-serre-der-pos}, and 
 \end{proof}
 ```
 
-:::corollary "cor:ineqBnew" (lean := "FG_inequality_2") (parent := "fg_differential")
+:::corollary "cor:ineqBnew" (lean := "FG_inequality_2") (parent := "fg_differential") (uses := "lemma:Qlim, prop:Qdec, lemma:F-G-pos")
 Equation `eqn:ineqBnew` holds.
-Uses {uses "lemma:Qlim"}[], {uses "prop:Qdec"}[], and {uses "lemma:F-G-pos"}[].
 :::
 
 ```tex "cor:ineqBnew"
@@ -568,11 +555,10 @@ and by Lemma \ref{lemma:F-G-pos}, \eqref{eqn:ineqBnew} follows.
 Finally, we are ready to prove Theorem~\ref{thm:g}.
 ```
 
-:::theorem "thm:g1" (parent := "g_theorem")
+:::theorem "thm:g1" (parent := "g_theorem") (uses := "prop:a-fourier, prop:b-fourier, prop:a-double-zeros, prop:b-double-zeros, prop:ineqA, prop:ineqB, prop:a0, prop:b0")
 The function
 $$`g(x):=\frac{\pi\,i}{8640}a(x)+\frac{i}{240\pi}\,b(x)`
 satisfies conditions `eqn:g1`--`eqn:g3`.
-Uses {uses "prop:a-fourier"}[], {uses "prop:b-fourier"}[], {uses "prop:a-double-zeros"}[], {uses "prop:b-double-zeros"}[], {uses "prop:ineqA"}[], {uses "prop:ineqB"}[], {uses "prop:a0"}[], and {uses "prop:b0"}[].
 :::
 
 ```tex "thm:g1"

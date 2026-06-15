@@ -43,7 +43,7 @@ functions.
 The following theorem is the key result of \cite{ElkiesCohn}. (Note that the original theorem is stated for a class of functions more general then Schwartz functions.)
 ```
 
-:::theorem "thm:Cohn-Elkies-periodic" (lean := "LinearProgrammingBound'") (parent := "ce_periodic")
+:::theorem "thm:Cohn-Elkies-periodic" (lean := "LinearProgrammingBound'") (parent := "ce_periodic") (uses := "def:Fourier-Transform, SpherePacking.density")
 Let $`X\subset\mathbb{R}^d` be a discrete subset such that
 $`\|x-y\|\geq 1` for any distinct $`x,y\in X`. Suppose that $`X` is
 $`\Lambda`-periodic with respect to some lattice
@@ -53,8 +53,6 @@ $`f(x)\leq 0` for $`\|x\|\geq 1` and
 $`\widehat{f}(x)\geq0` for all $`x\in\R^d`.
 Then the density of any $`\Lambda`-periodic sphere packing is bounded above by
 $$`\frac{f(0)}{\widehat{f}(0)}\cdot \mathrm{vol}(B_d(0,1/2)).`
-This uses {uses "def:Fourier-Transform"}[] and
-{uses "SpherePacking.density"}[].
 :::
 
 ```tex "thm:Cohn-Elkies-periodic"
@@ -67,9 +65,8 @@ Let $X\subset\mathbb{R}^d$ be a discrete subset such that $\|x-y\|\geq 1$ for an
 \end{theorem}
 ```
 
-:::proof "thm:Cohn-Elkies-periodic"
+:::proof "thm:Cohn-Elkies-periodic" (uses := "thm:Poisson-summation-formula")
 Here we reproduce the proof given in {citet ElkiesCohn}[].
-Uses {uses "thm:Poisson-summation-formula"}[].
 The inequality
 $$`\sharp (X/\Lambda)\cdot f(0)\geq \sum_{x\in X}\sum_{y\in X/\Lambda}f(x-y)=\sum_{x\in X/\Lambda}\sum_{y\in X/\Lambda}\sum_{\ell\in  \Lambda}f(x-y+l)`
 follows from the first Cohn-Elkies condition of the theorem and the assumption
@@ -157,12 +154,11 @@ function by $`\sqrt{2}`.
 The main step in our proof of \cref{MainTheorem} is the explicit construction of an optimal function. It will be convenient for us to scale this function by $\sqrt{2}$.
 ```
 
-:::theorem "thm:g" (parent := "ce_optimal_function")
+:::theorem "thm:g" (parent := "ce_optimal_function") (uses := "thm:g1")
 There exists a radial Schwartz function $`g:\R^8\to\R` which satisfies:
 $$`g(x)\leq 0\text{ for } \|x\|\geq \sqrt{2}`
 $$`\widehat{g}(x)\geq0\text{ for all } x\in\R^8`
 $$`g(0)=\widehat{g}(0)=1.`
-This uses {uses "thm:g1"}[].
 :::
 
 ```tex "thm:g"

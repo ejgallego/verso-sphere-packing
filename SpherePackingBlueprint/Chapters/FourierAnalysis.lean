@@ -54,9 +54,8 @@ The following computational result will be of use later on.
 The following computational result will be of use later on.
 ```
 
-:::lemma_ "lemma:Gaussian-Fourier" (parent := "fourier_setup")
+:::lemma_ "lemma:Gaussian-Fourier" (parent := "fourier_setup") (uses := "def:Fourier-Transform")
 $$`\mathcal{F}(e^{\pi i \|x\|^2 z})(y) = z^{-4}\,e^{\pi i \|y\|^2 \,(\frac{-1}{z}) }.`
-This uses {uses "def:Fourier-Transform"}[].
 :::
 
 ```tex "lemma:Gaussian-Fourier"
@@ -105,11 +104,9 @@ A $C^\infty$~function $f:\R^d\to\C$ is called a \emph{Schwartz function} if it d
 \end{definition}
 ```
 
-:::lemma_ "lemma:Fourier-transform-is-automorphism" (lean := "SchwartzMap.fourierTransformCLM") (parent := "fourier_setup")
+:::lemma_ "lemma:Fourier-transform-is-automorphism" (lean := "SchwartzMap.fourierTransformCLM") (parent := "fourier_setup") (uses := "def:Fourier-Transform, def:Schwartz-Space")
 The Fourier transform is a continuous linear automorphism of the space of
 Schwartz functions.
-This uses {uses "def:Fourier-Transform"}[] and
-{uses "def:Schwartz-Space"}[].
 :::
 
 ```tex "lemma:Fourier-transform-is-automorphism"
@@ -205,12 +202,11 @@ with the absolutely convergent power series above.
 The decaying property of Schwartz functions means that they can be compared to the absolutely convergent power series above.
 ```
 
-:::lemma_ "lemma:Schwartz-summable" (parent := "poisson_formula")
+:::lemma_ "lemma:Schwartz-summable" (parent := "poisson_formula") (uses := "def:Schwartz-Space")
 Let $`f : \R^d \to \C` be a Schwartz function and let
 $`X \subset \R^d` be periodic with respect to some lattice
 $`\Lambda \subset \R^d`. Then
 $$`\sum_{x \in X} |f(x)| < \infty.`
-This uses {uses "def:Schwartz-Space"}[].
 :::
 
 ```tex "lemma:Schwartz-summable"
@@ -248,13 +244,10 @@ We end with a crucial result on Schwartz functions, the statement of which only 
 % Should probably include something about multiplying a Schwartz function by a negative exponential, either saying that the result is Schwartz (??) or by saying that it is summable. Both would be enough to make the RHS of the sum below converge absolutely.
 ```
 
-:::theorem "thm:Poisson-summation-formula" (lean := "SchwartzMap.PoissonSummation_Lattices") (parent := "poisson_formula")
+:::theorem "thm:Poisson-summation-formula" (lean := "SchwartzMap.PoissonSummation_Lattices") (parent := "poisson_formula") (uses := "def:Fourier-Transform, def:Schwartz-Space, lemma:Schwartz-summable, lemma:inv-power-summable, def:dual-lattice")
 Let $`\Lambda` be a lattice in $`\R^d`, and let $`f:\R^d\to\R` be a
 Schwartz function. Then, for all $`v \in \R^d`,
 $$`\sum_{\ell\in\Lambda}f(\ell + v) = \frac{1}{\Vol{\R^d/\Lambda}} \sum_{m\in\Lambda^*}\widehat{f}(m) e^{-2\pi i \ang{v, m}}.`
-This uses {uses "def:Fourier-Transform"}[],
-{uses "def:Schwartz-Space"}[], {uses "lemma:Schwartz-summable"}[],
-{uses "lemma:inv-power-summable"}[], and {uses "def:dual-lattice"}[].
 :::
 
 ```tex "thm:Poisson-summation-formula"
