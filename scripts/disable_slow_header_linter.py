@@ -5,8 +5,9 @@ from pathlib import Path
 
 
 FORMALIZATION_LAKEFILE = Path("Sphere-Packing-LaTeX-Reference/lakefile.toml")
-MATHLIB_STANDARD_SET = "weak.linter.mathlibStandardSet = true\n"
-HEADER_OVERRIDE = "weak.linter.style.header = false\n"
+MATHLIB_STANDARD_SET_ENABLED = "weak.linter.mathlibStandardSet = true\n"
+MATHLIB_STANDARD_SET_DISABLED = "weak.linter.mathlibStandardSet = false\n"
+HEADER_DISABLED = "weak.linter.style.header = false\n"
 
 
 def main() -> int:
@@ -14,20 +15,24 @@ def main() -> int:
         raise SystemExit(f"missing formalization lakefile: {FORMALIZATION_LAKEFILE}")
 
     text = FORMALIZATION_LAKEFILE.read_text(encoding="utf-8")
-    if HEADER_OVERRIDE in text:
-        print(f"[ci-linters] header linter already disabled in {FORMALIZATION_LAKEFILE}")
+    if MATHLIB_STANDARD_SET_DISABLED in text and HEADER_DISABLED in text:
+        print(f"[ci-linters] slow mathlib linter set already disabled in {FORMALIZATION_LAKEFILE}")
         return 0
 
-    if MATHLIB_STANDARD_SET not in text:
+    if MATHLIB_STANDARD_SET_ENABLED not in text:
         raise SystemExit(
             f"expected {FORMALIZATION_LAKEFILE} to enable weak.linter.mathlibStandardSet"
         )
 
+    replacement = MATHLIB_STANDARD_SET_DISABLED
+    if HEADER_DISABLED not in text:
+        replacement += HEADER_DISABLED
+
     FORMALIZATION_LAKEFILE.write_text(
-        text.replace(MATHLIB_STANDARD_SET, MATHLIB_STANDARD_SET + HEADER_OVERRIDE, 1),
+        text.replace(MATHLIB_STANDARD_SET_ENABLED, replacement, 1),
         encoding="utf-8",
     )
-    print(f"[ci-linters] disabled slow header linter in {FORMALIZATION_LAKEFILE}")
+    print(f"[ci-linters] disabled slow mathlib linter set in {FORMALIZATION_LAKEFILE}")
     return 0
 
 

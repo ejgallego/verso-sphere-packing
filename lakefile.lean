@@ -17,7 +17,6 @@ package SpherePackingBlueprint where
     ⟨`weak.verso.blueprint.math.lint, true⟩,
     ⟨`weak.verso.blueprint.externalCode.strictResolve, true⟩,
     ⟨`weak.verso.code.warnLineLength, .ofNat 0⟩,
-    ⟨`weak.linter.mathlibStandardSet, true⟩,
     ⟨`weak.linter.style.header, false⟩
   ]
 
