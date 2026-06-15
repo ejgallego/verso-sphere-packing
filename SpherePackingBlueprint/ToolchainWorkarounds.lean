@@ -1,4 +1,3 @@
-import SpherePacking
 import SpherePackingBlueprint.TeXPrelude
 
 set_option autoImplicit false
@@ -6,20 +5,8 @@ set_option autoImplicit false
 /-
 Compatibility import shim for the blueprint chapters.
 
-The chapters still import `SpherePackingBlueprint.ToolchainWorkarounds`, but the
-module now just re-exports the upstream `SpherePacking` package from the local
-`Sphere-Packing-LaTeX-Reference` path dependency. If a future toolchain mismatch
-forces local temporary patches, keep them here and prefer real upstream
-declarations over coarse
-placeholders.
+The chapters import this module for shared notation and toolchain-local
+compatibility declarations only. Formalization declarations cited by the
+document live behind `SpherePackingBlueprint.Formalization`, a narrower local
+surface than the upstream `SpherePacking` umbrella module.
 -/
-
-namespace BlueprintDocAliases
-
-/-- The space of Schwartz functions. -/
-abbrev SchwartzMap := _root_.SchwartzMap
-
-/-- Modular forms of a given level and weight. -/
-abbrev ModularForm := _root_.ModularForm
-
-end BlueprintDocAliases

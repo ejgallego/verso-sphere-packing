@@ -2,6 +2,7 @@ import Verso
 import VersoManual
 import VersoBlueprint
 import SpherePackingBlueprint.ToolchainWorkarounds
+import SpherePackingBlueprint.Formalization
 
 open Verso.Genre
 open Verso.Genre.Manual hiding citep citet citehere
