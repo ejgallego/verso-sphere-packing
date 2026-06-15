@@ -6,6 +6,9 @@ step() {
   printf '\n[ci-pages] %s\n' "$*" >&2
 }
 
+step "disabling slow header linter"
+python3 scripts/disable_slow_header_linter.py
+
 step "warming dependency cache"
 python3 tools/verso-harness/scripts/ensure_dependency_cache.py --project-root . --warm-cache
 
