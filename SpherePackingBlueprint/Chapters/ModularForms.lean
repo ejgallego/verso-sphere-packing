@@ -482,13 +482,13 @@ $`E_2`. See {citet first.course}[], Proposition `1.2.5`.
 \end{proof}
 ```
 
-:::definition "def:disc-definition" (lean := "Δ") (parent := "eisenstein_discriminant") (uses := "def:dedekind_eta")
+:::definition "def:disc-definition" (lean := "ModularForm.discriminant") (parent := "eisenstein_discriminant") (uses := "def:dedekind_eta")
 The discriminant form $`\Delta(z)` is given by
 $$`\Delta(z) = e^{2 \pi i z} \prod_{n \ge 1} (1 - e^{2 \pi i n z})^{24}.`
 :::
 
 ```tex "def:disc-definition"
-\begin{definition}\label{def:disc-definition}\lean{Δ}\leanok\uses{def:dedekind_eta}
+\begin{definition}\label{def:disc-definition}\lean{ModularForm.discriminant}\leanok\uses{def:dedekind_eta}
 The \emph{discriminant form} $\Delta(z)$ is given by
 \begin{equation}\label{eqn:disc-definition}
 \Delta(z) = e^{2 \pi i z} \prod_{n \ge 1} (1 - e^{2 \pi i n z})^{24}.
@@ -496,7 +496,7 @@ The \emph{discriminant form} $\Delta(z)$ is given by
 \end{definition}
 ```
 
-:::lemma_ "lemma:disc-cuspform" (lean := "Delta") (parent := "eisenstein_discriminant") (uses := "def:disc-definition, lemma:dedekind_eta_transformation")
+:::lemma_ "lemma:disc-cuspform" (lean := "CuspForm.discriminant") (parent := "eisenstein_discriminant") (uses := "def:disc-definition, lemma:dedekind_eta_transformation")
 $`\Delta(z) \in M_{12}(\Gamma_1)`.
 Especially,
 $$`\Delta\left(-\frac{1}{z}\right) = z^{12} \Delta(z).`
@@ -505,7 +505,7 @@ $`\Gamma_1` and weight $`12`.
 :::
 
 ```tex "lemma:disc-cuspform"
-\begin{lemma}\label{lemma:disc-cuspform}\uses{def:disc-definition, lemma:dedekind_eta_transformation}\leanok\lean{Delta}
+\begin{lemma}\label{lemma:disc-cuspform}\uses{def:disc-definition, lemma:dedekind_eta_transformation}\leanok\lean{CuspForm.discriminant}
 $\Delta(z) \in M_{12}(\Gamma_1)$.
 Especially, we have
 \begin{equation}\label{eqn:disc-trans-S}
@@ -531,13 +531,13 @@ $`\Delta(-1/z) = z^{12} \Delta(z)` as required.
 \end{proof}
 ```
 
-:::lemma_ "lemma:disc-E4E6" (lean := "Delta_E4_eqn") (parent := "eisenstein_discriminant") (uses := "def:disc-definition")
+:::lemma_ "lemma:disc-E4E6" (lean := "ModularForm.discriminant_eq_E₄_cube_sub_E₆_sq") (parent := "eisenstein_discriminant") (uses := "def:disc-definition")
 We have
 $$`\Delta(z) = (E_4^3-E_6^2)/1728.`
 :::
 
 ```tex "lemma:disc-E4E6"
-\begin{lemma}\label{lemma:disc-E4E6}\uses{def:disc-definition}\lean{Delta_E4_eqn}\leanok
+\begin{lemma}\label{lemma:disc-E4E6}\uses{def:disc-definition}\lean{ModularForm.discriminant_eq_E₄_cube_sub_E₆_sq}\leanok
 We have
 \begin{equation}
 \Delta(z) = (E_4^3-E_6^2)/1728.
@@ -562,12 +562,12 @@ $`E_6` and prove directly that the first term vanishes.
 \end{proof}
 ```
 
-:::corollary "cor:disc-pos" (lean := "Delta_imag_axis_pos") (parent := "eisenstein_discriminant") (uses := "def:disc-definition")
+:::corollary "cor:disc-pos" (lean := "Δ_imag_axis_pos") (parent := "eisenstein_discriminant") (uses := "def:disc-definition")
 $`\Delta(it) > 0` for all $`t > 0`.
 :::
 
 ```tex "cor:disc-pos"
-\begin{corollary}\label{cor:disc-pos}\uses{def:disc-definition}\lean{Delta_imag_axis_pos}\leanok
+\begin{corollary}\label{cor:disc-pos}\uses{def:disc-definition}\lean{Δ_imag_axis_pos}\leanok
 $\Delta(it) > 0$ for all $t > 0$.
 \end{corollary}
 ```
@@ -587,12 +587,12 @@ $$
 \end{proof}
 ```
 
-:::corollary "cor:disc-nonvanishing" (lean := "Δ_ne_zero") (parent := "eisenstein_discriminant") (uses := "def:disc-definition")
+:::corollary "cor:disc-nonvanishing" (lean := "ModularForm.discriminant_ne_zero") (parent := "eisenstein_discriminant") (uses := "def:disc-definition")
 $`\Delta(z) \neq 0` for all $`z \in \mathfrak{H}`.
 :::
 
 ```tex "cor:disc-nonvanishing"
-\begin{corollary}\label{cor:disc-nonvanishing}\uses{def:disc-definition}\leanok\lean{Δ_ne_zero}
+\begin{corollary}\label{cor:disc-nonvanishing}\uses{def:disc-definition}\leanok\lean{ModularForm.discriminant_ne_zero}
 $\Delta(z) \neq 0$ for all $z \in \h$.
 \end{corollary}
 ```
