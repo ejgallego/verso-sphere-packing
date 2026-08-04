@@ -87,6 +87,7 @@ Repository-specific guidance for Codex agents working in this tree.
   - `python3 tools/verso-harness/scripts/check_lt_source_pairs.py --project-root . <chapter.lean>`
   - `python3 tools/verso-harness/scripts/check_lt_similarity.py --project-root . <chapter.lean>`
 - Use `python3 tools/verso-harness/scripts/check_source_label_grounding.py --project-root . <chapter.lean>`
+- Use `python3 tools/verso-harness/scripts/check_verso_math_delimiters.py --project-root . <chapter.lean>`
 - Use `python3 tools/verso-harness/scripts/lt_audit.py --project-root . <chapter.lean>`
   when you want the source-pair check, similarity report, focused build, and
   optional pages smoke test in one command.
