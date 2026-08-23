@@ -16,6 +16,21 @@ default_chapters = [
   "SpherePackingBlueprint/Chapters/ModularInequalities.lean",
 ]
 
+[lt.source_files]
+"SpherePackingBlueprint/Chapters/SpherePackings.lean" = [
+  "Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/sphere-packings.tex",
+  "Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/sphere-packings-scaling.tex",
+  "Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/lattice-periodic-packings.tex",
+  "Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/main-result.tex",
+]
+"SpherePackingBlueprint/Chapters/PackingsDensity.lean" = ["Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/packings-density.tex"]
+"SpherePackingBlueprint/Chapters/E8.lean" = ["Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/E8-defs.tex"]
+"SpherePackingBlueprint/Chapters/FourierAnalysis.lean" = ["Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/fourier-analysis.tex"]
+"SpherePackingBlueprint/Chapters/CohnElkies.lean" = ["Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/cohn-elkies.tex"]
+"SpherePackingBlueprint/Chapters/ModularForms.lean" = ["Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/modular-forms.tex"]
+"SpherePackingBlueprint/Chapters/MagicFunctions.lean" = ["Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/construct-a-b.tex"]
+"SpherePackingBlueprint/Chapters/ModularInequalities.lean" = ["Sphere-Packing-LaTeX-Reference/blueprint/src/subsections/modform-ineq.tex"]
+
 [lt.node_kinds]
 theorem = "theorem"
 definition = "definition"
