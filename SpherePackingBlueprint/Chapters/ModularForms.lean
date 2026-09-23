@@ -342,7 +342,7 @@ Note that the assumption on the polynomial growth holds when $f$ is a holomorphi
 \end{proof}
 ```
 
-:::lemma_ "lemma:Ek-Fourier" (lean := "E_k_q_expansion") (parent := "eisenstein_discriminant") (uses := "def:Ek")
+:::lemma_ "lemma:Ek-Fourier" (lean := "EisensteinSeries.q_expansion_bernoulli") (parent := "eisenstein_discriminant") (uses := "def:Ek")
 The Eisenstein series possesses the Fourier expansion
 $$`E_k(z)=1+\frac{2}{\zeta(1-k)}\sum_{n=1}^\infty \sigma_{k-1}(n)\,e^{2\pi i z},`
 where $`\sigma_{k-1}(n)=\sum_{d|n} d^{k-1}`. In particular,
@@ -351,7 +351,7 @@ $$`E_6(z)= 1-504\sum_{n=1}^\infty \sigma_5(n)\,e^{2\pi i n z}.`
 :::
 
 ```tex "lemma:Ek-Fourier"
-\begin{lemma}\label{lemma:Ek-Fourier}\uses{def:Ek}\lean{E_k_q_expansion}\leanok
+\begin{lemma}\label{lemma:Ek-Fourier}\uses{def:Ek}\lean{EisensteinSeries.q_expansion_bernoulli}\leanok
 The Eisenstein series possesses the Fourier expansion
 \begin{equation}\label{eqn:Ek-Fourier}E_k(z)=1+\frac{2}{\zeta(1-k)}\sum_{n=1}^\infty \sigma_{k-1}(n)\,e^{2\pi i z}, \end{equation}
 where $\sigma_{k-1}(n)\,=\,\sum_{d|n} d^{k-1}$. In particular, we have
