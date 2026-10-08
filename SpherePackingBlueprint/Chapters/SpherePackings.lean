@@ -397,14 +397,87 @@ the sphere packing constant in $`\R^d`.
 ```
 
 :::proof "thm:periodic-packing-optimal"
-State this in Lean (ready).
-Fill in proof here (see ElkiesCohn, Appendix A).
+The following proof was written by Junyan Xu in the thread for
+[Issue #80](https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/issues/80)
+of the repository.
+
+Given an arbitrary packing $`P` of upper density $`\Delta` and an arbitrary
+$`\epsilon > 0`, we want to produce a periodic packing with density at least
+$`\Delta - \epsilon`. Given a set $`S` (of nonzero volume), we shall call the
+quantity $`\frac{\left| S \cap P \right|}{\left| S \right|}` the density of
+$`P` in $`S`, where $`\left| S \right|` denotes the volume of $`S`.
+
+Choose $`\ell > 0` such that
+$$`\frac{(\ell - 4r)^d}{\ell^d} > 1 - \frac{\epsilon}{3}`
+(where $`r` is the radius of the balls in $`P` and $`d` is the dimension).
+Then choose $`R_0 > 0` such that for all $`R > R_0`, we have
+$$`\frac{\left( R + \sqrt{d}\,\ell \right)^d - \left( R - \sqrt{d}\,\ell \right)^d}{R^d} < \frac{\epsilon}{3}`
+By definition of upper density, there exists $`R > R_0` such that the density
+of $`P` in $`B(0,R)` is at least $`\Delta - \frac{\epsilon}{3}`.
+
+The Euclidean space is covered by disjoint hypercubes of side length $`\ell`
+of the form $`\prod_{i=1}^d \left[ n_i\ell, (n_i+1)\ell \right)` with
+$`n_i \in \mathbb{Z}`. Since these hypercubes have diameter $`\sqrt{d}\ell`,
+those that intersect $`B(0,R)` must be contained in $`B(0,R+\sqrt{d}\ell)`.
+Thus the hypercubes contained in $`B(0,R+\sqrt{d}\ell)` cover $`B(0,R)`.
+Similarly, the hypercubes not contained in $`B(0,R)` cannot intersect
+$`B(0,R-\sqrt{d}\ell)`. Denote the union of hypercubes contained in
+$`B(0,R+\sqrt{d}\ell)` by $`T` and the union of those contained in $`B(0,R)`
+by $`S`, we then have
+$$`S \subseteq B(0,R) \subseteq T \subseteq B(0,R+\sqrt{d}\ell)`
+and
+$$`T \setminus S \subseteq B(0,R+\sqrt{d}\ell) \setminus B(0,R-\sqrt{d}\ell)`
+The density of $`P` in $`S` is
+$$`\begin{aligned}
+\frac{\left| S \cap P \right|}{\left| S \right|}
+&\ge \frac{\left| B(0,R) \cap P \right| - \left| B(0,R) \setminus S \right|}{\left| B(0,R) \right|} \\
+&> \left( \Delta - \frac{\epsilon}{3} \right) - \frac{\left| T \setminus S \right|}{\left| B(0,R) \right|} \\
+&> \left( \Delta - \frac{\epsilon}{3} \right) - \frac{\epsilon}{3}
+\end{aligned}`
+Therefore, the density of $`P` in some hypercube $`C \subseteq S` is at least
+$`\Delta - \frac{2\epsilon}{3}`. If a ball in $`P` (thus of diameter $`2r`)
+is not completely contained in $`C`, it cannot intersect the hypercube $`C'`
+with the same center as $`C` with side length $`\ell-4r`, so excluding these
+balls from $`C\cap P` decreases the density in $`C` by at most
+$`\frac{\left| C \setminus C' \right|}{\left| C \right|} = \frac{\ell^d - (\ell-4r)^d}{\ell^d} < \frac{\epsilon}{3}`,
+and gives rise to a periodic packing of density $`> \Delta - \epsilon` with
+$`C` as a fundamental domain.
 :::
 
 ```tex "thm:periodic-packing-optimal" (slot := "proof")
 \begin{proof}
-  \todo{State this in Lean (ready).}
-  \todo{Fill in proof here (see~\cite[Appendix A]{ElkiesCohn})}
+  The following proof was written by Junyan Xu in the thread for \href{https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/issues/80}{Issue \#80} of the repository.
+
+  Given an arbitrary packing $P$ of upper density $\Delta$ and an arbitrary $\epsilon > 0$, we want to produce a periodic packing with density at least $\Delta - \epsilon$. Given a set $S$ (of nonzero volume), we shall call the quantity $\frac{\left| S \cap P \right|}{\left| S \right|}$ the density of $P$ in $S$, where $\left| S \right|$ denotes the volume of $S$.
+
+  Choose $\ell > 0$ such that
+  \[
+    \frac{(\ell - 4r)^d}{\ell^d} > 1 - \frac{\epsilon}{3}
+  \]
+  (where $r$ is the radius of the balls in $P$ and $d$ is the dimension). Then choose $R_0 > 0$ such that for all $R > R_0$, we have
+  \[
+    \frac{\left( R + \sqrt{d}\,\ell \right)^d - \left( R - \sqrt{d}\,\ell \right)^d}{R^d} < \frac{\epsilon}{3}
+  \]
+  By definition of upper density, there exists $R > R_0$ such that the density of $P$ in $B(0,R)$ is at least $\Delta - \frac{\epsilon}{3}$.
+
+  The Euclidean space is covered by disjoint hypercubes of side length $\ell$ of the form $\prod_{i=1}^d \left[ n_i\ell, (n_i+1)\ell \right)$ with $n_i \in \mathbb{Z}$. Since these hypercubes have diameter $\sqrt{d}\ell$, those that intersect $B(0,R)$ must be contained in $B(0,R+\sqrt{d}\ell)$. Thus the hypercubes contained in $B(0,R+\sqrt{d}\ell)$ cover $B(0,R)$. Similarly, the hypercubes not contained in $B(0,R)$ cannot intersect $B(0,R-\sqrt{d}\ell)$. Denote the union of hypercubes contained in $B(0,R+\sqrt{d}\ell)$ by $T$ and the union of those contained in $B(0,R)$ by $S$, we then have
+  \[
+    S \subseteq B(0,R) \subseteq T \subseteq B(0,R+\sqrt{d}\ell)
+  \]
+  and
+  \[
+    T \setminus S \subseteq B(0,R+\sqrt{d}\ell) \setminus B(0,R-\sqrt{d}\ell)
+  \]
+  The density of $P$ in $S$ is
+  \[
+    \begin{aligned}
+      \frac{\left| S \cap P \right|}{\left| S \right|}
+      &\ge \frac{\left| B(0,R) \cap P \right| - \left| B(0,R) \setminus S \right|}{\left| B(0,R) \right|} \\
+      &> \left( \Delta - \frac{\epsilon}{3} \right) - \frac{\left| T \setminus S \right|}{\left| B(0,R) \right|} \\
+      &> \left( \Delta - \frac{\epsilon}{3} \right) - \frac{\epsilon}{3}
+    \end{aligned}
+  \]
+  Therefore, the density of $P$ in some hypercube $C \subseteq S$ is at least $\Delta - \frac{2\epsilon}{3}$. If a ball in $P$ (thus of diameter $2r$) is not completely contained in $C$, it cannot intersect the hypercube $C'$ with the same center as $C$ with side length $\ell-4r$, so excluding these balls from $C\cap P$ decreases the density in $C$ by at most $\frac{\left| C \setminus C' \right|}{\left| C \right|} = \frac{\ell^d - (\ell-4r)^d}{\ell^d} < \frac{\epsilon}{3}$, and gives rise to a periodic packing of density $> \Delta - \epsilon$ with $C$ as a fundamental domain.
 \end{proof}
 ```
 
@@ -436,14 +509,13 @@ the $`E_8` sphere packing; see {bpref "E8Packing"}[].
 \end{theorem}
 ```
 
-:::proof "theorem:CE_Main" (uses := "thm:Cohn-Elkies-general, thm:g")
+:::proof "theorem:CE_Main"
 Directly follows from {bpref "thm:Cohn-Elkies-general"}[] applied to the
 function $`f(x)=g(x/\sqrt{2})` of {bpref "thm:g"}[].
 :::
 
 ```tex "theorem:CE_Main" (slot := "proof")
 \begin{proof}
-\uses{thm:Cohn-Elkies-general, thm:g}
   Directly follows from \Cref{thm:Cohn-Elkies-general} applied to the function $f(x)=g(x/\sqrt{2})$ of \Cref{thm:g}.
   % TODO: Add a \ref to the actual proof at the end of this blueprint, I guess.
 \end{proof}
@@ -460,14 +532,13 @@ $`\Delta_{\mathcal{P}} \leq \Delta_{E_8}`.
 \end{corollary}
 ```
 
-:::proof "corollary:upper-bound-E8" (uses := "thm:periodic-packing-optimal, theorem:CE_Main")
+:::proof "corollary:upper-bound-E8"
 This is a direct consequence of {bpref "thm:periodic-packing-optimal"}[] and
 {bpref "theorem:CE_Main"}[].
 :::
 
 ```tex "corollary:upper-bound-E8" (slot := "proof")
 \begin{proof}
-\uses{thm:periodic-packing-optimal, theorem:CE_Main}
   This is a direct consequence of Theorem \cref{thm:periodic-packing-optimal} and \cref{theorem:CE_Main}.
 \end{proof}
 ```
@@ -484,14 +555,13 @@ $`\Delta_8 = \Delta_{E_8}`.
 
 :::proof "MainTheorem"
 By definition, $`\Delta_{E_8} \leq \Delta_8`, while the upper-bound-E8
-corollary {uses "corollary:upper-bound-E8"}[] shows that
+corollary {bpref "corollary:upper-bound-E8"}[] shows that
 $`\Delta_8 = \sup_{\mathrm{packing} \, \mathcal{P}} \leq \Delta_{E_8}`, and
 the result follows.
 :::
 
 ```tex "MainTheorem" (slot := "proof")
 \begin{proof}
-\uses{corollary:upper-bound-E8}
   By definition, $\Delta_{E_8} \leq \Delta_8$, while \cref{corollary:upper-bound-E8} shows $\Delta_8 = \sup_{\mathrm{packing} \, \mathcal{P}} \leq \Delta_{E_8}$, and the result follows.
 \end{proof}
 ```

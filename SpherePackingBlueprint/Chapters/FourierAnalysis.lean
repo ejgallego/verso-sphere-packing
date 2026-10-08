@@ -29,7 +29,7 @@ Recall the definition of a Fourier transform.
 Recall the definition of a Fourier transform.
 ```
 
-:::definition "def:Fourier-Transform" (lean := "VectorFourier.fourierIntegral") (parent := "fourier_setup")
+:::definition "def:Fourier-Transform" (parent := "fourier_setup") (lean := "FourierTransform.fourier")
 The Fourier transform of an $`L^1`-function $`f:\R^d\to\C` is defined as
 $$`\mathcal{F}(f)(y) = \widehat{f}(y) := \int_{\R^d} f(x)e^{-2\pi i \langle x, y \rangle} \,\mathrm{d}x, \quad y \in \R^d`
 where
@@ -38,7 +38,7 @@ is the standard scalar product in $`\R^d`.
 :::
 
 ```tex "def:Fourier-Transform"
-\begin{definition}\label{def:Fourier-Transform}\lean{VectorFourier.fourierIntegral}\leanok
+\begin{definition}\label{def:Fourier-Transform}\lean{FourierTransform.fourier}\leanok
   The Fourier transform of an $L^1$-function $f:\R^d\to\C$ is defined as
 
   \[
@@ -87,7 +87,7 @@ Of great interest to us will be a specific family of functions, known as Schwart
 \subsection{On Schwartz Functions}
 ```
 
-:::definition "def:Schwartz-Space" (lean := "BlueprintDocAliases.SchwartzMap") (parent := "fourier_setup")
+:::definition "def:Schwartz-Space" (parent := "fourier_setup") (lean := "SchwartzMap")
 A $`C^\infty` function $`f:\R^d\to\C` is called a Schwartz function if it
 decays to zero as $`\|x\|\to\infty` faster than any inverse power of
 $`\|x\|`, and the same holds for all partial derivatives of $`f`. That is,
@@ -100,7 +100,7 @@ $`\C` is called the Schwartz space. It is an $`\R`-vector space.
 :::
 
 ```tex "def:Schwartz-Space"
-\begin{definition}\label{def:Schwartz-Space}\lean{BlueprintDocAliases.SchwartzMap}\leanok
+\begin{definition}\label{def:Schwartz-Space}\lean{SchwartzMap}\leanok
 A $C^\infty$~function $f:\R^d\to\C$ is called a \emph{Schwartz function} if it decays to zero as $\|x\|\to\infty$ faster then any inverse power of $\|x\|$, and the same holds for all partial derivatives of $f$, ie, if for all $k, n \in \N$, there exists a constant $C \in \R$ such that for all $x \in \R^d$, $\norm{x}^k \cdot \norm{f^{(n)}(x)} \leq C$, where $f^{(n)}$ denotes the $n$-th derivative of $f$ considered along with the appropriate operator norm. The set of all Schwartz functions from $\R^d$ to $\C$ is called the \emph{Schwartz space}. It is an $\R$-vector space.
 \end{definition}
 ```

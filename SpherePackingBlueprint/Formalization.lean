@@ -8,6 +8,9 @@ import SpherePacking.MagicFunction.a.Eigenfunction
 import SpherePacking.MagicFunction.a.SpecialValues
 import SpherePacking.MagicFunction.b.Eigenfunction
 import SpherePacking.MagicFunction.b.SpecialValues
+import SpherePacking.MagicFunction.g.Basic
+import SpherePacking.MagicFunction.a.Phi
+import SpherePacking.MagicFunction.b.Psi
 import SpherePacking.MainTheorem
 import SpherePacking.ModularForms.FG
 
