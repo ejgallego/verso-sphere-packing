@@ -100,7 +100,7 @@ This finishes the proof of the theorem for periodic packings.
 Here we reproduce the proof given in \cite{ElkiesCohn}.
 
 The inequality
-\begin{equation}
+\begin{equation}\label{eqn: sharp X 1}
 \sharp (X/\Lambda)\cdot f(0)\geq \sum_{x\in X}\sum_{y\in X/\Lambda}f(x-y)=\sum_{x\in X/\Lambda}\sum_{y\in X/\Lambda}\sum_{\ell\in  \Lambda}f(x-y+l)\end{equation}
 follows from the condition \eqref{eqn:Cohn-Elkies-condition-1} of the theorem and the assumption on the distances between points in $X$.
 The equality
@@ -110,7 +110,7 @@ The right hand side of the above equation can be written as
 $$\sum_{x\in X/\Lambda}\sum_{y\in X/\Lambda}\frac{1}{\mathrm{vol}(\mathbb{R}^d/\Lambda)}\,\sum_{m\in \Lambda^*} \widehat{f}(m)\,e^{2\pi i m(x-y)}=\frac{1}{\mathrm{vol}(\mathbb{R}^d/\Lambda)}\,\sum_{m\in \Lambda^*} \widehat{f}(m)\cdot\big|\sum_{x\in X/\Lambda}e^{2\pi i m x}\big|^2.$$
 Note that $\big|\sum_{x\in X/\Lambda}e^{2\pi i m x}\big|^2\geq0$ for all $m\in\Lambda^*$. Moreover,  the term corresponding to $m=0$ satisfies $\big|\sum_{x\in X/\Lambda}e^{2\pi i 0 x}\big|^2=\sharp (X/\Lambda)^2$.
 Now we use the condition \eqref{eqn:Cohn-Elkies-condition-2} and estimate
-\begin{equation}\frac{1}{\mathrm{vol}(\mathbb{R}^d/\Lambda)}\,\sum_{m\in \Lambda^*} \widehat{f}(m)\cdot\big|\sum_{x\in X/\Lambda}e^{2\pi i m(x-y)}\big|^2
+\begin{equation}\label{eqn: sharp X 2}\frac{1}{\mathrm{vol}(\mathbb{R}^d/\Lambda)}\,\sum_{m\in \Lambda^*} \widehat{f}(m)\cdot\big|\sum_{x\in X/\Lambda}e^{2\pi i m(x-y)}\big|^2
 \geq \frac{\sharp (X/\Lambda)^2}{\mathrm{vol}(\mathbb{R}^d/\Lambda)}\cdot \widehat{f}(0).
 \end{equation}
 Comparing inequalities \eqref{eqn: sharp X 1} and \eqref{eqn: sharp X 2} we arrive at
@@ -142,7 +142,7 @@ The result follows immediately from Theorem
 :::
 
 ```tex "thm:Cohn-Elkies-general" (slot := "proof")
-\begin{proof}\uses{thm:Cohn-Elkies-periodic,thm:periodic-packing-optimal}\leanok
+\begin{proof}\uses{thm:Cohn-Elkies-periodic,thm:periodic-packing-optimal}\lean{periodic_constant_eq_constant, periodic_constant_eq_periodic_constant_normalized}\leanok
   The result follows immediately from Theorem~\ref{thm:periodic-packing-optimal} and \Cref{thm:Cohn-Elkies-periodic}.
 \end{proof}
 ```

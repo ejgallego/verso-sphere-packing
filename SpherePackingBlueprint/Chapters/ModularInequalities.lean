@@ -34,7 +34,7 @@ Assembly of the final theorem producing the optimal function.
 Our proof of the Theorem~\ref{thm:g} relies on the following two inequalities for modular objects.
 ```
 
-:::lemma_ "prop:ineqA" (parent := "fg_setup") (uses := "lemma:ineqABnew-equiv, lemma:F-G-phi-psi-identities, lemma:F-G-pos, cor:ineqAnew")
+:::lemma_ "prop:ineqA" (parent := "fg_setup") (uses := "lemma:ineqABnew-equiv, lemma:F-G-phi-psi-identities, lemma:F-G-pos, cor:ineqAnew") (lean := "A, A_neg")
 Consider the function $`A:(0,\infty)\to\C` defined as
 $$`A(t):=-t^2\phi_0(i/t)-\frac{36}{\pi^2}\,\psi_I(it).`
 Then
@@ -43,7 +43,7 @@ for all $`t > 0`.
 :::
 
 ```tex "prop:ineqA"
-\begin{proposition}\label{prop:ineqA}\uses{lemma:ineqABnew-equiv, lemma:F-G-phi-psi-identities, lemma:F-G-pos, cor:ineqAnew}
+\begin{proposition}\label{prop:ineqA}\uses{lemma:ineqABnew-equiv, lemma:F-G-phi-psi-identities, lemma:F-G-pos, cor:ineqAnew}\lean{A, A_neg}\leanok
 Consider the function $A:(0,\infty)\to\C$ defined as
 \begin{equation}\label{eqn:defA}
 A(t):=-t^2\phi_0(i/t)-\frac{36}{\pi^2}\,\psi_I(it).
@@ -56,7 +56,7 @@ for all $t > 0$.
 \end{proposition}
 ```
 
-:::lemma_ "prop:ineqB" (parent := "fg_setup") (uses := "lemma:ineqABnew-equiv, lemma:F-G-phi-psi-identities, cor:ineqBnew")
+:::lemma_ "prop:ineqB" (parent := "fg_setup") (uses := "lemma:ineqABnew-equiv, lemma:F-G-phi-psi-identities, cor:ineqBnew") (lean := "B, B_pos")
 Consider the function $`B:(0,\infty)\to\C` defined as
 $$`B(t) := -t^2\phi_0(i/t)+\frac{36}{\pi^2}\,\psi_I(it).`
 Then
@@ -65,7 +65,7 @@ for all $`t > 0`.
 :::
 
 ```tex "prop:ineqB"
-\begin{proposition}\label{prop:ineqB}\uses{lemma:ineqABnew-equiv, lemma:F-G-phi-psi-identities, cor:ineqBnew}
+\begin{proposition}\label{prop:ineqB}\uses{lemma:ineqABnew-equiv, lemma:F-G-phi-psi-identities, cor:ineqBnew}\lean{B, B_pos}\leanok
 Consider the function $B:(0,\infty)\to\C$ defined as
 \begin{equation}\label{eqn:defB}
     B(t) := -t^2\phi_0(i/t)+\frac{36}{\pi^2}\,\psi_I(it)
@@ -102,14 +102,14 @@ Define two (quasi) modular forms as
 \end{definition}
 ```
 
-:::lemma_ "lemma:F-G-phi-psi-identities" (parent := "fg_setup") (uses := "def:FG-definition, lemma:psi-new")
+:::lemma_ "lemma:F-G-phi-psi-identities" (parent := "fg_setup") (uses := "def:FG-definition, def:phi4-phi2-phi0, lemma:psi-new") (lean := "φ₀_eq_F_div_disc, ψS_eq_neg_one_half_smul_G_div_disc")
 We have
 $$`\phi_0 = \frac{F}{\Delta}`
 $$`\psi_S = -\frac{1}{2} \frac{G}{\Delta}.`
 :::
 
 ```tex "lemma:F-G-phi-psi-identities"
-\begin{lemma}\label{lemma:F-G-phi-psi-identities}\uses{def:FG-definition, lemma:psi-new}
+\begin{lemma}\label{lemma:F-G-phi-psi-identities}\uses{def:FG-definition, def:phi4-phi2-phi0, lemma:psi-new}\lean{φ₀_eq_F_div_disc, ψS_eq_neg_one_half_smul_G_div_disc}\leanok
 We have
 \begin{align}
     \phi_0 &= \frac{F}{\Delta} \label{eqn:phi0-F} \\
@@ -119,14 +119,13 @@ We have
 ```
 
 :::proof "lemma:F-G-phi-psi-identities"
-Equation `eqn:phi0-F` is clear. Equation `eqn:psiS-G` is already shown in
-Lemma {uses "lemma:psi-new"}[].
+Equation `eqn:phi0-F` is clear from the definitions. Equation `eqn:psiS-G` is already shown in
+Lemma {bpref "lemma:psi-new"}[].
 :::
 
 ```tex "lemma:F-G-phi-psi-identities" (slot := "proof")
-\begin{proof}
-\uses{lemma:psi-new}
-\eqref{eqn:phi0-F} is clear.
+\begin{proof}\leanok
+\eqref{eqn:phi0-F} is clear from the definitions.
 \eqref{eqn:psiS-G} is already shown in Lemma \ref{lemma:psi-new}.
 \end{proof}
 ```
@@ -134,7 +133,7 @@ Lemma {uses "lemma:psi-new"}[].
 :::lemma_ "lemma:ineqABnew-equiv" (parent := "fg_setup") (uses := "lemma:F-G-phi-psi-identities, def:psiI-psiT-psiS, cor:disc-pos")
 Inequality `eqn:ineqA` and `eqn:ineqB` are equivalent to
 $$`F(it) + \frac{18}{\pi^2} G(it) > 0`
-$$`F(it) - \frac{18}{\pi^2} G(it) > 0`
+$$`F(it) - \frac{18}{\pi^2} G(it) < 0`
 respectively.
 :::
 
@@ -143,27 +142,26 @@ respectively.
 Inequality \eqref{eqn:ineqA} and \eqref{eqn:ineqB} are equivalent to
 \begin{align}
     F(it) + \frac{18}{\pi^2} G(it) > 0 \label{eqn:ineqAnew} \\
-    F(it) - \frac{18}{\pi^2} G(it) > 0 \label{eqn:ineqBnew}
+    F(it) - \frac{18}{\pi^2} G(it) < 0 \label{eqn:ineqBnew}
 \end{align}
 respectively.
 \end{lemma}
 ```
 
 :::proof "lemma:ineqABnew-equiv"
-By `eqn:psiS-define` from {uses "def:psiI-psiT-psiS"}[],
+By `eqn:psiS-define`,
 $$`\psi_I(it) = (\psi_S|_{-2}S)(it) = (it)^{2}\psi_S\left(-\frac{1}{it}\right) = -t^2 \psi_S\left(\frac{i}{t}\right).`
-Combined with Lemma {uses "lemma:F-G-phi-psi-identities"}[] we can rewrite
+Combined with Lemma {bpref "lemma:F-G-phi-psi-identities"}[] we can rewrite
 `eqn:ineqA` as
 $$`A(t) = -t^2 \phi_0\left(\frac{i}{t}\right) + \frac{36}{\pi^2} \psi_S\left(\frac{i}{t}\right) < 0 \Leftrightarrow \frac{F(it)}{\Delta(it)} + \frac{18}{\pi^2} \frac{G(it)}{\Delta(it)} > 0`
 for $`t > 0`, which is equivalent to `eqn:ineqAnew` by Corollary
-{uses "cor:disc-pos"}[].
+{bpref "cor:disc-pos"}[].
 Equivalences of `eqn:ineqB` and `eqn:ineqBnew` follows similarly; just change
 the sign.
 :::
 
 ```tex "lemma:ineqABnew-equiv" (slot := "proof")
 \begin{proof}
-\uses{lemma:F-G-phi-psi-identities, def:psiI-psiT-psiS, cor:disc-pos}
 By \eqref{eqn:psiS-define},
 \begin{equation}
     \psi_I(it) = (\psi_S|_{-2}S)(it) = (it)^{2}\psi_S\left(-\frac{1}{it}\right) = -t^2 \psi_S\left(\frac{i}{t}\right).
@@ -195,16 +193,15 @@ For all $t > 0$, we have $F(it) > 0$ and $G(it) > 0$.
 ```
 
 :::proof "lemma:F-G-pos"
-By Ramanujan's identity {uses "thm:ramanujan-formula"}[], we have
+By Ramanujan's identity `eqn:DE4`, we have
 $`F(z) = 9 E_4'(z)^2`, and hence
 $$`F(it) = 9E_4'(it)^2 = 9 \left(240\sum_{n \geq 1} n \sigma_3(n) e^{-2 \pi n t} \right)^{2} > 0.`
 The inequality $`G(it) > 0` follows from positivity of $`H_2(it)` and
-$`H_4(it)` in {uses "cor:theta-pos"}[].
+$`H_4(it)` in {bpref "cor:theta-pos"}[].
 :::
 
 ```tex "lemma:F-G-pos" (slot := "proof")
 \begin{proof}\leanok
-\uses{thm:ramanujan-formula, cor:theta-pos}
 By Ramanujan's identity \eqref{eqn:DE4}, we have $F(z) = 9 E_4'(z)^2$ and
 \begin{equation}
     F(it) = 9E_4'(it)^2 = 9 \left(240\sum_{n \geq 1} n \sigma_3(n) e^{-2 \pi n t} \right)^{2} > 0.
@@ -224,12 +221,11 @@ Equation `eqn:ineqAnew` holds.
 ```
 
 :::proof "cor:ineqAnew"
-This directly follows from Lemma {uses "lemma:F-G-pos"}[].
+This directly follows from Lemma {bpref "lemma:F-G-pos"}[].
 :::
 
 ```tex "cor:ineqAnew" (slot := "proof")
 \begin{proof}
-\uses{lemma:F-G-pos}
 This directly follows from Lemma \ref{lemma:F-G-pos}.
 \end{proof}
 ```
@@ -259,9 +255,9 @@ $F$ and $G$ satisfy the following differential equations:
 
 :::proof "lemma:FG-de"
 Both identities can be shown by direct computations.
-By Ramanujan's identities (Theorem {uses "thm:ramanujan-formula"}[]) and the
+By Ramanujan's identities (Theorem {bpref "thm:ramanujan-formula"}[]) and the
 product rule for Serre derivatives (Theorem
-{uses "thm:serre-der-prod-rule"}[]), we have
+{bpref "thm:serre-der-prod-rule"}[]), we have
 $$`\partial_{5} (E_2 E_4 - E_6)
  = (E_2 E_4 - E_6)' - \frac{5}{12} E_2 (E_2 E_4 - E_6)`
 $$`= \frac{E_2^2 - E_4}{12} \cdot E_4 + E_2 \cdot \frac{E_2 E_4 - E_6}{3} - \frac{E_2 E_6 - E_4^2}{2} - \frac{5}{12}E_2 (E_2 E_4 - E_6)
@@ -274,11 +270,11 @@ $$`= \frac{E_2^2 - E_4}{12} \cdot E_6 + E_2 \cdot \frac{E_2 E_6 - E_4^2}{2} - 2 
 Using these, we compute
 $$`\partial_{10} F = \partial_{10} (E_2 E_4 - E_6)^2
  = 2 (E_2 E_4 - E_6) \partial_{5} (E_2 E_4 - E_6)
- = -\frac{6}{5} (E_2 E_4 - E_6) (E_2 E_6 - E_4^2),`
+ = -\frac{5}{6} (E_2 E_4 - E_6) (E_2 E_6 - E_4^2),`
 and then
 $$`\partial_{12}\partial_{10} F
- = -\frac{5}{6} \partial_{12} ((E_2 E_4 - E_6) (E_2 E_6 - E_4))`
-$$`= -\frac{5}{6} (\partial_{5}(E_2 E_4 - E_6)) (E_2 E_6 - E_4^2) - \frac{5}{6} (E_2 E_4 - E_6) (\partial_{7} (E_2 E_6 - E_4))
+ = -\frac{5}{6} \partial_{12} ((E_2 E_4 - E_6) (E_2 E_6 - E_4^2))`
+$$`= -\frac{5}{6} (\partial_{5}(E_2 E_4 - E_6)) (E_2 E_6 - E_4^2) - \frac{5}{6} (E_2 E_4 - E_6) (\partial_{7} (E_2 E_6 - E_4^2))
  = \frac{25}{72} (E_2 E_6 - E_4^2)^2 + \frac{35}{72} E_4 (E_2 E_4 - E_6)^2.`
 Hence
 $$`\partial_{12}\partial_{10}F - \frac{5}{6} E_4 F
@@ -287,30 +283,29 @@ $$`\partial_{12}\partial_{10}F - \frac{5}{6} E_4 F
  = -\frac{25}{72} (E_4^3 - E_6^2) (E_2^2 - E_4)
  = 7200 \Delta (-E_2').`
 This proves equation `eqn:ddf`. The second is proved similarly,
-using Proposition {uses "prop:theta-der"}[] and
-Lemma {uses "lemma:lv1-lv2-identities"}[].
+using Proposition {bpref "prop:theta-der"}[] and
+Lemma {bpref "lemma:lv1-lv2-identities"}[].
 :::
 
 ```tex "lemma:FG-de" (slot := "proof")
 \begin{proof}
-\uses{thm:ramanujan-formula, thm:serre-der-prod-rule, prop:theta-der, lemma:lv1-lv2-identities}
 Both can be shown by direct computations.
 By Ramanujan's identities (Theorem \ref{thm:ramanujan-formula}) and the product rule of Serre derivatives (Theorem \ref{thm:serre-der-prod-rule}), we have
 \begin{align}
     \partial_{5} (E_2 E_4 - E_6) &= (E_2 E_4 - E_6)' - \frac{5}{12} E_2 (E_2 E_4 - E_6) \\
     &= \frac{E_2^2 - E_4}{12} \cdot E_4 + E_2 \cdot \frac{E_2 E_4 - E_6}{3} - \frac{E_2 E_6 - E_4^2}{2} - \frac{5}{12}E_2 (E_2 E_4 - E_6) \\
-    &= -\frac{5}{12} (E_2 E_6 - E_4^2) \\
+    &= -\frac{5}{12} (E_2 E_6 - E_4^2) \label{eqn:S5} \\
     \partial_{7} (E_2 E_6 - E_4^2) &= (E_2 E_6 - E_4^2)' - \frac{7}{12} E_2 (E_2 E_6 - E_4^2) \\
     &= \frac{E_2^2 - E_4}{12} \cdot E_6 + E_2 \cdot \frac{E_2 E_6 - E_4^2}{2} - 2 E_4 \cdot \frac{E_2 E_4 - E_6}{3} - \frac{7}{12} E_2 (E_2 E_6 - E_4^2) \\
-    &= -\frac{7}{12} E_4 (E_2 E_4 - E_6)
+    &= -\frac{7}{12} E_4 (E_2 E_4 - E_6) \label{eqn:S7}
 \end{align}
 and using these we can compute
 \begin{align}
     \partial_{10} F &= \partial_{10} (E_2 E_4 - E_6)^2 \\
     &= 2 (E_2 E_4 - E_6) \partial_{5} (E_2 E_4 - E_6) \\
-    &= -\frac{6}{5} (E_2 E_4 - E_6) (E_2 E_6 - E_4^2), \\
-    \partial_{12}\partial_{10} F &= -\frac{5}{6} \partial_{12} ((E_2 E_4 - E_6) (E_2 E_6 - E_4)) \\
-    &= -\frac{5}{6} (\partial_{5}(E_2 E_4 - E_6)) (E_2 E_6 - E_4^2) - \frac{5}{6} (E_2 E_4 - E_6) (\partial_{7} (E_2 E_6 - E_4)) \\
+    &= -\frac{5}{6} (E_2 E_4 - E_6) (E_2 E_6 - E_4^2), \\
+    \partial_{12}\partial_{10} F &= -\frac{5}{6} \partial_{12} ((E_2 E_4 - E_6) (E_2 E_6 - E_4^2)) \\
+    &= -\frac{5}{6} (\partial_{5}(E_2 E_4 - E_6)) (E_2 E_6 - E_4^2) - \frac{5}{6} (E_2 E_4 - E_6) (\partial_{7} (E_2 E_6 - E_4^2)) \\
     &= \frac{25}{72} (E_2 E_6 - E_4^2)^2 + \frac{35}{72} E_4 (E_2 E_4 - E_6)^2, \\
     \partial_{12}\partial_{10}F - \frac{5}{6} E_4 F &= \frac{25}{72}(E_2 E_6 - E_4^2)^2 + \frac{35}{72} E_4 (E_2 E_4 - E_6)^2 - \frac{5}{6} E_4 (E_2 E_4 - E_6)^2 \\
     &= \frac{25}{72} ((E_2 E_6 - E_4^2)^2 - E_4 (E_2 E_4 - E_6)^2) \\
@@ -336,21 +331,26 @@ positive imaginary axis.
 ```
 
 :::proof "cor:MLDE-pos"
-From equation `eqn:E2` in {uses "def:E2"}[] and
-Lemma {uses "cor:disc-pos"}[],
+From `eqn:E2` and
+Lemma {bpref "cor:disc-pos"}[],
 $$`7200 (-E_2'(it)) \Delta(it) = 7200 \cdot 24 \left(\sum_{n \ge 1} n \sigma_1(n) e^{-2 \pi n t}\right) \cdot \Delta(it) > 0.`
 Negativity of equation `eqn:ddg`, namely
 $`-640 \Delta(it) H_2(it) < 0`, follows from
-{uses "cor:theta-pos"}[] and {uses "cor:disc-pos"}[].
+{bpref "cor:theta-pos"}[] and {bpref "cor:disc-pos"}[].
 :::
 
 ```tex "cor:MLDE-pos" (slot := "proof")
 \begin{proof}
-\uses{def:E2, cor:disc-pos, cor:theta-pos}
 From \eqref{eqn:E2} and Lemma \ref{cor:disc-pos},
+\ifplastex
+\begin{equation*}
+    7200 (-E_2'(it)) \Delta(it) = 7200 \cdot 24 \left(\sum_{n \ge 1} n \sigma_1(n) e^{-2 \pi n t}\right) \cdot \Delta(it) > 0.
+\end{equation*}
+\else
 \begin{equation}
     7200 (-E_2'(it)) \Delta(it) = 7200 \cdot 24 \left(\sum_{n \ge 1} n \sigma_1(n) e^{-2 \pi n t}\right) \cdot \Delta(it) > 0. \notag
 \end{equation}
+\fi
 Negativity of \eqref{eqn:ddg}, i.e. $-640 \Delta(it) H_2(it) < 0$ follows from Corollary \ref{cor:theta-pos} and \ref{cor:disc-pos}.
 \end{proof}
 ```
@@ -445,7 +445,7 @@ Let $F$ be a quasimodular form where the vanishing order of $F$ at infinity is $
 ```
 
 :::proof "lemma:log-der-inf"
-By Lemma {uses "lemma:der-q-series"}[],
+By Lemma {bpref "lemma:der-q-series"}[],
 $$`\lim_{t \to \infty} \frac{F'(it)}{F(it)}
  = \lim_{t \to \infty} \frac{\sum_{n \ge n_0} n a_n e^{-2 \pi n t}}{\sum_{n \ge n_0} a_n e^{-2 \pi n t}}
  = \lim_{t \to \infty} \frac{n_0 a_{n_0} e^{-2 \pi n_0 t} + O(e^{-2 \pi (n_0 + 1) t})}{a_{n_0} e^{-2 \pi n_0 t} + O(e^{-2 \pi (n_0 + 1) t})}
@@ -454,7 +454,6 @@ $$`\lim_{t \to \infty} \frac{F'(it)}{F(it)}
 
 ```tex "lemma:log-der-inf" (slot := "proof")
 \begin{proof}
-\uses{lemma:der-q-series}
     By Lemma \ref{lemma:der-q-series},
     \begin{equation}
         \lim_{t \to \infty} \frac{F'(it)}{F(it)} = \lim_{t \to \infty} \frac{\sum_{n \ge n_0} n a_n e^{-2 \pi n t}}{\sum_{n \ge n_0} a_n e^{-2 \pi n t}} = \lim_{t \to \infty} \frac{n_0 a_{n_0} e^{-2 \pi n_0 t} + O(e^{-2 \pi (n_0 + 1) t})}{a_{n_0} e^{-2 \pi n_0 t} + O(e^{-2 \pi (n_0 + 1) t})} = n_0.
@@ -483,22 +482,21 @@ Then
 $$`\frac{\mathcal{L}_{1, 0}}{FG} = \frac{F'G - FG'}{FG} = \frac{F'}{F} - \frac{G'}{G}.`
 The vanishing orders of $`F` and $`G` at infinity are $`2` and
 $`\frac{3}{2}` respectively, so by
-{uses "lemma:log-der-inf"}[] we have
+{bpref "lemma:log-der-inf"}[] we have
 $$`\lim_{t \to \infty} \frac{\mathcal{L}_{1, 0}(it)}{F(it) G(it)}
  = \lim_{t \to \infty} \left(\frac{F'(it)}{F(it)} - \frac{G'(it)}{G(it)}\right)
  = 2 - \frac{3}{2} = \frac{1}{2} > 0,`
 so $`\mathcal{L}_{1, 0}(it) > 0` for sufficiently large $`t`.
-Its Serre derivative is positive by {uses "cor:MLDE-pos"}[]:
+Its Serre derivative is positive by {bpref "cor:MLDE-pos"}[]:
 $$`\partial_{22} \mathcal{L}_{1, 0} = (\partial_{12} \partial_{10} F) G - F (\partial_{12}\partial_{10} G)
     = \Delta (7200 (-E_{2}') G + 640 H_2 F) > 0.`
 Hence $`\mathcal{L}_{1, 0}(it) > 0` by
-{uses "thm:anti-serre-der-pos"}[], and the
+{bpref "thm:anti-serre-der-pos"}[], and the
 monotonicity follows.
 :::
 
 ```tex "prop:Qdec" (slot := "proof")
 \begin{proof}
-\uses{lemma:log-der-inf, cor:MLDE-pos, thm:anti-serre-der-pos}
 It is enough to show that
 \begin{align}
     \frac{\dd}{\dd t} \left(\frac{F(it)}{G(it)}\right) < 0 &\Leftrightarrow (- 2\pi) \frac{F'(it)G(it) - F(it) G'(it)}{G(it)^{2}} < 0 \\
@@ -537,12 +535,11 @@ Equation `eqn:ineqBnew` holds.
 :::proof "cor:ineqBnew"
 We have
 $$`\frac{F(it)}{G(it)} = Q(t) < \lim_{u \to 0^+} Q(u) = \frac{18}{\pi^2},`
-and by Lemma {uses "lemma:F-G-pos"}[] the desired inequality follows.
+and by Lemma {bpref "lemma:F-G-pos"}[] the desired inequality follows.
 :::
 
 ```tex "cor:ineqBnew" (slot := "proof")
 \begin{proof}
-\uses{lemma:F-G-pos}
 \begin{equation}
     \frac{F(it)}{G(it)} = Q(t) < \lim_{u \to 0^+} Q(u) = \frac{18}{\pi^2}
 \end{equation}
@@ -556,7 +553,7 @@ and by Lemma \ref{lemma:F-G-pos}, \eqref{eqn:ineqBnew} follows.
 Finally, we are ready to prove Theorem~\ref{thm:g}.
 ```
 
-:::theorem "thm:g1" (parent := "g_theorem") (uses := "prop:a-fourier, prop:b-fourier, prop:a-double-zeros, prop:b-double-zeros, prop:ineqA, prop:ineqB, prop:a0, prop:b0")
+:::theorem "thm:g1" (parent := "g_theorem") (uses := "prop:a-fourier, prop:b-fourier, prop:a-double-zeros, prop:b-double-zeros, prop:ineqA, prop:ineqB, prop:a0, prop:b0") (lean := "fourier_g_zero, g, g_Fourier_nonneg, g_nonpos, g_zero")
 The function
 $$`g(x):=\frac{\pi\,i}{8640}a(x)+\frac{i}{240\pi}\,b(x)`
 satisfies conditions `eqn:g1`--`eqn:g3`.
@@ -565,6 +562,7 @@ satisfies conditions `eqn:g1`--`eqn:g3`.
 ```tex "thm:g1"
 \begin{theorem}\label{thm:g1}
 \uses{prop:a-fourier, prop:b-fourier, prop:a-double-zeros, prop:b-double-zeros, prop:ineqA, prop:ineqB, prop:a0, prop:b0}
+\lean{g, g_nonpos, g_Fourier_nonneg, g_zero, fourier_g_zero}\leanok
 The function
 $$g(x):=\frac{\pi\,i}{8640}a(x)+\frac{i}{240\pi}\,b(x)$$
 satisfies conditions \eqref{eqn:g1}--\eqref{eqn:g3}.
@@ -573,42 +571,41 @@ satisfies conditions \eqref{eqn:g1}--\eqref{eqn:g3}.
 
 :::proof "thm:g1"
 First, we prove the first sign condition. By Propositions
-{uses "prop:a-double-zeros"}[] and {uses "prop:b-double-zeros"}[] we know
+{bpref "prop:a-double-zeros"}[] and {bpref "prop:b-double-zeros"}[] we know
 that for $`r>\sqrt{2}`,
 $$`g(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty A(t)\,e^{-\pi r^2 t}\,dt`
 where
 $$`A(t)=-t^2\phi_0(i/t)-\frac{36}{\pi^2}\,\psi_I(it).`
-From Proposition {uses "prop:ineqA"}[] we know that $`A(t)<0` for
+From Proposition {bpref "prop:ineqA"}[] we know that $`A(t)<0` for
 $`t\in(0,\infty)`, so this identity implies the first sign condition.
 /- source paragraph break -/
 Next, we prove the Fourier-side sign condition. By Propositions
-{uses "prop:a-another-integral"}[] and
-{uses "prop:b-another-integral"}[] we
+{bpref "prop:a-another-integral"}[] and
+{bpref "prop:b-another-integral"}[] we
 know that for $`r>0`,
 $$`\widehat{g}(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty B(t)\,e^{-\pi r^2 t}\,dt`
 where
 $$`B(t)=-t^2\phi_0(i/t)+\frac{36}{\pi^2}\,\psi_I(it).`
 /- source paragraph break -/
 Finally, the normalization $`g(0)=\widehat g(0)=1` follows readily from
-Propositions {uses "prop:a0"}[] and {uses "prop:b0"}[].
-This finishes the proof.
+Propositions {bpref "prop:a0"}[] and {bpref "prop:b0"}[].
+This finishes the proof of Theorems {bpref "thm:g1"}[] and {bpref "thm:g"}[].
 :::
 
 ```tex "thm:g1" (slot := "proof")
 \begin{proof}
-\uses{prop:a-double-zeros, prop:b-double-zeros, prop:ineqA, prop:a-another-integral, prop:b-another-integral, prop:a0, prop:b0}
 First, we prove that \eqref{eqn:g1} holds. By Propositions~\ref{prop:a-double-zeros} and \ref{prop:b-double-zeros} we know that for $r>\sqrt{2}$
-\begin{equation} g(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty A(t)\,e^{-\pi r^2 t}\,dt\end{equation}
+\begin{equation}\label{eqn:g A} g(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty A(t)\,e^{-\pi r^2 t}\,dt\end{equation}
 where $$A(t)=-t^2\phi_0(i/t)-\frac{36}{\pi^2}\,\psi_I(it).$$
 from the Proposition~\ref{prop:ineqA} we know that $A(t)<0\quad\mbox{for}\;t\in(0,\infty).$
 Therefore identity \eqref{eqn:g A} implies \eqref{eqn:g1}.
 
 Next, we prove \eqref{eqn:g2}. By Propositions~\ref{prop:a-another-integral} and~\ref{prop:b-another-integral} we know that for $r>0$
-\begin{equation} \widehat{g}(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty B(t)\,e^{-\pi r^2 t}\,dt\end{equation}
+\begin{equation}\label{eqn:g B} \widehat{g}(r)=\frac{\pi}{2160}\,\sin(\pi r^2/2)^2\,\int\limits_0^\infty B(t)\,e^{-\pi r^2 t}\,dt\end{equation}
 where $$B(t)=-t^2\phi_0(i/t)+\frac{36}{\pi^2}\,\psi_I(it).$$
 
 
 Finally, the property \eqref{eqn:g3} readily follows from Proposition~\ref{prop:a0} and Proposition~\ref{prop:b0}.
-This finishes the proof.
+This finishes the proof of Theorems~\ref{thm:g1} and~\ref{thm:g}.
 \end{proof}
 ```

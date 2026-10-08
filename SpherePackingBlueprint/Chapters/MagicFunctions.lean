@@ -276,17 +276,22 @@ By Ramanujan's formula,
 $`E_2 E_4 - E_6 = 3E_4' = 720 \sum_{n \ge 1} n \sigma_3(n) e^{2 \pi i n z}`,
 and
 $$`(E_2(z) E_4(z) - E_6(z))^{2} = 720^{2} e^{4 \pi i z} + O(e^{5 \pi i z}).`
-The result then follows from Lemma {uses "lemma:mod-div-disc-bound"}[] with
+The result then follows from Lemma {bpref "lemma:mod-div-disc-bound"}[] with
 $`f(z) = (E_2 E_4 - E_6)^2` and $`n_0 = 4`.
 :::
 
 ```tex "cor:phi0-bound" (slot := "proof")
 \begin{proof}
-\uses{lemma:mod-div-disc-bound}
 By Ramanujan's formula, $E_2 E_4 - E_6 = 3E_4' = 720 \sum_{n \ge 1} n \sigma_3(n) e^{2 \pi i n z}$ and
+\ifplastex
+\begin{equation*}
+    (E_2(z) E_4(z) - E_6(z))^{2} = 720^{2} e^{4 \pi i z} + O(e^{5 \pi i z}).
+\end{equation*}
+\else
 \begin{equation}
     (E_2(z) E_4(z) - E_6(z))^{2} = 720^{2} e^{4 \pi i z} + O(e^{5 \pi i z}). \notag
 \end{equation}
+\fi
 Then the result follows from Lemma~\ref{lemma:mod-div-disc-bound} with $f(z) = (E_2 E_4 - E_6)^2$ and $n_0 = 4$.
 \end{proof}
 ```
@@ -419,13 +424,12 @@ $$`I_1(r) = i \int_1^{\infty} \phi_0(i s) \cdot s^{-4} \cdot e^{-\pi i r} \cdot 
 so
 $$`|I_1(r)| \leq \int_1^{\infty} |\phi_0(i s)| \cdot s^{-4} \cdot |e^{-\pi i r}| \cdot e^{-\pi r / s} \, \dd s
 \le \int_1^{\infty} |\phi_0(is)| \cdot e^{-\pi r / s} \, \dd s.`
-By Corollary {uses "cor:phi0-bound"}[], we conclude that
+By Corollary {bpref "cor:phi0-bound"}[], we conclude that
 $$`|I_1(r)| \leq C_0 \int_1^{\infty} e^{-2\pi s} \, e^{-\pi r / s} \, \dd s.`
 :::
 
 ```tex "lem:bound-I1-I3-I5" (slot := "proof")
 \begin{proof}
-\uses{cor:phi0-bound}
     We only prove the bound for $I_1(r)$, as the other two are similar.
     By the change of variable $z = -1 + i t$ for $t \in [0,1]$, we have
     $$
@@ -486,13 +490,12 @@ The bound for $`I_4(r)` is similar.
 /- source paragraph break -/
 For $`I_6(r)`, parametrize $`z = i t` for $`t \in [1, \infty)`, giving
 $$`I_6(r) = 2 i \int_1^{\infty} \phi_0(i t) e^{-\pi r t} \, \dd t.`
-Using Corollary {uses "cor:phi0-bound"}[], the absolute value is bounded by
+Using Corollary {bpref "cor:phi0-bound"}[], the absolute value is bounded by
 $$`|I_6(r)| \leq 2 \int_1^{\infty} |\phi_0(i t)| e^{-\pi r t} \, \dd t \leq \frac{2C_0}{\pi} \int_1^{\infty} e^{-2\pi t} e^{-\pi r t} \, \dd t = \frac{2C_0}{\pi} \frac{e^{-\pi (r + 2)}}{r + 2}.`
 :::
 
 ```tex "lem:bound-I2-I4-I6" (slot := "proof")
 \begin{proof}
-\uses{cor:phi0-bound}
     For $I_2(r)$, parametrize $z$ as $z = t + i$ for $t \in [-1,0]$, and we have
     $$
         I_2(r) = \int_{-1}^0 \phi_0\left(\frac{-1}{t + 1 + i}\right) (t + 1 + i)^2 e^{\pi i r t} e^{-\pi r} \, \dd t.
@@ -589,7 +592,7 @@ This finishes the proof of the proposition.
 ```tex "prop:a-fourier" (slot := "proof")
 \begin{proof}
 We recall that the Fourier transform of a Gaussian function is
-\begin{equation}
+\begin{equation}\label{eqn:gaussian Fourier}
     \mathcal{F}(e^{\pi i \|x\|^2 z})(y)=z^{-4}\,e^{\pi i \|y\|^2 \,(\frac{-1}{z}) }.
 \end{equation}
 Next, we exchange the contour integration with respect to $z$ variable and Fourier transform with respect to $x$ variable in \eqref{eqn:a-definition}.
@@ -682,7 +685,7 @@ For $r>\sqrt{2}$ we can express $a(r)$ in the following form
 :::proof "prop:a-double-zeros"
 Denote the right-hand side by $`d(r)`.
 Convergence of the integral for $`r > \sqrt{2}` follows from
-Corollary {uses "cor:phi0-near-0-infty"}[].
+Corollary {bpref "cor:phi0-near-0-infty"}[].
 We can write
 $$`d(r)=\int\limits_{-1}^{i\infty-1}\phi_0\Big(\frac{-1}{z+1}\Big)\,(z+1)^2\,e^{\pi i r^2 \,z}\,dz-
     2\int\limits_{0}^{i\infty}\phi_0\Big(\frac{-1}{z}\Big)\,z^2\,e^{\pi i r^2 \,z}\,dz`
@@ -709,10 +712,9 @@ $$`+\int\limits_{1}^{i}\phi_0\Big(\frac{-1}{z-1}\Big)\,(z-1)^2\,e^{\pi i r^2 \,z
 
 ```tex "prop:a-double-zeros" (slot := "proof")
 \begin{proof}
-\uses{cor:phi0-near-0-infty}
 We denote the right hand side of \eqref{eqn: a double zeroes} by $d(r)$.
 Convergence of the integral for $r > \sqrt{2}$ follows from Corollary~\ref{cor:phi0-near-0-infty}.
-We can write
+We can write %\texttt{check signs}
 \begin{align}
     d(r)=&\int\limits_{-1}^{i\infty-1}\phi_0\Big(\frac{-1}{z+1}\Big)\,(z+1)^2\,e^{\pi i r^2 \,z}\,dz-
     2\int\limits_{0}^{i\infty}\phi_0\Big(\frac{-1}{z}\Big)\,z^2\,e^{\pi i r^2 \,z}\,dz\notag\\
@@ -730,8 +732,7 @@ and rewrite
     +\int\limits_{i}^{i\infty}\phi_0\Big(\frac{-1}{z-1}\Big)\,(z-1)^2\,e^{\pi i r^2 \,z}\,dz.\notag
 \end{align}
 Now from \eqref{eqn:phi0-trans-S} we find
-\begin{align}
-&\phi_0\Big(\frac{-1}{z+1}\Big)\,(z+1)^2-2\phi_0\Big(\frac{-1}{z}\Big)\,z^2+
+\begin{align}&\phi_0\Big(\frac{-1}{z+1}\Big)\,(z+1)^2-2\phi_0\Big(\frac{-1}{z}\Big)\,z^2+
 \phi_0\Big(\frac{-1}{z-1}\Big)\,(z-1)^2=\notag\\
 &\phi_0(z+1)\,(z+1)^2-2\phi_0(z)\,z^2+\phi_0(z-1)\,(z-1)^2\notag\\
 &-\frac{12i}{\pi}\,\Big(\phi_{-2}(z+1)\,(z+1)-2\phi_{-2}(z)\,z+\phi_{-2}(z-1)\,(z-1)\Big)\notag\\
@@ -771,8 +772,8 @@ The integral converges absolutely for all $r\in\R_{\geq 0}$.
 \end{proposition}
 ```
 
-:::proof "prop:a-another-integral" (uses := "prop:a-double-zeros")
-Suppose that $`r>\sqrt{2}`. Then by Proposition `prop:a-double-zeros`,
+:::proof "prop:a-another-integral"
+Suppose that $`r>\sqrt{2}`. Then by Proposition {bpref "prop:a-double-zeros"}[],
 $$`a(r)=4i\,\sin(\pi r^2/2)^2\,\int\limits_{0}^{\infty}\phi_0(i/t)\,t^2\,e^{-\pi r^2 t}\,dt.`
 From `eqn:phi0-trans-S` we obtain the asymptotic expansion
 $$`\phi_0(i/t)\,t^2=\frac{36}{\pi^2}\,e^{2 \pi t}-\frac{8640}{\pi}\,t+\frac{18144}{\pi^2}+O(t^2\,e^{-2\pi t})`
@@ -789,11 +790,10 @@ the whole interval $`[0,\infty)`.
 
 ```tex "prop:a-another-integral" (slot := "proof")
 \begin{proof}
-\uses{prop:a-double-zeros}
 Suppose that $r>\sqrt{2}$. Then by Proposition~\ref{prop:a-double-zeros}
 $$a(r)=4i\,\sin(\pi r^2/2)^2\,\int\limits_{0}^{\infty}\phi_0(i/t)\,t^2\,e^{-\pi r^2 t}\,dt. $$
 From \eqref{eqn:phi0-trans-S} we obtain
-\begin{equation}
+\begin{equation}\label{eqn: phi asymptotic}
 \phi_0(i/t)\,t^2=\frac{36}{\pi^2}\,e^{2 \pi t}-\frac{8640}{\pi}\,t+\frac{18144}{\pi^2}+O(t^2\,e^{-2\pi t})\quad\mbox{as}\;t\to\infty.
 \end{equation}
 For $r>\sqrt{2}$ we have
@@ -802,7 +802,7 @@ For $r>\sqrt{2}$ we have
 =\frac{36}{\pi^3\,(r^2-2)}-\frac{8640}{\pi^3\,r^4}+\frac{18144}{\pi^3\,r^2}.\end{equation}
 Therefore, the identity \eqref{eqn:a-another-integral} holds for $r>\sqrt{2}$.
 
-On the other hand, from the definition~\eqref{eqn:a-definition} we see that $a(r)$ is analytic in some neighborhood of $[0,\infty)$. The asymptotic expansion above implies that the right hand side of \eqref{eqn:a-another-integral} is also analytic in some neighborhood of $[0,\infty)$. Hence, the identity \eqref{eqn:a-another-integral} holds on the whole interval $[0,\infty)$. This finishes the proof of the proposition.
+On the other hand, from the definition~\eqref{eqn:a-definition} we see that $a(r)$ is analytic in some neighborhood of $[0,\infty)$. The asymptotic expansion~\eqref{eqn: phi asymptotic} implies that the right hand side of \eqref{eqn:a-another-integral} is also analytic in some neighborhood of $[0,\infty)$. Hence, the identity \eqref{eqn:a-another-integral} holds on the whole interval $[0,\infty)$. This finishes the proof of the proposition.
 \end{proof}
 ```
 
@@ -845,7 +845,10 @@ $$`h(z) := 128 \frac{H_3(z) + H_4(z)}{H_2(z)^2}.`
 :::
 
 ```tex "def:h"
-\begin{definition}\label{def:h}\uses{def:H2-H3-H4}
+\begin{definition}\label{def: h}\uses{def:H2-H3-H4}
+% \begin{equation}\label{eqn: h define}
+%     h(z)\,:=\,128 \frac{\theta_{00}^4(z)+\theta_{01}^4(z)}{\theta_{10}^8(z)}.
+% \end{equation}
 \begin{equation}\label{eqn: h define}
     h(z) := 128 \frac{H_3(z) + H_4(z)}{H_2(z)^2}.
 \end{equation}
@@ -889,7 +892,7 @@ $T=\left(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\right)$, and
 $S=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ be elements of $\Gamma_1$.
 ```
 
-:::definition "def:psiI-psiT-psiS" (parent := "magic_psi_construction") (uses := "def:h")
+:::definition "def:psiI-psiT-psiS" (parent := "magic_psi_construction") (uses := "def: h")
 Define
 $$`\psi_I\,:=\,h-h|_{-2}ST`
 $$`\psi_T\,:=\,\psi_I|_{-2}T`
@@ -897,7 +900,7 @@ $$`\psi_S\,:=\,\psi_I|_{-2}S.`
 :::
 
 ```tex "def:psiI-psiT-psiS"
-\begin{definition}\label{def:psiI-psiT-psiS}\uses{def:h}
+\begin{definition}\label{def:psiI-psiT-psiS}\uses{def: h}
 We define the following three functions
 \begin{align}
     \psi_I\,:=\,&h-h|_{-2}ST \label{eqn:psiI-define}\\
@@ -925,12 +928,12 @@ $$`\psi_T(z) = \frac{H_3^3 (5 H_2^2 - 5 H_2 H_3 + 2 H_3^2)}{2 \Delta}.`
 \end{lemma}
 ```
 
-:::proof "lemma:psi-new" (uses := "lemma:theta-transform-S-T, lemma:lv1-lv2-identities")
-By the transformation laws of the theta-null functions,
+:::proof "lemma:psi-new"
+By Lemma {bpref "lemma:theta-transform-S-T"}[], we have
 $$`H_2|_{-2}ST = (-H_4)|_{-2}T = -H_3`
 $$`H_3|_{-2}ST = (-H_3)|_{-2}T = -H_4`
 $$`H_4|_{-2}ST = (-H_2)|_{-2}T = H_2.`
-Using these identities and the level-one/level-two identities, we can rewrite
+Using these identities and Lemma {bpref "lemma:lv1-lv2-identities"}[], we can rewrite
 $`\psi_I(z)` as
 $$`\psi_I(z) = h(z) - h|_{-2}ST(z)
     = 128 \frac{H_3 + H_4}{H_2^2} - 128 \frac{-H_4 + H_2}{H_3^2}`
@@ -944,7 +947,7 @@ the formulas for $`\psi_S` and $`\psi_T`.
 
 ```tex "lemma:psi-new" (slot := "proof")
 \begin{proof}
-\uses{lemma:theta-transform-S-T, lemma:lv1-lv2-identities}
+% Use Lemma \ref{lemma:theta-transform-S-T} and the identities Lemma \ref{lemma:lv1-lv2-identities}.
 By Lemma \ref{lemma:theta-transform-S-T}, we have
 \begin{align}
     H_2|_{-2}ST = (-H_4)|_{-2}T = -H_3, \\
@@ -1052,16 +1055,15 @@ $$`|\psi_S(z)| \le C_S e^{- \pi \Im z}.`
 \end{lemma}
 ```
 
-:::proof "lemma:psi-bound" (uses := "cor:phi0-bound, lemma:mod-div-disc-bound")
-The proof is similar to that of Lemma `cor:phi0-bound` and follows
-from Lemma {uses "lemma:mod-div-disc-bound"}[] together with the fact that the
+:::proof "lemma:psi-bound"
+The proof is similar to that of Lemma {bpref "cor:phi0-bound"}[] and follows
+from Lemma {bpref "lemma:mod-div-disc-bound"}[] together with the fact that the
 vanishing orders of the numerators of $`\psi_I`, $`\psi_T`, and $`\psi_S`
 at infinity are respectively $`0`, $`0`, and $`\frac{3}{2}`.
 :::
 
 ```tex "lemma:psi-bound" (slot := "proof")
 \begin{proof}
-\uses{cor:phi0-bound, lemma:mod-div-disc-bound}
     The proof is similar to that of Lemma \ref{cor:phi0-bound}, follows from Lemma \ref{lemma:mod-div-disc-bound} and the fact that the vanishing orders of the numerators of $\psi_I$, $\psi_T$, and $\psi_S$ at infinity are $0$, $0$ (i.e. not cusp forms), and $\frac{3}{2}$ respectively.
 \end{proof}
 ```
@@ -1112,12 +1114,12 @@ $b(x)$ is a Schwartz function.
 ```
 
 :::proof "prop:b-schwartz" (uses := "lemma:bound-J1-J3-J5, lemma:bound-J2-J4-J6, thm:smooth-fast-decay-schwartz")
-Similar to the proof of {uses "prop:a-schwartz"}[].
+Similar to the proof of {bpref "prop:a-schwartz"}[].
 :::
 
 ```tex "prop:b-schwartz" (slot := "proof")
 \begin{proof}
-\uses{lemma:bound-J1-J3-J5, lemma:bound-J2-J4-J6, thm:smooth-fast-decay-schwartz, prop:a-schwartz}
+\uses{lemma:bound-J1-J3-J5, lemma:bound-J2-J4-J6, thm:smooth-fast-decay-schwartz}
 Similar to the proof of \ref{prop:a-schwartz}.
 \end{proof}
 ```
@@ -1132,9 +1134,9 @@ $b(x)$ satisfies \eqref{eqn:b-fourier}.
 \end{proposition}
 ```
 
-:::proof "prop:b-fourier" (uses := "prop:a-fourier")
+:::proof "prop:b-fourier"
 We repeat the argument used in the proof of Proposition
-`prop:a-fourier`. Using the Gaussian Fourier identity and exchanging
+{bpref "prop:a-fourier"}[]. Using the Gaussian Fourier identity and exchanging
 the contour integration in $`z` with the Fourier transform in $`x`, we get
 $$`\mathcal{F}(b)(x)= \int\limits_{-1}^{i}\psi_T(z)\,z^{-4}\,e^{\pi i \|x\|^2 (\frac{-1}{z})}\,dz
         + \int\limits_{1}^{i}\psi_T(z)\,z^{-4}\,e^{\pi i \|x\|^2 (\frac{-1}{z})}\,dz`
@@ -1160,7 +1162,6 @@ $$`\mathcal{F}(b)(x)=-b(x).`
 
 ```tex "prop:b-fourier" (slot := "proof")
 \begin{proof}
-\uses{prop:a-fourier}
 Here, we repeat the arguments used in the proof of Proposition~\ref{prop:a-fourier}.
 We use identity~\eqref{eqn:gaussian Fourier} and change contour integration in $z$ and Fourier transform in $x$. Thus we obtain
 \begin{align}
@@ -1217,16 +1218,15 @@ We have
 \end{corollary}
 ```
 
-:::proof "cor:psiI-near-0-infty" (uses := "lemma:psi-bound")
+:::proof "cor:psiI-near-0-infty"
 By `eqn:psiS-define`,
 $$`\psi_I(it) = (it)^{-2} \psi_S\left(\frac{-1}{it}\right) = -t^{-2} \psi_S\left(\frac{i}{t}\right),`
 and combined with `eqn:psiS-bound` this gives `eqn:psiI-near-0`.
-Equation `eqn:psiI-near-infty` follows from `lemma:psi-bound`.
+Equation `eqn:psiI-near-infty` follows from {bpref "lemma:psi-bound"}[].
 :::
 
 ```tex "cor:psiI-near-0-infty" (slot := "proof")
 \begin{proof}
-\uses{lemma:psi-bound}
 By \eqref{eqn:psiS-define}, we have
 \begin{equation}
     \psi_I(it) = (it)^{-2} \psi_S\left(\frac{-1}{it}\right) = -t^{-2} \psi_S\left(\frac{i}{t}\right).
@@ -1250,9 +1250,9 @@ For $r>\sqrt{2}$ function $b(r)$ can be expressed as
 \end{proposition}
 ```
 
-:::proof "prop:b-double-zeros" (uses := "cor:psiI-near-0-infty")
+:::proof "prop:b-double-zeros"
 Denote the right-hand side by $`c(r)`.
-By Corollary `cor:psiI-near-0-infty`, the integral converges for
+By Corollary {bpref "cor:psiI-near-0-infty"}[], the integral converges for
 $`r>\sqrt{2}`. Rewrite it as
 $$`c(r)=\int\limits_{-1}^{i\infty-1}\psi_I(z+1)\,e^{\pi i r^2 \,z}\,dz-2\int\limits_{0}^{i\infty}\psi_I(z)\,e^{\pi i r^2 \,z}\,dz+
 \int\limits_{1}^{i\infty+1}\psi_I(z-1)\,e^{\pi i r^2 \,z}\,dz.`
@@ -1277,7 +1277,6 @@ $$`-2\int\limits_{i}^{i\infty}\psi_S(z)\,e^{\pi i r^2 \,z}\,dz=b(r).`
 
 ```tex "prop:b-double-zeros" (slot := "proof")
 \begin{proof}
-\uses{cor:psiI-near-0-infty}
 We denote the right hand side of~\eqref{eqn: b double zeroes} by $c(r)$.
 By Corollary \ref{cor:psiI-near-0-infty}, the integral in~\eqref{eqn: b double zeroes} converges for $r>\sqrt{2}$.
 Then we rewrite it in the following way:
@@ -1285,20 +1284,19 @@ $$c(r)=\int\limits_{-1}^{i\infty-1}\psi_I(z+1)\,e^{\pi i r^2 \,z}\,dz-2\int\limi
 \int\limits_{1}^{i\infty+1}\psi_I(z-1)\,e^{\pi i r^2 \,z}\,dz.$$
 From the Fourier expansion~\eqref{eqn: psi fourier I} we know that $\psi_I(z)=e^{-2\pi i z}+O(1)$ as $\Im(z)\to\infty$.
 By assumption $r^2>2$, hence we can deform the path of integration and write
-\begin{align}
+\begin{align}\label{eqn: inside proof 1}
 \int\limits_{-1}^{i\infty-1}\psi_I(z+1)\,e^{\pi i r^2 \,z}\,dz=&
 \int\limits_{-1}^{i}\psi_T(z)\,e^{\pi i r^2 \,z}\,dz+\int\limits_{i}^{i\infty}\psi_T(z)\,e^{\pi i r^2 \,z}\,dz\\
 \int\limits_{1}^{i\infty+1}\psi_I(z-1)\,e^{\pi i r^2 \,z}\,dz=&
 \int\limits_{-1}^{i}\psi_T(z)\,e^{\pi i r^2 \,z}\,dz+\int\limits_{i}^{i\infty}\psi_T(z)\,e^{\pi i r^2 \,z}\,dz.
 \end{align}
 We have
-\begin{align}
-c(r)=&\int\limits_{-1}^{i}\psi_T(z)\,e^{\pi i r^2 \,z}\,dz+\int\limits_{1}^{i}\psi_T(z)\,e^{\pi i r^2 \,z}\,dz
+\begin{align}\label{eqn: c1}c(r)=&\int\limits_{-1}^{i}\psi_T(z)\,e^{\pi i r^2 \,z}\,dz+\int\limits_{1}^{i}\psi_T(z)\,e^{\pi i r^2 \,z}\,dz
 -2\int\limits_{0}^{i}\psi_I(z)\,e^{\pi i r^2 \,z}\,dz\\
 &+2\int\limits_{i}^{i\infty}(\psi_T(z)-\psi_I(z))\,e^{\pi i r^2 \,z}\,dz.\nonumber
     \end{align}
 Next, we check that the functions $\psi_I,\psi_T$, and $\psi_S$ satisfy the following identity:
-\begin{equation}\psi_T+\psi_S=\psi_I.\end{equation}
+\begin{equation}\label{eqn: c2}\psi_T+\psi_S=\psi_I.\end{equation}
 Indeed, from definitions \eqref{eqn:psiI-define}-\eqref{eqn:psiS-define} we get
 \begin{align}\psi_T+\psi_S=&(h-h|_{-2}ST)|_{-2}T+(h-h|_{-2}ST)|_{-2}S\notag\\
 =&h|_{-2}T-h|_{-2}ST^2+h|_{-2}S-h|_{-2}STS.\notag\end{align}
@@ -1307,7 +1305,7 @@ $$\psi_T+\psi_S=h|_{-2}T-h|_{-2}STS. $$
 Now we observe that $T$ and $STS(ST)^{-1}$ are also in $\Gamma_0(2)$. Therefore,
 $$\psi_T+\psi_S=h|_{-2}T-h|_{-2}STS=h|_{-2}-h|ST=\psi_I.$$
 
-Combining this identity with the expression for $c(r)$ we find
+Combining \eqref{eqn: c1} and \eqref{eqn: c2} we find
 \begin{align}c(r)=&\int\limits_{-1}^{i}\psi_T(z)\,e^{\pi i r^2 \,z}\,dz+\int\limits_{1}^{i}\psi_T(z)\,e^{\pi i r^2 \,z}\,dz
 -2\int\limits_{0}^{i}\psi_I(z)\,e^{\pi i r^2 \,z}\,dz\notag\\
 &-2\int\limits_{i}^{i\infty}\psi_S(z)\,e^{\pi i r^2 \,z}\,dz\notag\\
@@ -1323,25 +1321,25 @@ for $`r\in\R_{\geq0}` and compute special values of $`b`.
 At the end of this section we find another integral representation of $b(r)$ for $r\in\R_{\geq0}$ and compute special values of $b$.
 ```
 
-:::lemma_ "prop:b-another-integral" (parent := "magic_b_properties") (uses := "prop:b-double-zeros, lemma:psiI-psiT-psiS-fourier, def:b-definition")
+:::lemma_ "prop:b-another-integral" (parent := "magic_b_properties") (uses := "def:b-definition, eqn: psi asymptotic, lemma:psiI-psiT-psiS-fourier, prop:b-double-zeros")
 For $`r\geq0` we have
 $$`b(r)=4i\,\sin(\pi r^2/2)^2\,\left(\frac{144}{\pi\,r^2}+\frac{1}{\pi\,(r^2-2)}+\int\limits_0^\infty\,\left(\psi_I(it)-144-e^{2\pi t}\right)\,e^{-\pi r^2 t}\,dt\right).`
 The integral converges absolutely for all $`r\in\R_{\geq 0}`.
 :::
 
 ```tex "prop:b-another-integral"
-\begin{proposition}\label{prop:b-another-integral}\uses{prop:b-double-zeros, lemma:psiI-psiT-psiS-fourier, def:b-definition}
+\begin{proposition}\label{prop:b-another-integral}\uses{prop:b-double-zeros, lemma:psiI-psiT-psiS-fourier, def:b-definition, eqn: psi asymptotic}
 For $r\geq0$ we have
 \begin{equation}\label{eqn:b-another-integral}b(r)=4i\,\sin(\pi r^2/2)^2\,\left(\frac{144}{\pi\,r^2}+\frac{1}{\pi\,(r^2-2)}+\int\limits_0^\infty\,\left(\psi_I(it)-144-e^{2\pi t}\right)\,e^{-\pi r^2 t}\,dt\right).\end{equation}
 The integral converges absolutely for all $r\in\R_{\geq 0}$.
 \end{proposition}
 ```
 
-:::proof "prop:b-another-integral" (uses := "prop:a-another-integral, prop:b-double-zeros")
+:::proof "prop:b-another-integral"
 The proof is analogous to the proof of Proposition
-`prop:a-another-integral`.
+{bpref "prop:a-another-integral"}[].
 First suppose that $`r>\sqrt{2}`. Then by Proposition
-`prop:b-double-zeros`,
+{bpref "prop:b-double-zeros"}[],
 $$`b(r)=4i\,\sin(\pi r^2/2)^2\,\int\limits_{0}^{\infty}\psi_I(it)\,e^{-\pi r^2 t}\,dt.`
 From the Fourier expansion of $`\psi_I` we obtain
 $$`\psi_I(it)=e^{2\pi t}+144+O(e^{-\pi t})`
@@ -1358,12 +1356,11 @@ the whole interval $`[0,\infty)`.
 
 ```tex "prop:b-another-integral" (slot := "proof")
 \begin{proof}
-\uses{prop:a-another-integral, prop:b-double-zeros}
 The proof is analogous to the proof of Proposition~\ref{prop:a-another-integral}.
 First, suppose that $r>\sqrt{2}$. Then by Proposition~\ref{prop:b-double-zeros}
 $$b(r)=4i\,\sin(\pi r^2/2)^2\,\int\limits_{0}^{\infty}\psi_I(it)\,e^{-\pi r^2 t}\,dt. $$
 From \eqref{eqn: psi fourier I} we obtain
-\begin{equation}
+\begin{equation}\label{eqn: psi asymptotic}
 \psi_I(it)=e^{2\pi t}+144+O(e^{-\pi t})\quad\mbox{as}\;t\to\infty.
 \end{equation}
 For $r>\sqrt{2}$ we have
