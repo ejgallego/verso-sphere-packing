@@ -2,8 +2,8 @@ import Lake
 open Lake DSL
 
 require SpherePacking from "./Sphere-Packing-LaTeX-Reference"
-require VersoBlueprint from git "https://github.com/leanprover/verso-blueprint.git" @ "v4.34.0"
-require mathlib from git "https://github.com/leanprover-community/mathlib4" @ "v4.34.0-rc2"
+require VersoBlueprint from git "https://github.com/leanprover/verso-blueprint.git" @ "v4.35.0"
+require mathlib from git "https://github.com/leanprover-community/mathlib4" @ "v4.35.0-rc4"
 
 package SpherePackingBlueprint where
   precompileModules := false
