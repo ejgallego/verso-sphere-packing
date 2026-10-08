@@ -286,14 +286,14 @@ E_k(z):=\frac{1}{2}\sum_{(c,d)\in\Z^2, (c,d)=1}(cz+d)^{-k}.\end{equation}
 \end{definition}
 ```
 
-:::lemma_ "lemma:Ek-is-modular-form" (lean := "EisensteinSeries.eisensteinSeries_SIF") (parent := "eisenstein_discriminant") (uses := "def:Mk, def:Ek")
+:::lemma_ "lemma:Ek-is-modular-form" (lean := "EisensteinSeries.eisensteinSeriesSIF") (parent := "eisenstein_discriminant") (uses := "def:Mk, def:Ek")
 For all $`k`, $`E_k\in M_k(\Gamma_1)`.
 Especially, we have
 $$`E_k \left(-\frac{1}{z}\right) = z^k E_k(z).`
 :::
 
 ```tex "lemma:Ek-is-modular-form"
-\begin{lemma}\label{lemma:Ek-is-modular-form}\uses{def:Mk, def:Ek}\lean{EisensteinSeries.eisensteinSeries_SIF}
+\begin{lemma}\label{lemma:Ek-is-modular-form}\uses{def:Mk, def:Ek}\lean{EisensteinSeries.eisensteinSeriesSIF}
 For all $k$, $E_k\in M_k(\Gamma_1)$.
 Especially, we have
 \begin{equation}\label{eqn:Ek-trans-S}
