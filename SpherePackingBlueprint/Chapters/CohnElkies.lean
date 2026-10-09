@@ -135,7 +135,7 @@ $$`\frac{f(0)}{\widehat{f}(0)}\cdot \mathrm{vol}(B_d(0,1/2)).`
 \end{theorem}
 ```
 
-:::proof "thm:Cohn-Elkies-general"
+:::proof "thm:Cohn-Elkies-general" (lean := "periodic_constant_eq_constant, periodic_constant_eq_periodic_constant_normalized")
 The result follows immediately from Theorem
 {uses "thm:periodic-packing-optimal"}[] and the Cohn-Elkies periodic theorem
 {uses "thm:Cohn-Elkies-periodic"}[].
