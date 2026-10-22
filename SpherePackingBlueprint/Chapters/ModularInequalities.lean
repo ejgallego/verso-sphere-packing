@@ -258,30 +258,49 @@ Both identities can be shown by direct computations.
 By Ramanujan's identities (Theorem {bpref "thm:ramanujan-formula"}[]) and the
 product rule for Serre derivatives (Theorem
 {bpref "thm:serre-der-prod-rule"}[]), we have
-$$`\partial_{5} (E_2 E_4 - E_6)
- = (E_2 E_4 - E_6)' - \frac{5}{12} E_2 (E_2 E_4 - E_6)`
-$$`= \frac{E_2^2 - E_4}{12} \cdot E_4 + E_2 \cdot \frac{E_2 E_4 - E_6}{3} - \frac{E_2 E_6 - E_4^2}{2} - \frac{5}{12}E_2 (E_2 E_4 - E_6)
- = -\frac{5}{12} (E_2 E_6 - E_4^2)`
+$$`\begin{aligned}
+\partial_{5} (E_2 E_4 - E_6)
+ &= (E_2 E_4 - E_6)' - \frac{5}{12} E_2 (E_2 E_4 - E_6)
+\end{aligned}`
+$$`\begin{aligned}
+ &= \frac{E_2^2 - E_4}{12} \cdot E_4 + E_2 \cdot \frac{E_2 E_4 - E_6}{3} \\
+ &\quad - \frac{E_2 E_6 - E_4^2}{2} - \frac{5}{12}E_2 (E_2 E_4 - E_6) \\
+ &= -\frac{5}{12} (E_2 E_6 - E_4^2)
+\end{aligned}`
 and
-$$`\partial_{7} (E_2 E_6 - E_4^2)
- = (E_2 E_6 - E_4^2)' - \frac{7}{12} E_2 (E_2 E_6 - E_4^2)`
-$$`= \frac{E_2^2 - E_4}{12} \cdot E_6 + E_2 \cdot \frac{E_2 E_6 - E_4^2}{2} - 2 E_4 \cdot \frac{E_2 E_4 - E_6}{3} - \frac{7}{12} E_2 (E_2 E_6 - E_4^2)
- = -\frac{7}{12} E_4 (E_2 E_4 - E_6).`
+$$`\begin{aligned}
+\partial_{7} (E_2 E_6 - E_4^2)
+ &= (E_2 E_6 - E_4^2)' - \frac{7}{12} E_2 (E_2 E_6 - E_4^2)
+\end{aligned}`
+$$`\begin{aligned}
+ &= \frac{E_2^2 - E_4}{12} \cdot E_6 + E_2 \cdot \frac{E_2 E_6 - E_4^2}{2} \\
+ &\quad - 2 E_4 \cdot \frac{E_2 E_4 - E_6}{3} - \frac{7}{12} E_2 (E_2 E_6 - E_4^2) \\
+ &= -\frac{7}{12} E_4 (E_2 E_4 - E_6).
+\end{aligned}`
 Using these, we compute
-$$`\partial_{10} F = \partial_{10} (E_2 E_4 - E_6)^2
- = 2 (E_2 E_4 - E_6) \partial_{5} (E_2 E_4 - E_6)
- = -\frac{5}{6} (E_2 E_4 - E_6) (E_2 E_6 - E_4^2),`
+$$`\begin{aligned}
+\partial_{10} F &= \partial_{10} (E_2 E_4 - E_6)^2 \\
+ &= 2 (E_2 E_4 - E_6) \partial_{5} (E_2 E_4 - E_6) \\
+ &= -\frac{5}{6} (E_2 E_4 - E_6) (E_2 E_6 - E_4^2),
+\end{aligned}`
 and then
-$$`\partial_{12}\partial_{10} F
- = -\frac{5}{6} \partial_{12} ((E_2 E_4 - E_6) (E_2 E_6 - E_4^2))`
-$$`= -\frac{5}{6} (\partial_{5}(E_2 E_4 - E_6)) (E_2 E_6 - E_4^2) - \frac{5}{6} (E_2 E_4 - E_6) (\partial_{7} (E_2 E_6 - E_4^2))
- = \frac{25}{72} (E_2 E_6 - E_4^2)^2 + \frac{35}{72} E_4 (E_2 E_4 - E_6)^2.`
+$$`\begin{aligned}
+\partial_{12}\partial_{10} F
+ &= -\frac{5}{6} \partial_{12} ((E_2 E_4 - E_6) (E_2 E_6 - E_4^2))
+\end{aligned}`
+$$`\begin{aligned}
+ &= -\frac{5}{6} (\partial_{5}(E_2 E_4 - E_6)) (E_2 E_6 - E_4^2) \\
+ &\quad - \frac{5}{6} (E_2 E_4 - E_6) (\partial_{7} (E_2 E_6 - E_4^2)) \\
+ &= \frac{25}{72} (E_2 E_6 - E_4^2)^2 + \frac{35}{72} E_4 (E_2 E_4 - E_6)^2.
+\end{aligned}`
 Hence
-$$`\partial_{12}\partial_{10}F - \frac{5}{6} E_4 F
- = \frac{25}{72} ((E_2 E_6 - E_4^2)^2 - E_4 (E_2 E_4 - E_6)^2)
- = \frac{25}{72} (- E_2^2 E_4^3 + E_2^2 E_6^2 + E_4^4 - E_4 E_6^2)
- = -\frac{25}{72} (E_4^3 - E_6^2) (E_2^2 - E_4)
- = 7200 \Delta (-E_2').`
+$$`\begin{aligned}
+\partial_{12}\partial_{10}F - \frac{5}{6} E_4 F
+ &= \frac{25}{72} ((E_2 E_6 - E_4^2)^2 - E_4 (E_2 E_4 - E_6)^2) \\
+ &= \frac{25}{72} (- E_2^2 E_4^3 + E_2^2 E_6^2 + E_4^4 - E_4 E_6^2) \\
+ &= -\frac{25}{72} (E_4^3 - E_6^2) (E_2^2 - E_4) \\
+ &= 7200 \Delta (-E_2').
+\end{aligned}`
 This proves equation `eqn:ddf`. The second is proved similarly,
 using Proposition {bpref "prop:theta-der"}[] and
 Lemma {bpref "lemma:lv1-lv2-identities"}[].
