@@ -28,6 +28,9 @@ Repository-specific guidance for Codex agents working in this tree.
 
 ## Build Hygiene
 
+- Configure consumer linters in the root `lakefile.lean`. Never rewrite the
+  upstream Lake configuration to change its linter settings. The pre-build and
+  post-build hooks require the upstream tracked tree to remain pristine.
 - Before expensive Lean builds, run the mathlib cache fetch command.
 - Prefer `nice` for `lake build` so the machine stays usable during long compiles.
 - Concretely, prefer `nice -n 10 lake exe cache get` before large builds, and `nice -n 10 lake build ...` for the build itself.

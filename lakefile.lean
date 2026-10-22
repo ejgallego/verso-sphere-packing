@@ -14,6 +14,7 @@ package SpherePackingBlueprint where
     ⟨`relaxedAutoImplicit, false⟩,
     ⟨`maxSynthPendingDepth, .ofNat 3⟩,
     ⟨`weak.linter.hashCommand, false⟩,
+    ⟨`weak.linter.mathlibStandardSet, false⟩,
     ⟨`weak.verso.blueprint.math.lint, true⟩,
     ⟨`weak.verso.blueprint.externalCode.strictResolve, true⟩,
     ⟨`weak.verso.code.warnLineLength, .ofNat 0⟩,

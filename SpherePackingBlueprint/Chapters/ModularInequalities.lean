@@ -225,7 +225,7 @@ This directly follows from Lemma {bpref "lemma:F-G-pos"}[].
 :::
 
 ```tex "cor:ineqAnew" (slot := "proof")
-\begin{proof}
+\begin{proof}\leanok
 This directly follows from Lemma \ref{lemma:F-G-pos}.
 \end{proof}
 ```
@@ -279,7 +279,7 @@ $$`= -\frac{5}{6} (\partial_{5}(E_2 E_4 - E_6)) (E_2 E_6 - E_4^2) - \frac{5}{6} 
 Hence
 $$`\partial_{12}\partial_{10}F - \frac{5}{6} E_4 F
  = \frac{25}{72} ((E_2 E_6 - E_4^2)^2 - E_4 (E_2 E_4 - E_6)^2)
- = \frac{25}{72} (- E_2^2 E_4^3 + E_2^2 E_6^2 + E_4^4 - E_4 E_6^3)
+ = \frac{25}{72} (- E_2^2 E_4^3 + E_2^2 E_6^2 + E_4^4 - E_4 E_6^2)
  = -\frac{25}{72} (E_4^3 - E_6^2) (E_2^2 - E_4)
  = 7200 \Delta (-E_2').`
 This proves equation `eqn:ddf`. The second is proved similarly,
@@ -288,7 +288,7 @@ Lemma {bpref "lemma:lv1-lv2-identities"}[].
 :::
 
 ```tex "lemma:FG-de" (slot := "proof")
-\begin{proof}
+\begin{proof}\leanok
 Both can be shown by direct computations.
 By Ramanujan's identities (Theorem \ref{thm:ramanujan-formula}) and the product rule of Serre derivatives (Theorem \ref{thm:serre-der-prod-rule}), we have
 \begin{align}
@@ -309,7 +309,7 @@ and using these we can compute
     &= \frac{25}{72} (E_2 E_6 - E_4^2)^2 + \frac{35}{72} E_4 (E_2 E_4 - E_6)^2, \\
     \partial_{12}\partial_{10}F - \frac{5}{6} E_4 F &= \frac{25}{72}(E_2 E_6 - E_4^2)^2 + \frac{35}{72} E_4 (E_2 E_4 - E_6)^2 - \frac{5}{6} E_4 (E_2 E_4 - E_6)^2 \\
     &= \frac{25}{72} ((E_2 E_6 - E_4^2)^2 - E_4 (E_2 E_4 - E_6)^2) \\
-    &= \frac{25}{72} (- E_2^2 E_4^3 + E_2^2 E_6^2 + E_4^4 - E_4 E_6^3) \\
+    &= \frac{25}{72} (- E_2^2 E_4^3 + E_2^2 E_6^2 + E_4^4 - E_4 E_6^2) \\
     &= -\frac{25}{72} (E_4^3 - E_6^2) (E_2^2 - E_4) \\
     &= 7200 \cdot \frac{E_4^3 - E_6^2}{1728} \cdot \frac{-E_2^2 + E_4}{12}\\
     &= 7200 \Delta (-E_2')
@@ -319,13 +319,13 @@ Similarly, \eqref{eqn:ddg} can be proved using Proposition \ref{prop:theta-der} 
 \end{proof}
 ```
 
-:::corollary "cor:MLDE-pos" (parent := "fg_differential") (uses := "lemma:FG-de, cor:disc-pos, cor:theta-pos, def:E2")
+:::corollary "cor:MLDE-pos" (lean := "MLDE_F_imag_axis_pos, MLDE_G_imag_axis_neg") (parent := "fg_differential") (uses := "lemma:FG-de, cor:disc-pos, cor:theta-pos, def:E2")
 Equation `eqn:ddf` is positive and equation `eqn:ddg` is negative on the
 positive imaginary axis.
 :::
 
 ```tex "cor:MLDE-pos"
-\begin{corollary}\label{cor:MLDE-pos}\uses{lemma:FG-de, cor:disc-pos, cor:theta-pos, def:E2}\leanok
+\begin{corollary}\label{cor:MLDE-pos}\uses{lemma:FG-de, cor:disc-pos, cor:theta-pos, def:E2}\lean{MLDE_F_imag_axis_pos, MLDE_G_imag_axis_neg}\leanok
 \eqref{eqn:ddf} (resp. \eqref{eqn:ddg}) is positive (resp. negative) on the (positive) imaginary axis.
 \end{corollary}
 ```
@@ -340,7 +340,7 @@ $`-640 \Delta(it) H_2(it) < 0`, follows from
 :::
 
 ```tex "cor:MLDE-pos" (slot := "proof")
-\begin{proof}
+\begin{proof}\leanok
 From \eqref{eqn:E2} and Lemma \ref{cor:disc-pos},
 \ifplastex
 \begin{equation*}
@@ -407,7 +407,7 @@ $$`
 :::
 
 ```tex "lemma:Qlim" (slot := "proof")
-\begin{proof}
+\begin{proof}\leanok
 We have
 \begin{equation}
     \lim_{t \to 0^+} Q(t) = \lim_{t \to 0^+} \frac{F(it)}{G(it)} = \lim_{t \to \infty} \frac{F(i/t)}{G(i/t)}.
@@ -428,7 +428,7 @@ From $\lim_{t \to \infty} E_4(it) = 1 = \lim_{t \to \infty}H_{4}(it)$, we get
 \end{proof}
 ```
 
-:::lemma_ "lemma:log-der-inf" (parent := "fg_differential") (uses := "lemma:der-q-series")
+:::lemma_ "lemma:log-der-inf" (lean := "logderiv_tendsto_of_div_exp_tendsto, D_F_div_F_tendsto, D_G_div_G_tendsto") (parent := "fg_differential") (uses := "lemma:der-q-series")
 Let $`F` be a quasimodular form whose vanishing order at infinity is
 $`n_0 > 0`, that is,
 $`F(z) = \sum_{n \geq n_0} a_n q^{n}` with $`a_{n_0} \ne 0`. Then
@@ -436,7 +436,7 @@ $$`\lim_{t \to \infty} \frac{F'(it)}{F(it)} = n_0.`
 :::
 
 ```tex "lemma:log-der-inf"
-\begin{lemma}\label{lemma:log-der-inf}\uses{lemma:der-q-series}
+\begin{lemma}\label{lemma:log-der-inf}\uses{lemma:der-q-series}\lean{logderiv_tendsto_of_div_exp_tendsto, D_F_div_F_tendsto, D_G_div_G_tendsto}\leanok
 Let $F$ be a quasimodular form where the vanishing order of $F$ at infinity is $n_0 > 0$, i.e. $F(z) = \sum_{n \geq n_0} a_n q^{n}$ with $a_{n_0} \ne 0$. Then
 \begin{equation}
     \lim_{t \to \infty} \frac{F'(it)}{F(it)} = n_0.
@@ -453,7 +453,7 @@ $$`\lim_{t \to \infty} \frac{F'(it)}{F(it)}
 :::
 
 ```tex "lemma:log-der-inf" (slot := "proof")
-\begin{proof}
+\begin{proof}\leanok
     By Lemma \ref{lemma:der-q-series},
     \begin{equation}
         \lim_{t \to \infty} \frac{F'(it)}{F(it)} = \lim_{t \to \infty} \frac{\sum_{n \ge n_0} n a_n e^{-2 \pi n t}}{\sum_{n \ge n_0} a_n e^{-2 \pi n t}} = \lim_{t \to \infty} \frac{n_0 a_{n_0} e^{-2 \pi n_0 t} + O(e^{-2 \pi (n_0 + 1) t})}{a_{n_0} e^{-2 \pi n_0 t} + O(e^{-2 \pi (n_0 + 1) t})} = n_0.
@@ -496,7 +496,7 @@ monotonicity follows.
 :::
 
 ```tex "prop:Qdec" (slot := "proof")
-\begin{proof}
+\begin{proof}\leanok
 It is enough to show that
 \begin{align}
     \frac{\dd}{\dd t} \left(\frac{F(it)}{G(it)}\right) < 0 &\Leftrightarrow (- 2\pi) \frac{F'(it)G(it) - F(it) G'(it)}{G(it)^{2}} < 0 \\
@@ -527,7 +527,7 @@ Equation `eqn:ineqBnew` holds.
 :::
 
 ```tex "cor:ineqBnew"
-\begin{corollary}\label{cor:ineqBnew} \uses{lemma:Qlim, prop:Qdec, lemma:F-G-pos}\lean{FG_inequality_2}
+\begin{corollary}\label{cor:ineqBnew}\uses{lemma:Qlim, prop:Qdec, lemma:F-G-pos}\lean{FG_inequality_2}\leanok
 \eqref{eqn:ineqBnew} holds.
 \end{corollary}
 ```
@@ -539,7 +539,7 @@ and by Lemma {bpref "lemma:F-G-pos"}[] the desired inequality follows.
 :::
 
 ```tex "cor:ineqBnew" (slot := "proof")
-\begin{proof}
+\begin{proof}\leanok
 \begin{equation}
     \frac{F(it)}{G(it)} = Q(t) < \lim_{u \to 0^+} Q(u) = \frac{18}{\pi^2}
 \end{equation}

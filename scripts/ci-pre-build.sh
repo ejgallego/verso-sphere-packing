@@ -2,4 +2,5 @@
 
 set -euo pipefail
 
-python3 scripts/disable_slow_header_linter.py
+# Upstream owns its Lake options. Consumer builds must leave it unchanged.
+git -C Sphere-Packing-LaTeX-Reference diff --exit-code HEAD -- .
